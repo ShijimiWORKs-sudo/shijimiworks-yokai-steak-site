@@ -1,14 +1,14 @@
 # v1.0 画像アセット配置計画
 
-現在、`public/images` 配下に実画像はありません。このREADME以外の画像が配置されるまでは、存在しないパスをコンポーネントやmetadataから参照しません。
+OGP画像3枚を`public/images/ogp/`へ配置し、共通・ブランド別metadataから参照しています。ロゴやHero画像は実ファイルが配置されるまで参照しません。
 
 ## v1.0で最低限必要な画像
 
 | 種別 | 配置予定パス | 推奨仕様 | 主な反映先 | 現在の状態 |
 | --- | --- | --- | --- | --- |
-| 共通OGP | `public/images/og/common-og.png` | 1200 × 630px / PNG | `src/app/layout.tsx`、共通ホーム | 未配置・未参照 |
-| ShijimiWORKs OGP | `public/images/og/shijimiworks-og.png` | 1200 × 630px / PNG | `/shijimiworks` metadata | 未配置・未参照 |
-| 妖怪ステーキ OGP | `public/images/og/youkai-steak-og.png` | 1200 × 630px / PNG | `/youkai-steak` metadata | 未配置・未参照 |
+| 共通OGP | `public/images/ogp/common-ogp.png` | 1729 × 910px / PNG | `src/app/layout.tsx`、共通ホーム | 配置・参照済み |
+| ShijimiWORKs OGP | `public/images/ogp/shijimiworks-ogp.png` | 1730 × 909px / PNG | `/shijimiworks` metadata | 配置・参照済み |
+| 妖怪ステーキ OGP | `public/images/ogp/youkai-steak-ogp.png` | 1730 × 909px / PNG | `/youkai-steak` metadata | 配置・参照済み |
 | ShijimiWORKsロゴ | `public/images/common/logo-shijimiworks.png` | 透過PNGまたはWebP、横長推奨 | Header、Footer、ブランド紹介 | 未配置・未参照 |
 | 妖怪ステーキロゴ | `public/images/common/logo-youkai-steak.png` | 透過PNGまたはWebP、横長推奨 | Header、Footer、ブランド紹介 | 未配置・未参照 |
 | 共通ホームHero装飾 | `public/images/common/home-hero-decoration.png` | 透過PNG/WebP、十分な解像度 | 共通ホームHero | 未配置・未参照 |
@@ -43,12 +43,10 @@ public/images/
     ai-writing.png
     cinema-essay.png
 
-  og/
-    common-og.png
-    shijimiworks-og.png
-    youkai-steak-og.png
-    works-og.png
-    articles-og.png
+  ogp/
+    common-ogp.png
+    shijimiworks-ogp.png
+    youkai-steak-ogp.png
 ```
 
 ## 配置後の実装手順

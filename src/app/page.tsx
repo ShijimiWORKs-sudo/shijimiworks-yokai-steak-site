@@ -4,11 +4,21 @@ import { Button } from "@/components/Button";
 import { ExternalLinks } from "@/components/ExternalLinks";
 import { SplitHero } from "@/components/SplitHero";
 import { links } from "@/data/links";
-import { site } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: { absolute: site.name },
-  description: "AIで作り、物語で届ける。ShijimiWORKsと妖怪ステーキ、二つの名前で広がる制作と創作の共通ポートフォリオ。",
+  title: { absolute: "ShijimiWORKs / 妖怪ステーキ" },
+  description: "AIで作り、物語で届ける。ShijimiWORKsと妖怪ステーキの共通ポートフォリオサイト。",
+  openGraph: {
+    title: "ShijimiWORKs / 妖怪ステーキ",
+    description: "AIで作り、物語で届ける。ShijimiWORKsと妖怪ステーキの共通ポートフォリオサイト。",
+    images: [{ url: "/images/ogp/common-ogp.png", alt: "ShijimiWORKs / 妖怪ステーキ" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ShijimiWORKs / 妖怪ステーキ",
+    description: "AIで作り、物語で届ける。ShijimiWORKsと妖怪ステーキの共通ポートフォリオサイト。",
+    images: ["/images/ogp/common-ogp.png"],
+  },
 };
 
 const shijimiLobbyLinks = [
