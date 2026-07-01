@@ -1,0 +1,19 @@
+import type { Metadata } from "next";
+import { ContactForm } from "@/components/ContactForm";
+import { ContentHero } from "@/components/ContentHero";
+import { ExternalLinks } from "@/components/ExternalLinks";
+import { links } from "@/data/links";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description: "AI活用、Web制作、記事制作、発信設計、自動化、創作活動への相談・連絡窓口。",
+};
+const categories = ["AI活用相談", "ホームページ制作相談", "note / Substack運用相談", "自動化フロー相談", "文章制作・プロンプト設計", "創作・Podcast・動画に関する連絡"];
+const external = [{ label: "ココナラで相談する", href: links.coconala }, { label: "Xで連絡する", href: links.x }, { label: "noteを見る", href: links.note }, { label: "Substackを見る", href: links.substack }, { label: "YouTubeを見る", href: links.youtube }] as const;
+
+export default function ContactPage() {
+  return <div className="content-page bg-[#f7f5ef]"><ContentHero eyebrow="Contact" title="Contact" copy="制作や相談の入口" description="AI活用、Web制作、記事制作、発信設計、自動化、ポートフォリオ制作、創作活動への感想やコラボ相談などを受け付けています。内容が固まっていない段階でも、整理から相談できます。" />
+    <section className="px-5 pb-16 sm:px-8 lg:px-12"><div className="mx-auto max-w-7xl"><p className="text-xs font-bold uppercase tracking-[.2em] text-sky-700">相談できること</p><div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{categories.map((category, index) => <article key={category} className="rounded-2xl border border-slate-900/10 bg-white p-5"><span className="text-[.62rem] font-bold tracking-widest text-slate-300">0{index + 1}</span><h2 className="mt-4 font-bold text-slate-900">{category}</h2><p className="mt-2 text-sm leading-6 text-slate-500">内容が固まっていなくても、整理からご相談いただけます。</p></article>)}</div></div></section>
+    <section className="bg-white px-5 py-16 sm:px-8 lg:px-12"><div className="mx-auto max-w-7xl"><div role="note" className="mb-8 rounded-2xl border border-amber-300/60 bg-amber-50 px-5 py-4 text-sm font-semibold leading-7 text-amber-950">現在フォーム送信機能は準備中です。正式なご連絡は、ココナラ・X・note等の外部リンクからお願いいたします。未設定の外部リンクは「準備中」と表示されます。</div><div className="grid gap-10 lg:grid-cols-[.65fr_1fr]"><div><p className="text-xs font-bold uppercase tracking-[.2em] text-sky-700">Message</p><h2 className="mt-4 text-3xl font-black text-slate-950">相談内容をお聞かせください。</h2><p className="mt-5 leading-8 text-slate-600">このフォームは現在UI確認用です。送信内容は外部へ送られません。正式なご連絡は、フォーム下の外部リンクをご利用ください。</p><div className="mt-8 rounded-3xl bg-[#eaf1f3] p-6"><p className="font-bold text-slate-900">返信時に分かると助かること</p><ul className="mt-4 space-y-2 text-sm leading-6 text-slate-600"><li>・作りたいもの、相談したいこと</li><li>・希望時期や現在の状況</li><li>・参考URLや資料（あれば）</li></ul></div></div><ContactForm /></div></div></section>
+    <section className="bg-slate-950 px-5 py-14 text-white sm:px-8"><div className="mx-auto max-w-7xl"><h2 className="text-2xl font-bold">外部リンクから連絡・フォローする</h2><p className="mt-3 max-w-2xl text-sm leading-7 text-slate-400">正式なご相談や更新の確認は、利用しやすい窓口からお願いいたします。</p><ExternalLinks items={external} tone="dark" className="mt-6" /></div></section></div>;
+}
