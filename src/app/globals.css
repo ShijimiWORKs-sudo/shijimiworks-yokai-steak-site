@@ -260,3 +260,88 @@ body:has(.home-page) .site-nav { color: white; }
   .project-log-card { min-height: 12rem; }
   .document-card { min-height: 13rem; }
 }
+
+/* v0.9 visual polish */
+html, body { max-width: 100%; overflow-x: clip; }
+
+.site-header > div { min-width: 0; }
+.site-logo, .site-nav { min-width: 0; }
+footer nav { column-gap: 2.25rem; row-gap: .35rem; }
+footer a { text-underline-offset: .25em; }
+
+.work-card, .article-card { height: 100%; }
+.work-card-title, .article-card-title { overflow-wrap: anywhere; }
+.card-detail-link { display: inline-flex; align-items: center; gap: .4rem; }
+.card-detail-link span { transition: transform 200ms ease; }
+.work-card:hover .card-detail-link span,
+.article-card:hover .card-detail-link span { transform: translateX(.2rem); }
+.content-page [aria-label="カテゴリフィルター"],
+.content-page [aria-label="記事カテゴリ"] { gap: .55rem; }
+.content-page [aria-label="カテゴリフィルター"] > span,
+.content-page [aria-label="記事カテゴリ"] > span { line-height: 1.2; }
+
+.youkai-category-card { min-height: 15rem; }
+.youkai-update-card { padding-block: 1.55rem; }
+.youkai-update-card h3 { line-height: 1.65; }
+.youkai-ongoing-card { min-height: 15rem; }
+.youkai-contact [aria-label="外部リンク"] { margin-top: .25rem; }
+
+.shijimi-hero h1 { font-size: clamp(3rem, 5vw, 4.15rem); }
+.shijimi-hero > div:last-child { gap: clamp(2.5rem, 5vw, 4.5rem); }
+.shijimi-dashboard { max-width: 38rem; }
+.shijimi-float-card { min-height: 8.2rem; }
+.capability-card { min-height: 15.5rem; }
+.capability-card h3 { margin-top: 2.35rem; }
+.capability-card p { margin-top: .8rem; }
+.project-log-card { min-height: 14rem; }
+.service-menu-card { min-height: 14rem; }
+.document-card { min-height: 14rem; }
+.shijimi-contact [aria-label="外部リンク"] { margin-top: .75rem; }
+
+@media (min-width: 1024px) {
+  .split-hero .studio-panel {
+    min-height: calc(100svh - 61px);
+    padding-top: 9.25rem;
+  }
+  .lobby-copy {
+    top: 1.35rem;
+    width: min(24rem, 38vw);
+    padding: .75rem 1.15rem;
+    border-radius: 1rem;
+  }
+  .lobby-copy h1 { font-size: clamp(1.55rem, 2.1vw, 2rem); line-height: 1.12; }
+  .lobby-description { margin-top: .5rem; font-size: .7rem; line-height: 1.55; }
+  .studio-card { min-height: 3.1rem; padding-block: .6rem; }
+  .pillar-card { min-height: 14rem; }
+  .shijimi-page > section:not(.shijimi-hero):not(.shijimi-contact) { padding-block: 4.5rem; }
+}
+
+@media (max-width: 639px) {
+  .site-header > div { gap: .65rem; padding-top: .75rem; padding-bottom: .7rem; }
+  .site-logo { width: 100%; text-align: center; font-size: .72rem; }
+  .site-nav {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: .1rem .3rem;
+    font-size: .62rem;
+    letter-spacing: .01em;
+  }
+  .site-nav a { min-width: 0; text-align: center; }
+  .lobby-copy { padding: 2rem 1.25rem; }
+  .lobby-copy h1 { font-size: 1.8rem; line-height: 1.15; }
+  .studio-panel { padding-top: 3rem; padding-bottom: 3rem; }
+  .studio-card { min-height: 3.15rem; }
+  .pillar-card { min-height: 12.5rem; }
+  .shijimi-hero { padding-top: 3.5rem; padding-bottom: 3.75rem; }
+  .shijimi-hero h1 { font-size: clamp(2.55rem, 13vw, 3.35rem); }
+  .shijimi-dashboard { padding: .85rem; border-radius: 1.5rem; }
+  .capability-card, .capability-card:last-child { min-height: 11.5rem; }
+  .capability-card h3 { margin-top: 1.8rem; }
+  .project-log-card, .service-menu-card, .document-card { min-height: 11.5rem; }
+  .youkai-category-card, .youkai-ongoing-card { min-height: 12rem; }
+  .youkai-update-card { grid-template-columns: 3.5rem minmax(0,1fr) auto; gap: .7rem; padding-block: 1.25rem; }
+  .youkai-update-card h3 { overflow-wrap: anywhere; line-height: 1.55; }
+  .work-card, .article-card { min-height: 0; padding: 1.35rem; }
+  footer nav { column-gap: 1.5rem; }
+}

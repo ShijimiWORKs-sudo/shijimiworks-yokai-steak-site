@@ -15,12 +15,12 @@ export function ExternalLink({ href, children, label, tone = "light", className 
     ? "border-white/25 text-white hover:border-white/60 hover:bg-white/5"
     : "border-slate-900/15 bg-white text-slate-800 hover:border-sky-600 hover:text-sky-800";
 
-  const classes = `inline-flex min-h-12 items-center justify-center rounded-full border px-5 py-3 text-sm font-bold transition duration-200 ${styles} ${className}`;
+  const classes = `inline-flex min-h-11 items-center justify-center rounded-full border px-4 py-2.5 text-xs font-bold transition duration-200 ${styles} ${className}`;
 
   if (isPlaceholder) {
     return (
-      <span aria-label={`${label}（リンク未設定）`} aria-disabled="true" title={`${label}：公開前にURL設定が必要です`} className={`${classes} cursor-not-allowed opacity-65`}>
-        {children}<span className="ml-1.5 text-[.7em]" aria-hidden="true">（準備中）</span>
+      <span aria-label={`${label}（リンク未設定）`} aria-disabled="true" title={`${label}：公開前にURL設定が必要です`} className={`${classes} cursor-not-allowed select-none border-dashed opacity-45 saturate-0`}>
+        {children}<span className="ml-1.5 text-[.72em] font-medium" aria-hidden="true">準備中</span>
       </span>
     );
   }
