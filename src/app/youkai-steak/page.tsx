@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const categories = [
   { number: "01", title: "小説", english: "Novel", text: "連載と短編、まだ名前のない物語。", href: links.youkaiSteakNarou },
   { number: "02", title: "映画感想", english: "Cinema", text: "映画の余韻を、人生の言葉へ。", href: "/articles/cinema-into-life-words" },
-  { number: "03", title: "Podcast", english: "Voice", text: "声で語り、耳から届く物語。", href: links.podcast },
+  { number: "03", title: "Podcast", english: "Voice", text: "声で語り、耳から届く物語。", href: links.youkaiSteakPodcast },
   { number: "04", title: "YouTube朗読", english: "Reading", text: "短編とことばを映像と声で。", href: links.youkaiSteakYoutube },
   { number: "05", title: "ショートアニメ", english: "Animation", text: "小さな動きに物語を宿す。", href: links.youkaiSteakYoutube },
   { number: "06", title: "落語感想・解説", english: "Rakugo", text: "話芸の可笑しさと人間らしさ。", href: "/articles" },
@@ -24,10 +24,10 @@ const categories = [
 ] as const;
 
 const updates = [
-  { kind: "NOVEL", title: "月と影の記憶 第8話 更新", date: "06.28", href: links.narou },
-  { kind: "PODCAST", title: "声で語る物語 #12 公開", date: "06.24", href: links.podcast },
+  { kind: "NOVEL", title: "月と影の記憶 第8話 更新", date: "06.28", href: links.youkaiSteakNarou },
+  { kind: "PODCAST", title: "声で語る物語 #12 公開", date: "06.24", href: links.youkaiSteakPodcast },
   { kind: "CINEMA", title: "PERFECT DAYS 考察", date: "06.18", href: "/articles/cinema-into-life-words" },
-  { kind: "YOUTUBE", title: "短編『雨の記憶』公開", date: "06.12", href: links.youtube },
+  { kind: "YOUTUBE", title: "短編『雨の記憶』公開", date: "06.12", href: links.youkaiSteakYoutube },
   { kind: "RAKUGO", title: "『芝浜』を観て", date: "06.05", href: "/articles" },
 ] as const;
 
@@ -35,9 +35,12 @@ const ongoing = ["連載小説", "Podcast番組", "YouTube朗読シリーズ", "
 const themes = ["人間ドラマ", "記憶と喪失", "孤独とつながり", "日常の美しさ", "言葉の力"];
 const youkaiLinks = [
   { label: "noteを見る", href: links.youkaiSteakNote },
+  { label: "Substackを見る", href: links.youkaiSteakSubstack },
+  { label: "Xを見る", href: links.youkaiSteakX },
   { label: "小説家になろう", href: links.youkaiSteakNarou },
   { label: "カクヨム", href: links.youkaiSteakKakuyomu },
   { label: "YouTubeを見る", href: links.youkaiSteakYoutube },
+  { label: "Podcastを聴く", href: links.youkaiSteakPodcast },
 ] as const;
 
 function YoukaiSection({ eyebrow, title, description, children, alternate = false }: { eyebrow: string; title: string; description?: string; children: ReactNode; alternate?: boolean }) {
@@ -50,11 +53,11 @@ export default function YoukaiSteakPage() {
       <YoukaiHero />
 
       <YoukaiSection eyebrow="Creative Categories" title="物語の入口" description="読む、観る、聴く、語る。好きな扉からお入りください。">
-        <div className="youkai-category-grid">{categories.map((category) => <Link key={category.title} href={category.href} className="youkai-category-card"><div className="flex items-start justify-between"><span>{category.number}</span><small>{category.english}</small></div><h3>{category.title}</h3><p>{category.text}</p><b aria-hidden="true">↗</b></Link>)}</div>
+        <div className="youkai-category-grid">{categories.map((category) => <Link key={category.title} href={category.href} target={category.href.startsWith("http") ? "_blank" : undefined} rel={category.href.startsWith("http") ? "noopener noreferrer" : undefined} className="youkai-category-card"><div className="flex items-start justify-between"><span>{category.number}</span><small>{category.english}</small></div><h3>{category.title}</h3><p>{category.text}</p><b aria-hidden="true">↗</b></Link>)}</div>
       </YoukaiSection>
 
       <YoukaiSection eyebrow="Latest Updates" title="最新の更新" alternate>
-        <div className="youkai-update-list">{updates.map((update) => <Link key={update.title} href={update.href} className="youkai-update-card"><span>{update.date}</span><small>{update.kind}</small><h3>{update.title}</h3><b aria-hidden="true">→</b></Link>)}</div>
+        <div className="youkai-update-list">{updates.map((update) => <Link key={update.title} href={update.href} target={update.href.startsWith("http") ? "_blank" : undefined} rel={update.href.startsWith("http") ? "noopener noreferrer" : undefined} className="youkai-update-card"><span>{update.date}</span><small>{update.kind}</small><h3>{update.title}</h3><b aria-hidden="true">→</b></Link>)}</div>
       </YoukaiSection>
 
       <YoukaiSection eyebrow="Ongoing Works" title="進行中の創作" description="完成するまでの時間も、物語の一部として記録します。">

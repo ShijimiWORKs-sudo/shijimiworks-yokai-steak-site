@@ -40,27 +40,11 @@ npm.cmd run start
 - `/contact`
 - `/admin`
 
-## 公開前に設定する外部リンク
+## 外部リンク
 
-`src/data/links.ts`の次の15項目を本番URLへ差し替え、設定済みの項目を`pendingExternalLinks`から削除してください。
+本番用のブランド別note、Substack、X、YouTube、Podcast、小説投稿先、ココナラ、メールを`src/data/links.ts`へ設定済みです。共通note・共通Substack・共通Xは使用せず、各ブランドの公式リンクを文脈別に表示します。
 
-- `note`
-- `substack`
-- `x`
-- `youtube`
-- `narou`
-- `kakuyomu`
-- `coconala`
-- `podcast`
-- `mail`
-- `shijimiworksNote`
-- `shijimiworksSubstack`
-- `youkaiSteakNote`
-- `youkaiSteakNarou`
-- `youkaiSteakKakuyomu`
-- `youkaiSteakYoutube`
-
-未設定リンクは画面上で「準備中」と表示され、`/admin`でも現在値を確認できます。
+各リンクの用途、現在値、反映先は`docs/links.md`にまとめています。今後URLが未設定の項目を追加する場合だけ`pendingExternalLinks`へ登録してください。
 
 ## 画像配置
 
@@ -92,18 +76,16 @@ git push -u origin main
 
 初回コミット前には、`git status --short --ignored`で除外対象とステージ対象を確認してください。
 
-## 本公開前に差し替えるもの
+## v1.0公開前の残作業
 
-- note URL
-- Substack URL
-- X URL
-- YouTube URL
-- 小説家になろう URL
-- カクヨム URL
-- ココナラ URL
-- OGP画像
-- ロゴ画像
-- Contact実送信処理
+- 設定済み実リンクを各公式アカウントで最終確認する
+- 共通・ShijimiWORKs・妖怪ステーキのOGP画像を追加してmetadataへ設定する
+- ShijimiWORKs・妖怪ステーキの正式ロゴ画像を追加する
+- Contact実送信処理とスパム対策を実装する
+- Vercelへ独自ドメインを設定し、HTTPS・リダイレクトを確認する
+- 必要な場合のみ、同意・プライバシー方針を確認してAnalyticsを設定する
+
+画像とフォーム送信先が未確定の間は、存在しない画像や送信APIをコードから参照しません。Contactフォームは準備中表示のまま維持します。
 
 ## 今後の実装予定
 

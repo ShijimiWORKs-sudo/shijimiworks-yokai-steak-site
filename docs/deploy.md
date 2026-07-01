@@ -73,27 +73,11 @@ Node.js Versionは24系を選択し、ローカル確認環境との差異を確
 - GitHubのdefault branchが`main`になっている
 - VercelのOutput Directoryを独自指定していない
 
-## 7. 公開前に差し替えるもの
+## 7. 公開前に確認するもの
 
 ### 外部リンク
 
-`src/data/links.ts`の次の値を本URLへ差し替えます。
-
-- `note`
-- `substack`
-- `x`
-- `youtube`
-- `narou`
-- `kakuyomu`
-- `coconala`
-- `podcast`
-- `mail`
-- `shijimiworksNote`
-- `shijimiworksSubstack`
-- `youkaiSteakNote`
-- `youkaiSteakNarou`
-- `youkaiSteakKakuyomu`
-- `youkaiSteakYoutube`
+本番URLは`src/data/links.ts`へ設定済みです。用途、現在値、反映先は`docs/links.md`を参照し、各公式アカウントへ正しく遷移することを確認します。共通note・共通Substack・共通Xは使用しません。
 
 ### 画像・機能
 
@@ -102,6 +86,17 @@ Node.js Versionは24系を選択し、ローカル確認環境との差異を確
 - Contact実送信先
 
 画像ファイル名と配置先は`public/images/README.md`を参照してください。実画像を配置するまではmetadataの`images`を設定しません。
+
+### v1.0公開前の残作業
+
+- 設定済み実リンクのリンク先確認
+- 共通・ブランド別OGP画像の追加とmetadata設定
+- ShijimiWORKs・妖怪ステーキの正式ロゴ画像追加
+- Contact実送信処理とスパム対策の実装
+- Vercelでの独自ドメイン設定とHTTPS確認
+- 必要な場合のみAnalytics設定
+
+Notion CMS本実装、自動投稿連携、Admin認証はv1.0公開前仕上げとは分離し、今回の公開条件には含めません。
 
 ## 8. 環境変数
 

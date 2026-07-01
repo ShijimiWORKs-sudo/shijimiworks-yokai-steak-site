@@ -18,7 +18,7 @@ const storyCards = [
   { label: "小説", href: links.youkaiSteakNarou },
   { label: "映画感想", href: "/articles/cinema-into-life-words" },
   { label: "YouTube朗読", href: links.youkaiSteakYoutube },
-  { label: "Podcast", href: links.podcast },
+  { label: "Podcast", href: links.youkaiSteakPodcast },
   { label: "ショートアニメ", href: links.youkaiSteakYoutube },
   { label: "落語感想・解説", href: links.articles },
   { label: "note", href: links.youkaiSteakNote },
@@ -88,12 +88,7 @@ export function SplitHero() {
               <Link href="/works" className="inline-flex min-h-11 items-center justify-center rounded-full border border-amber-200/40 px-5 py-2.5 text-sm font-semibold text-amber-50 transition hover:border-amber-200 hover:bg-amber-200/10">作品を見る</Link>
             </div>
             <div className="mt-6 grid grid-cols-2 gap-2">
-              {storyCards.map((item, index) => {
-                const content = <><span className="studio-card-number">{String(index + 1).padStart(2, "0")}</span><span>{item.label}{item.href === "#" && <small className="ml-1 opacity-60">準備中</small>}</span></>;
-                return item.href === "#"
-                  ? <span key={item.label} aria-disabled="true" title={`${item.label}：公開前にURL設定が必要です`} className="studio-card studio-card-dark cursor-not-allowed opacity-65">{content}</span>
-                  : <Link key={item.label} href={item.href} className="studio-card studio-card-dark">{content}</Link>;
-              })}
+              {storyCards.map((item, index) => <Link key={item.label} href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined} className="studio-card studio-card-dark"><span className="studio-card-number">{String(index + 1).padStart(2, "0")}</span><span>{item.label}</span></Link>)}
             </div>
           </div>
         </article>

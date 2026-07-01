@@ -17,7 +17,7 @@ const shijimiLinks = [
   { label: "noteを見る", href: links.shijimiworksNote },
   { label: "Substackを見る", href: links.shijimiworksSubstack },
   { label: "ココナラで相談する", href: links.coconala },
-  { label: "Xを見る", href: links.x },
+  { label: "Xを見る", href: links.shijimiworksX },
 ] as const;
 
 const capabilities = [

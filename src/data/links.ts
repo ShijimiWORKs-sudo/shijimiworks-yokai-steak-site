@@ -10,19 +10,24 @@ export const links = {
   note: "#",
   substack: "#",
   x: "#",
-  youtube: "#",
-  narou: "#",
-  kakuyomu: "#",
-  coconala: "#",
-  podcast: "#",
-  mail: "#",
+  youtube: "https://www.youtube.com/channel/UCY96M9pdESQsNqGGcUlK4qA",
+  narou: "https://mypage.syosetu.com/3062767/",
+  kakuyomu: "https://kakuyomu.jp/users/youkai_steak",
+  coconala: "https://coconala.com/users/3328262",
+  podcast: "https://open.spotify.com/show/0MJ8LBPvXLAHIxRLwWDiIm?si=RMXrkgbgToiprOUWKwWskw",
+  mail: "mailto:shijimiworks.takaki@gmail.com",
 
-  shijimiworksNote: "#",
-  shijimiworksSubstack: "#",
-  youkaiSteakNote: "#",
-  youkaiSteakNarou: "#",
-  youkaiSteakKakuyomu: "#",
-  youkaiSteakYoutube: "#",
+  shijimiworksNote: "https://note.com/shijimi_works",
+  shijimiworksSubstack: "https://substack.com/@shijimiworks",
+  shijimiworksX: "https://x.com/ShijimiWORKS",
+
+  youkaiSteakNote: "https://note.com/youkai_steak",
+  youkaiSteakSubstack: "https://substack.com/@youkaisteak",
+  youkaiSteakX: "https://x.com/YOUKAI_STEAK",
+  youkaiSteakNarou: "https://mypage.syosetu.com/3062767/",
+  youkaiSteakKakuyomu: "https://kakuyomu.jp/users/youkai_steak",
+  youkaiSteakYoutube: "https://www.youtube.com/channel/UCY96M9pdESQsNqGGcUlK4qA",
+  youkaiSteakPodcast: "https://open.spotify.com/show/0MJ8LBPvXLAHIxRLwWDiIm?si=RMXrkgbgToiprOUWKwWskw",
 } as const;
 
 export type LinkKey = keyof typeof links;
@@ -34,22 +39,12 @@ export type PendingExternalLink = {
   purpose: string;
 };
 
-// TODO: 公開前に差し替える外部リンク
-// この一覧は /admin にも表示されます。URLを設定した項目は一覧から削除してください。
-export const pendingExternalLinks = [
-  { key: "note", label: "note", purpose: "共通noteリンク" },
-  { key: "substack", label: "Substack", purpose: "共通ニュースレター導線" },
-  { key: "x", label: "X", purpose: "共通SNS・連絡導線" },
-  { key: "youtube", label: "YouTube", purpose: "共通動画導線" },
-  { key: "narou", label: "小説家になろう", purpose: "共通小説導線" },
-  { key: "kakuyomu", label: "カクヨム", purpose: "共通小説導線" },
-  { key: "coconala", label: "ココナラ", purpose: "ShijimiWORKs相談導線" },
-  { key: "podcast", label: "Podcast", purpose: "妖怪ステーキ音声配信導線" },
-  { key: "mail", label: "メール", purpose: "共通メール連絡導線" },
-  { key: "shijimiworksNote", label: "ShijimiWORKs note", purpose: "ShijimiWORKs記事導線" },
-  { key: "shijimiworksSubstack", label: "ShijimiWORKs Substack", purpose: "ShijimiWORKsニュースレター" },
-  { key: "youkaiSteakNote", label: "妖怪ステーキ note", purpose: "妖怪ステーキ記事・エッセイ導線" },
-  { key: "youkaiSteakNarou", label: "妖怪ステーキ 小説家になろう", purpose: "妖怪ステーキ小説導線" },
-  { key: "youkaiSteakKakuyomu", label: "妖怪ステーキ カクヨム", purpose: "妖怪ステーキ小説導線" },
-  { key: "youkaiSteakYoutube", label: "妖怪ステーキ YouTube", purpose: "妖怪ステーキ動画・朗読導線" },
-] as const satisfies readonly PendingExternalLink[];
+// 現在、画面で使用する外部リンクはすべて設定済みです。
+export const pendingExternalLinks: readonly PendingExternalLink[] = [];
+
+// ブランドごとの公式リンクを使うため、共通キーは意図的に使用しません。
+export const unusedExternalLinks = [
+  { key: "note", label: "共通note", reason: "ShijimiWORKs用と妖怪ステーキ用に分けて運用" },
+  { key: "substack", label: "共通Substack", reason: "ShijimiWORKs用と妖怪ステーキ用に分けて運用" },
+  { key: "x", label: "共通X", reason: "ShijimiWORKs用と妖怪ステーキ用に分けて運用" },
+] as const;

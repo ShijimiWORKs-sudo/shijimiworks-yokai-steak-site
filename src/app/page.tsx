@@ -11,11 +11,21 @@ export const metadata: Metadata = {
   description: "AIで作り、物語で届ける。ShijimiWORKsと妖怪ステーキ、二つの名前で広がる制作と創作の共通ポートフォリオ。",
 };
 
-const lobbyLinks = [
-  { label: "noteを見る", href: links.note },
-  { label: "Substackを見る", href: links.substack },
-  { label: "Xを見る", href: links.x },
-  { label: "YouTubeを見る", href: links.youtube },
+const shijimiLobbyLinks = [
+  { label: "note", href: links.shijimiworksNote },
+  { label: "Substack", href: links.shijimiworksSubstack },
+  { label: "X", href: links.shijimiworksX },
+  { label: "ココナラ", href: links.coconala },
+] as const;
+
+const youkaiLobbyLinks = [
+  { label: "note", href: links.youkaiSteakNote },
+  { label: "Substack", href: links.youkaiSteakSubstack },
+  { label: "X", href: links.youkaiSteakX },
+  { label: "小説家になろう", href: links.youkaiSteakNarou },
+  { label: "カクヨム", href: links.youkaiSteakKakuyomu },
+  { label: "YouTube", href: links.youkaiSteakYoutube },
+  { label: "Podcast", href: links.youkaiSteakPodcast },
 ] as const;
 
 const pillars = [
@@ -55,9 +65,15 @@ export default function Home() {
             <Button href="/works">すべての作品を見る</Button>
             <Button href="/contact" variant="outline">お問い合わせ</Button>
           </div>
-          <div className="mt-8 border-t border-slate-900/10 pt-8">
-            <p className="mb-4 text-xs font-bold uppercase tracking-[.2em] text-slate-400">Outside the studio</p>
-            <ExternalLinks items={lobbyLinks} />
+          <div className="mt-8 grid gap-7 border-t border-slate-900/10 pt-8 lg:grid-cols-2">
+            <div>
+              <p className="mb-4 text-xs font-bold uppercase tracking-[.2em] text-sky-700">ShijimiWORKs Links</p>
+              <ExternalLinks items={shijimiLobbyLinks} />
+            </div>
+            <div>
+              <p className="mb-4 text-xs font-bold uppercase tracking-[.2em] text-amber-800">妖怪ステーキ Links</p>
+              <ExternalLinks items={youkaiLobbyLinks} />
+            </div>
           </div>
         </div>
       </section>

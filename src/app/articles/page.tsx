@@ -9,7 +9,10 @@ export const metadata: Metadata = {
   title: "Articles",
   description: "AI、創作、映画、落語、発信についての文章・記事・マガジン・感想の一覧。",
 };
-const publishingLinks = [{ label: "noteを見る", href: links.note }, { label: "Substackを見る", href: links.substack }] as const;
+const publishingLinks = [
+  { label: "ShijimiWORKs note", href: links.shijimiworksNote },
+  { label: "妖怪ステーキ note", href: links.youkaiSteakNote },
+] as const;
 const categories = ["All", "AI", "Web", "Automation", "note", "Substack", "Cinema", "Novel", "Podcast", "Rakugo", "Essay"];
 
 export default async function ArticlesPage() {
