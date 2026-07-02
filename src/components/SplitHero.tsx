@@ -1,6 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 import { links } from "@/data/links";
-import { Button } from "./Button";
+import { MotionSection } from "./MotionSection";
 
 const studioCards = [
   "AI活用記事",
@@ -28,28 +30,50 @@ const storyCards = [
 
 function LobbyCopy() {
   return (
-    <div className="lobby-copy">
+    <MotionSection className="lobby-copy common-hero-copy">
+      <p className="common-hero-kicker">Two Names, One Studio.</p>
       <h1>AIで作り、<br className="sm:hidden" />物語で届ける。</h1>
       <p className="lobby-description">
         仕事としての制作と、作品としての創作。<br className="hidden sm:block" />
         二つの名前で、AIと物語のあいだを作っています。
       </p>
-    </div>
+      <div className="common-hero-actions">
+        <Link href="/shijimiworks" className="common-hero-cta common-hero-cta-light">
+          ShijimiWORKsへ <ArrowUpRight aria-hidden="true" />
+        </Link>
+        <Link href="/youkai-steak" className="common-hero-cta common-hero-cta-dark">
+          妖怪ステーキへ <ArrowUpRight aria-hidden="true" />
+        </Link>
+        <Link href="/works" className="common-hero-cta common-hero-cta-ghost">
+          制作実績を見る <ArrowUpRight aria-hidden="true" />
+        </Link>
+      </div>
+    </MotionSection>
   );
 }
 
 export function SplitHero() {
   return (
-    <section className="split-hero relative overflow-hidden">
+    <section className="split-hero common-ogp-hero relative overflow-hidden">
+      <Image
+        src="/images/ogp/common-ogp.png"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="common-ogp-image"
+        aria-hidden="true"
+      />
+      <div className="common-ogp-overlay" aria-hidden="true" />
       <div className="split-aurora" aria-hidden="true" />
       <LobbyCopy />
       <div className="studio-seam hidden lg:block" aria-hidden="true" />
 
-      <div className="grid lg:grid-cols-2">
-        <article className="studio-panel studio-panel-light relative overflow-hidden px-5 py-12 sm:px-8 lg:min-h-[calc(100vh-69px)] lg:px-8 lg:pb-6 lg:pt-[10.5rem] xl:px-12">
+      <div className="common-hero-doors">
+        <MotionSection className="common-door common-door-studio" delay={0.08}>
           <div className="studio-orb studio-orb-blue" aria-hidden="true" />
           <div className="studio-network" aria-hidden="true"><i /><i /><i /><i /><i /></div>
-          <div className="relative mx-auto max-w-2xl lg:ml-auto">
+          <div className="relative">
             <div className="flex items-center gap-3">
               <span className="h-px w-9 bg-sky-700" />
               <p className="text-[0.65rem] font-bold uppercase tracking-[0.26em] text-sky-800">AI / Web / App / Automation / Writing</p>
@@ -58,12 +82,8 @@ export function SplitHero() {
             <p className="mt-4 max-w-xl text-sm leading-6 text-slate-600 xl:leading-7">
               生成AIを活用したWeb制作、アプリ開発、文章制作、自動化、メディア運用を横断する制作スタジオです。小さなアイデアを、記事・サイト・アプリ・運用導線まで形にします。
             </p>
-            <div className="mt-5 flex flex-wrap gap-3">
-              <Button href="/shijimiworks">ShijimiWORKsへ入る</Button>
-              <Button href="/works" variant="outline">制作実績を見る</Button>
-            </div>
             <div className="mt-6 grid grid-cols-2 gap-2">
-              {studioCards.map((label, index) => (
+              {studioCards.slice(0, 4).map((label, index) => (
                 <Link key={label} href={index === 8 ? "/works" : "/shijimiworks"} className="studio-card studio-card-light">
                   <span className="studio-card-number">{String(index + 1).padStart(2, "0")}</span>
                   <span>{label}</span>
@@ -71,13 +91,13 @@ export function SplitHero() {
               ))}
             </div>
           </div>
-        </article>
+        </MotionSection>
 
-        <article className="studio-panel studio-panel-dark relative overflow-hidden px-5 py-12 text-stone-100 sm:px-8 lg:min-h-[calc(100vh-69px)] lg:px-8 lg:pb-6 lg:pt-[10.5rem] xl:px-12">
+        <MotionSection className="common-door common-door-story" delay={0.16}>
           <div className="studio-orb studio-orb-gold" aria-hidden="true" />
           <div className="cinema-grain" aria-hidden="true" />
           <div className="story-wave" aria-hidden="true">{Array.from({ length: 24 }).map((_, index) => <i key={index} />)}</div>
-          <div className="relative mx-auto max-w-2xl lg:mr-auto">
+          <div className="relative">
             <div className="flex items-center gap-3">
               <span className="h-px w-9 bg-amber-300/80" />
               <p className="text-[0.65rem] font-bold uppercase tracking-[0.26em] text-amber-200/80">Novel / Cinema / Podcast / YouTube / Rakugo</p>
@@ -86,15 +106,11 @@ export function SplitHero() {
             <p className="mt-4 max-w-xl text-sm leading-6 text-stone-200/85 xl:leading-7">
               小説、映画感想、Podcast、YouTube、落語など、物語をさまざまな形で届ける創作活動です。夜の創作室から、物語の余韻をさまざまなメディアへ運びます。
             </p>
-            <div className="mt-5 flex flex-wrap gap-3">
-              <Button href="/youkai-steak" variant="dark">妖怪ステーキへ入る</Button>
-              <Link href="/works" className="inline-flex min-h-11 items-center justify-center rounded-full border border-amber-200/40 px-5 py-2.5 text-sm font-semibold text-amber-50 transition hover:border-amber-200 hover:bg-amber-200/10">作品を見る</Link>
-            </div>
             <div className="mt-6 grid grid-cols-2 gap-2">
-              {storyCards.map((item, index) => <Link key={item.label} href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined} className="studio-card studio-card-dark"><span className="studio-card-number">{String(index + 1).padStart(2, "0")}</span><span>{item.label}</span></Link>)}
+              {storyCards.slice(0, 4).map((item, index) => <Link key={item.label} href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined} className="studio-card studio-card-dark"><span className="studio-card-number">{String(index + 1).padStart(2, "0")}</span><span>{item.label}</span></Link>)}
             </div>
           </div>
-        </article>
+        </MotionSection>
       </div>
     </section>
   );
