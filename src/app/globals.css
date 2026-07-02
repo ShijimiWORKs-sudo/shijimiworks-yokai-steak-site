@@ -345,3 +345,79 @@ footer a { text-underline-offset: .25em; }
   .work-card, .article-card { min-height: 0; padding: 1.35rem; }
   footer nav { column-gap: 1.5rem; }
 }
+
+/* v1.1 first pass: brand atmosphere and interaction */
+.site-header { transition: border-color 220ms ease, box-shadow 220ms ease, background-color 220ms ease; }
+.site-header:hover { box-shadow: 0 10px 30px rgba(15,23,42,.055); }
+.site-nav a { position: relative; min-height: 2.5rem; display: inline-flex; align-items: center; justify-content: center; }
+.site-nav a::after { content: ""; position: absolute; right: .25rem; bottom: .2rem; left: .25rem; height: 1px; transform: scaleX(0); transform-origin: left; background: currentColor; opacity: .42; transition: transform 220ms ease; }
+.site-nav a:hover::after, .site-nav a:focus-visible::after { transform: scaleX(1); }
+
+.studio-panel-light .inline-flex:hover { box-shadow: 0 12px 28px rgba(14,116,144,.14); }
+.studio-panel-dark .inline-flex:hover { box-shadow: 0 12px 30px rgba(180,83,9,.16); }
+.pillar-card span:last-child span { transition: transform 220ms ease; }
+.pillar-card:hover span:last-child span { transform: translate(.18rem,-.18rem); }
+
+.youkai-page { background: #080604; }
+.youkai-section { position: relative; isolation: isolate; overflow: hidden; }
+.youkai-section::before {
+  content: ""; position: absolute; z-index: -1; width: 34rem; height: 18rem; right: -14rem; top: -7rem;
+  border-radius: 50%; pointer-events: none; filter: blur(24px);
+  background: radial-gradient(ellipse,rgba(174,71,22,.11),transparent 70%);
+}
+.youkai-section-alt::before { right: auto; left: -16rem; background: radial-gradient(ellipse,rgba(201,142,71,.08),transparent 70%); }
+.youkai-lamp { animation: youkai-lamp-breathe 8s ease-in-out infinite; }
+.youkai-paper-main { transition: transform 600ms cubic-bezier(.2,.8,.2,1), box-shadow 600ms ease; }
+.youkai-ticket, .youkai-audio-card, .youkai-seal { transition: transform 500ms cubic-bezier(.2,.8,.2,1), border-color 350ms ease; }
+.youkai-desk:hover .youkai-paper-main { transform: rotate(-2deg) translateY(-4px); box-shadow: 0 38px 82px rgba(0,0,0,.46); }
+.youkai-desk:hover .youkai-ticket { transform: rotate(3deg) translateY(-6px); border-color: rgba(244,190,89,.58); }
+.youkai-desk:hover .youkai-audio-card { transform: rotate(1deg) translateY(-5px); }
+.youkai-desk:hover .youkai-seal { transform: rotate(-5deg) scale(1.025); }
+.youkai-category-card::after { content: ""; position: absolute; top: 1rem; bottom: 1rem; left: .45rem; border-left: 1px dashed rgba(244,190,89,.12); }
+.youkai-category-card b, .youkai-update-card b { transition: transform 220ms ease, color 220ms ease; }
+.youkai-category-card:hover b { transform: translate(.2rem,-.2rem); color: #f2c87e; }
+.youkai-update-card { position: relative; }
+.youkai-update-card::before { content: ""; position: absolute; left: -.22rem; width: .46rem; height: .46rem; border: 1px solid rgba(244,190,89,.55); border-radius: 50%; background: #160d09; box-shadow: 0 0 0 .25rem rgba(244,190,89,.035); }
+.youkai-update-card:hover b { transform: translateX(.3rem); color: #f2c87e; }
+.youkai-ongoing-card { transition: transform 250ms ease, border-color 250ms ease, background-color 250ms ease; }
+.youkai-ongoing-card:hover { transform: translateY(-4px); border-color: rgba(244,190,89,.34); background: #1d120e; }
+.youkai-contact [aria-label="外部リンク"] a { border-color: rgba(244,190,89,.26); }
+.youkai-contact [aria-label="外部リンク"] a:hover { border-color: rgba(244,190,89,.7); color: #fde7bd; background: rgba(244,190,89,.07); }
+
+.shijimi-page > section:not(.shijimi-contact) { position: relative; }
+.shijimi-page > section:not(.shijimi-hero):nth-of-type(even) { background-image: radial-gradient(circle at 88% 12%,rgba(125,211,252,.1),transparent 20rem); }
+.shijimi-dashboard { transition: transform 500ms cubic-bezier(.2,.8,.2,1), box-shadow 500ms ease; }
+.shijimi-dashboard:hover { transform: rotate(.35deg) translateY(-4px); box-shadow: 0 42px 100px rgba(15,23,42,.19); }
+.capability-card, .project-log-card, .document-card { box-shadow: 0 8px 24px rgba(15,23,42,.035); }
+.project-log-card { transition: transform 250ms ease, border-color 250ms ease, box-shadow 250ms ease; }
+.project-log-card:hover { transform: translateY(-4px); border-color: rgba(3,105,161,.22); box-shadow: 0 18px 42px rgba(15,23,42,.08); }
+.shijimi-contact [aria-label="外部リンク"] a:hover { border-color: rgba(125,211,252,.65); color: #d8f3ff; background: rgba(125,211,252,.07); }
+
+@keyframes youkai-lamp-breathe { 0%,100% { opacity: .78; transform: scale(.98); } 50% { opacity: 1; transform: scale(1.035); } }
+@keyframes section-reveal { from { opacity: .25; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+@supports (animation-timeline: view()) {
+  .one-studio-section > div:last-child,
+  .shijimi-page > section:not(.shijimi-hero) > div,
+  .youkai-section > div {
+    animation: section-reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 24%;
+  }
+}
+
+@media (max-width: 639px) {
+  .site-nav a { min-height: 2.75rem; padding-inline: .2rem; }
+  .youkai-update-card::before { display: none; }
+  .youkai-desk:hover .youkai-paper-main { transform: rotate(-3deg); }
+  .youkai-desk:hover .youkai-ticket { transform: rotate(5deg); }
+  .youkai-desk:hover .youkai-audio-card { transform: rotate(2deg); }
+  .shijimi-dashboard:hover { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .one-studio-section > div:last-child,
+  .shijimi-page > section:not(.shijimi-hero) > div,
+  .youkai-section > div { animation: none !important; transform: none !important; opacity: 1 !important; }
+}

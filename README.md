@@ -48,7 +48,7 @@ npm.cmd run start
 
 ## 画像配置
 
-画像の配置予定とファイル名は`public/images/README.md`を参照してください。実ファイルが存在するまでは、metadataやコンポーネントから画像を参照しません。OGP画像の推奨サイズは1200 × 630pxです。
+画像の配置状況とファイル名は`public/images/README.md`を参照してください。共通・ShijimiWORKs・妖怪ステーキのOGP画像は配置・metadata反映済みです。未配置のロゴ等は、実ファイルが存在するまでコンポーネントから参照しません。
 
 ## デプロイ
 
@@ -76,10 +76,15 @@ git push -u origin main
 
 初回コミット前には、`git status --short --ignored`で除外対象とステージ対象を確認してください。
 
-## v1.0公開前の残作業
+## v1.0公開記録
 
-- 設定済み実リンクを各公式アカウントで最終確認する
-- 共通・ShijimiWORKs・妖怪ステーキのOGP画像を追加してmetadataへ設定する
+- ブランド別実リンクの設定と動作確認：完了
+- 共通・ShijimiWORKs・妖怪ステーキのOGP画像設定：完了
+- GitHub / Vercel本番公開：完了
+- PC / スマホ表示と横スクロール確認：完了
+
+## v1.1以降の残作業
+
 - ShijimiWORKs・妖怪ステーキの正式ロゴ画像を追加する
 - Contact実送信処理とスパム対策を実装する
 - Vercelへ独自ドメインを設定し、HTTPS・リダイレクトを確認する
@@ -89,7 +94,7 @@ git push -u origin main
 
 ## 今後の実装予定
 
-- 正式な外部URL、ロゴ、OGP画像の設定
+- 正式ロゴ画像の設定
 - Contactフォームの実送信とスパム対策
 - Notion CMS連携
 - SNS投稿・自動化API連携

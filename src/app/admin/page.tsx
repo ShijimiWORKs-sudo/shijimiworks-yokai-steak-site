@@ -54,14 +54,15 @@ const deploymentNotes = [
   ["Build command", "npm run build"],
   ["Install command", "npm install"],
   ["Environment variables", "現時点では不要"],
-  ["Before publish", "実リンク・OGP・ロゴ・Contact導線を確認"],
+  ["v1.0 confirmed", "実リンク・OGP・Vercel公開・スマホ表示"],
+  ["Next milestone", "v1.1デザイン強化と正式ロゴの検討"],
 ] as const;
 
 const releaseStatuses = [
   ["Pages", "Ready", "ready"],
   ["Build", "Ready", "ready"],
   ["Links", "Configured", "ready"],
-  ["OGP Images", "Pending", "pending"],
+  ["OGP Images", "Configured", "ready"],
   ["Contact Send", "Pending", "pending"],
   ["Admin Auth", "Pending", "pending"],
   ["Notion CMS", "Future", "future"],
