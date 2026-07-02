@@ -3,83 +3,85 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 type ActiveSide = "shijimi" | "youkai" | null;
 
 export function SplitHero() {
   const [activeSide, setActiveSide] = useState<ActiveSide>(null);
-  const leftWidth = activeSide === "shijimi" ? "68%" : activeSide === "youkai" ? "32%" : "50%";
-  const rightWidth = activeSide === "youkai" ? "68%" : activeSide === "shijimi" ? "32%" : "50%";
+  const activeImage =
+    activeSide === "shijimi"
+      ? { src: "/images/ogp/shijimiworks-ogp.png", alt: "ShijimiWORKs キービジュアル", direction: -30 }
+      : activeSide === "youkai"
+        ? { src: "/images/ogp/youkai-steak-ogp.png", alt: "妖怪ステーキ キービジュアル", direction: 30 }
+        : null;
 
   return (
     <section className="picture-gateway" aria-label="ShijimiWORKs と 妖怪ステーキの入口">
       <div className="picture-gateway-frame" data-active={activeSide ?? "neutral"}>
-        <Image
-          src="/images/ogp/common-ogp.png"
-          alt="ShijimiWORKs と 妖怪ステーキの共通キービジュアル"
-          fill
-          priority
-          sizes="(min-width: 768px) 96vw, 100vw"
-          className="picture-gateway-image"
-        />
-
-        <div className="picture-layer-stage" aria-hidden="true">
-          <motion.div
-            className="picture-layer picture-layer-left"
-            initial={false}
-            animate={{ width: leftWidth }}
-            transition={{ duration: 0.78, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <div className="picture-layer-image picture-layer-image-left" />
-          </motion.div>
-          <motion.div
-            className="picture-layer picture-layer-right"
-            initial={false}
-            animate={{ width: rightWidth }}
-            transition={{ duration: 0.78, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <div className="picture-layer-image picture-layer-image-right" />
-          </motion.div>
-        </div>
-
         <motion.div
-          className="picture-gateway-hit-shell picture-gateway-hit-shell-left"
-          initial={false}
-          animate={{ width: leftWidth }}
-          transition={{ duration: 0.78, ease: [0.22, 1, 0.36, 1] }}
+          className="picture-gateway-base"
+          animate={{
+            opacity: activeSide ? 0.46 : 1,
+            filter: activeSide ? "blur(3px) brightness(0.72)" : "blur(0px) brightness(1)",
+          }}
+          transition={{ duration: 0.48, ease: "easeInOut" }}
         >
-          <Link
-            href="/shijimiworks"
-            className="picture-gateway-hit picture-gateway-hit-left"
-            aria-label="ShijimiWORKsへ入る"
-            onMouseEnter={() => setActiveSide("shijimi")}
-            onMouseLeave={() => setActiveSide(null)}
-            onFocus={() => setActiveSide("shijimi")}
-            onBlur={() => setActiveSide(null)}
-          >
-            <span>ShijimiWORKsへ入る</span>
-          </Link>
+          <Image
+            src="/images/ogp/common-ogp.png"
+            alt="ShijimiWORKs と 妖怪ステーキの共通キービジュアル"
+            fill
+            priority
+            sizes="(min-width: 768px) 96vw, 100vw"
+            className="picture-gateway-image"
+          />
         </motion.div>
 
-        <motion.div
-          className="picture-gateway-hit-shell picture-gateway-hit-shell-right"
-          initial={false}
-          animate={{ width: rightWidth }}
-          transition={{ duration: 0.78, ease: [0.22, 1, 0.36, 1] }}
+        <AnimatePresence mode="wait">
+          {activeImage && (
+            <motion.div
+              key={activeSide}
+              className={`picture-featured-ogp picture-featured-ogp-${activeSide}`}
+              initial={{ opacity: 0, scale: 0.92, x: activeImage.direction }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
+              exit={{ opacity: 0, scale: 0.94, x: activeImage.direction * 0.45 }}
+              transition={{ duration: 0.58, ease: "easeInOut" }}
+              aria-hidden="true"
+            >
+              <Image
+                src={activeImage.src}
+                alt={activeImage.alt}
+                fill
+                sizes="(min-width: 768px) 84vw, 100vw"
+                className="picture-featured-ogp-image"
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <Link
+          href="/shijimiworks"
+          className="picture-gateway-hit picture-gateway-hit-left"
+          aria-label="ShijimiWORKsへ入る"
+          onMouseEnter={() => setActiveSide("shijimi")}
+          onMouseLeave={() => setActiveSide(null)}
+          onFocus={() => setActiveSide("shijimi")}
+          onBlur={() => setActiveSide(null)}
         >
-          <Link
-            href="/youkai-steak"
-            className="picture-gateway-hit picture-gateway-hit-right"
-            aria-label="妖怪ステーキへ入る"
-            onMouseEnter={() => setActiveSide("youkai")}
-            onMouseLeave={() => setActiveSide(null)}
-            onFocus={() => setActiveSide("youkai")}
-            onBlur={() => setActiveSide(null)}
-          >
-            <span>妖怪ステーキへ入る</span>
-          </Link>
-        </motion.div>
+          <span>ShijimiWORKsへ入る</span>
+        </Link>
+
+        <Link
+          href="/youkai-steak"
+          className="picture-gateway-hit picture-gateway-hit-right"
+          aria-label="妖怪ステーキへ入る"
+          onMouseEnter={() => setActiveSide("youkai")}
+          onMouseLeave={() => setActiveSide(null)}
+          onFocus={() => setActiveSide("youkai")}
+          onBlur={() => setActiveSide(null)}
+        >
+          <span>妖怪ステーキへ入る</span>
+        </Link>
       </div>
 
       <div className="picture-gateway-mobile-cards" aria-label="スマートフォン用入口">
