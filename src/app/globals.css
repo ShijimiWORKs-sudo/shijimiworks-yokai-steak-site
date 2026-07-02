@@ -703,7 +703,7 @@ footer a { text-underline-offset: .25em; }
 }
 .picture-gateway-frame {
   position: relative;
-  width: min(96vw, calc((100svh - 7rem) * 1.7778));
+  width: min(96vw, calc((100svh - 7rem) * 1.7778), 100rem);
   max-width: 100rem;
   aspect-ratio: 16 / 9;
   overflow: hidden;
@@ -713,17 +713,59 @@ footer a { text-underline-offset: .25em; }
   box-shadow: 0 30px 100px rgba(0,0,0,.52);
 }
 .picture-gateway-image { object-fit: contain; object-position: center; background: #050302; }
-.picture-gateway-hit {
+.picture-layer-stage {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  overflow: hidden;
+}
+.picture-layer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  background: #050302;
+}
+.picture-layer-left { left: 0; }
+.picture-layer-right { right: 0; }
+.picture-layer-image {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: min(96vw, calc((100svh - 7rem) * 1.7778), 100rem);
+  background-image: url("/images/ogp/common-ogp.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  transition: filter 260ms ease, transform 780ms cubic-bezier(.22,1,.36,1);
+}
+.picture-layer-image-left { left: 0; }
+.picture-layer-image-right { right: 0; }
+.picture-gateway-frame[data-active="shijimi"] .picture-layer-image-left {
+  filter: brightness(1.045) saturate(1.04);
+  transform: scale(1.012);
+}
+.picture-gateway-frame[data-active="youkai"] .picture-layer-image-right {
+  filter: brightness(.98) contrast(1.035) saturate(1.04);
+  transform: scale(1.012);
+}
+.picture-gateway-hit-shell {
   position: absolute;
   z-index: 2;
   top: 0;
   bottom: 0;
+}
+.picture-gateway-hit-shell-left { left: 0; }
+.picture-gateway-hit-shell-right { right: 0; }
+.picture-gateway-hit {
+  position: absolute;
+  inset: 0;
+  display: block;
   width: 50%;
   color: inherit;
   outline-offset: -8px;
 }
-.picture-gateway-hit-left { left: 0; }
-.picture-gateway-hit-right { right: 0; }
+.picture-gateway-hit-left,
+.picture-gateway-hit-right { width: 100%; }
 .picture-gateway-hit::before {
   content: "";
   position: absolute;
@@ -762,6 +804,8 @@ footer a { text-underline-offset: .25em; }
 @media (max-width: 767px) {
   .picture-gateway { display: block; min-height: auto; padding: 0; background: #080604; }
   .picture-gateway-frame { width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 0 0 1.35rem 1.35rem; box-shadow: 0 22px 60px rgba(0,0,0,.38); }
+  .picture-layer-stage,
+  .picture-gateway-hit-shell,
   .picture-gateway-hit { display: none; }
   .picture-gateway-mobile-cards { display: grid; gap: .8rem; padding: 1rem; }
   .picture-mobile-card { display: grid; gap: .35rem; min-height: 8.25rem; border-radius: 1.05rem; padding: 1rem; }
