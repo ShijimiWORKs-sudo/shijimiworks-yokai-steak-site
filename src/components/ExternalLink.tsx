@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { ExternalLinkIcon } from "./ExternalLinkIcon";
 
 type Props = {
   href: string;
@@ -38,7 +39,7 @@ export function ExternalLink({ href, children, label, tone = "light", className 
     return (
       <a href={href} aria-label={`${label}（メールを作成）`} title={`${label}：メールを作成`} className={`${classes} hover:-translate-y-0.5`}>
         {children}
-        <span className="ml-1.5" aria-hidden="true">↗</span>
+        <ExternalLinkIcon mail />
       </a>
     );
   }
@@ -53,9 +54,7 @@ export function ExternalLink({ href, children, label, tone = "light", className 
       className={`${classes} hover:-translate-y-0.5`}
     >
       {children}
-      <span className="ml-1.5" aria-hidden="true">
-        ↗
-      </span>
+      <ExternalLinkIcon />
     </Link>
   );
 }
