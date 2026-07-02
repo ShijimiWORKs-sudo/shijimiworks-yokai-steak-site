@@ -29,14 +29,14 @@ const youkaiContacts = [
 
 export default function ContactPage() {
   return (
-    <div className="content-page bg-[#f7f5ef]">
+    <div className="content-page contact-page bg-[#f7f5ef]">
       <ContentHero eyebrow="Contact" title="Contact" copy="制作や相談の入口" description="AI活用、Web制作、記事制作、発信設計、自動化、ポートフォリオ制作、創作活動への感想やコラボ相談などを受け付けています。内容が固まっていない段階でも、整理から相談できます。" />
       <section className="px-5 pb-16 sm:px-8 lg:px-12">
         <div className="mx-auto max-w-7xl">
           <p className="text-xs font-bold uppercase tracking-[.2em] text-sky-700">相談できること</p>
           <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {categories.map((category, index) => (
-              <article key={category} className="rounded-2xl border border-slate-900/10 bg-white p-5">
+              <article key={category} className={`contact-purpose-card ${index === 5 ? "contact-purpose-story" : "contact-purpose-studio"}`}>
                 <span className="text-[.62rem] font-bold tracking-widest text-slate-300">0{index + 1}</span>
                 <h2 className="mt-4 font-bold text-slate-900">{category}</h2>
                 <p className="mt-2 text-sm leading-6 text-slate-500">内容が固まっていなくても、整理からご相談いただけます。</p>
@@ -68,16 +68,16 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-      <section className="bg-slate-950 px-5 py-14 text-white sm:px-8">
+      <section className="contact-gateway px-5 py-16 text-white sm:px-8">
         <div className="mx-auto max-w-7xl">
           <h2 className="text-2xl font-bold">外部リンクから連絡・フォローする</h2>
           <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-400">目的に合わせて、ShijimiWORKsまたは妖怪ステーキの公式窓口をお選びください。</p>
           <div className="mt-7 grid gap-8 lg:grid-cols-2">
-            <div>
+            <div className="contact-door contact-door-studio">
               <h3 className="text-sm font-bold text-sky-300">ShijimiWORKsへの相談</h3>
               <ExternalLinks items={shijimiContacts} tone="dark" className="mt-4" />
             </div>
-            <div>
+            <div className="contact-door contact-door-story">
               <h3 className="text-sm font-bold text-amber-300">妖怪ステーキへの連絡</h3>
               <ExternalLinks items={youkaiContacts} tone="dark" className="mt-4" />
             </div>

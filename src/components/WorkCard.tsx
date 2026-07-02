@@ -6,7 +6,7 @@ import { StatusBadge } from "./StatusBadge";
 export function WorkCard({ work }: { work: Work }) {
   const creative = work.brand === "youkai-steak";
   return (
-    <Link href={`/works/${work.slug}`} className={`work-card group relative flex min-h-80 flex-col overflow-hidden rounded-3xl border p-6 transition duration-300 hover:-translate-y-1 hover:shadow-xl ${creative ? "border-amber-900/20 bg-[#fffaf2]" : "border-sky-950/10 bg-white"}`}>
+    <Link href={`/works/${work.slug}`} className={`work-card ${creative ? "brand-card-story" : "brand-card-studio"} group relative flex min-h-80 flex-col overflow-hidden rounded-3xl border p-6 transition duration-300 hover:-translate-y-1 hover:shadow-xl ${creative ? "border-amber-900/20 bg-[#fffaf2]" : "border-sky-950/10 bg-white"}`}>
       <div className={`absolute inset-x-0 top-0 h-1 ${creative ? "bg-gradient-to-r from-[#51231a] to-amber-500" : "bg-gradient-to-r from-sky-700 to-sky-300"}`} />
       <div className="flex items-start justify-between gap-3"><p className={`text-xs font-bold uppercase tracking-widest ${creative ? "text-amber-800" : "text-sky-700"}`}>{work.category}</p><StatusBadge status={work.status} /></div>
       <p className="mt-6 text-[.65rem] font-bold uppercase tracking-[.16em] text-neutral-400">{brandLabel(work.brand)} · {formatDate(work.date)}</p>

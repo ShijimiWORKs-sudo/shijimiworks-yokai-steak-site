@@ -16,6 +16,7 @@ export function ShijimiHero() {
   return (
     <section className="shijimi-hero relative overflow-hidden px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
       <div className="shijimi-grid-bg" aria-hidden="true" />
+      <div className="shijimi-light-flow" aria-hidden="true" />
       <div className="relative mx-auto grid max-w-7xl gap-14 lg:grid-cols-[1.05fr_.95fr] lg:items-center">
         <div>
           <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-[.25em] text-sky-700"><span className="h-px w-10 bg-sky-700" />ShijimiWORKs</div>
@@ -37,6 +38,7 @@ export function ShijimiHero() {
               </Link>
             ))}
           </div>
+          <div className="workflow-status"><span><i />Input</span><b>→</b><span><i />AI assist</span><b>→</b><span><i />Publish</span></div>
         </div>
       </div>
     </section>

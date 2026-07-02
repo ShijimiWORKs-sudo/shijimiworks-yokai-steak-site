@@ -41,12 +41,14 @@ function LobbyCopy() {
 export function SplitHero() {
   return (
     <section className="split-hero relative overflow-hidden">
+      <div className="split-aurora" aria-hidden="true" />
       <LobbyCopy />
       <div className="studio-seam hidden lg:block" aria-hidden="true" />
 
       <div className="grid lg:grid-cols-2">
         <article className="studio-panel studio-panel-light relative overflow-hidden px-5 py-12 sm:px-8 lg:min-h-[calc(100vh-69px)] lg:px-8 lg:pb-6 lg:pt-[10.5rem] xl:px-12">
           <div className="studio-orb studio-orb-blue" aria-hidden="true" />
+          <div className="studio-network" aria-hidden="true"><i /><i /><i /><i /><i /></div>
           <div className="relative mx-auto max-w-2xl lg:ml-auto">
             <div className="flex items-center gap-3">
               <span className="h-px w-9 bg-sky-700" />
@@ -74,6 +76,7 @@ export function SplitHero() {
         <article className="studio-panel studio-panel-dark relative overflow-hidden px-5 py-12 text-stone-100 sm:px-8 lg:min-h-[calc(100vh-69px)] lg:px-8 lg:pb-6 lg:pt-[10.5rem] xl:px-12">
           <div className="studio-orb studio-orb-gold" aria-hidden="true" />
           <div className="cinema-grain" aria-hidden="true" />
+          <div className="story-wave" aria-hidden="true">{Array.from({ length: 24 }).map((_, index) => <i key={index} />)}</div>
           <div className="relative mx-auto max-w-2xl lg:mr-auto">
             <div className="flex items-center gap-3">
               <span className="h-px w-9 bg-amber-300/80" />
