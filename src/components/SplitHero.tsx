@@ -33,28 +33,9 @@ export function SplitHero() {
         <div className="split-invasion split-invasion-youkai" aria-hidden="true" />
         <BoundaryLight activeSide={activeSide} />
 
-        <MotionSection className="split-concept-card" delay={0.02}>
-          <span>ShijimiWORKs / 妖怪ステーキ</span>
-          <h1>AIで作り、<br />物語で届ける。</h1>
-          <p>仕事としての制作と、作品としての創作。二つの世界を選んでください。</p>
-        </MotionSection>
-
-        <div className="split-world-hints split-world-hints-shijimi" aria-hidden="true">
-          <i /><i /><i /><b />
-        </div>
-        <div className="split-world-hints split-world-hints-youkai" aria-hidden="true">
-          <i /><i /><i /><b />
-        </div>
-
-        <MotionSection className="split-landing-caption" delay={0.04}>
-          <p>Two Names, One Studio.</p>
-          <Link href="/works" className="split-works-link">
-            Worksを見る <ArrowUpRight aria-hidden="true" />
-          </Link>
-        </MotionSection>
-
         <motion.div
           className="split-side-motion split-side-motion-shijimi"
+          initial={false}
           animate={{ width: leftWidth }}
           transition={{ duration: 0.78, ease: [0.22, 1, 0.36, 1] }}
         >
@@ -75,6 +56,7 @@ export function SplitHero() {
 
         <motion.div
           className="split-side-motion split-side-motion-youkai"
+          initial={false}
           animate={{ width: rightWidth }}
           transition={{ duration: 0.78, ease: [0.22, 1, 0.36, 1] }}
         >

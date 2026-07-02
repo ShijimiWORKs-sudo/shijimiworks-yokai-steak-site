@@ -1718,3 +1718,86 @@ footer a { text-underline-offset: .25em; }
     display: none;
   }
 }
+
+/* v1.38 correction: PC home is the OGP image itself, not UI over image */
+@media (min-width: 768px) {
+  .split-visual-landing {
+    min-height: calc(100svh - 4rem);
+    padding: 0;
+    background: #050302;
+  }
+  .split-visual-stage {
+    width: 100%;
+    min-height: calc(100svh - 4rem);
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .split-visual-image {
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1);
+  }
+  .split-visual-stage:hover .split-visual-image {
+    filter: none;
+  }
+  .split-visual-vignette {
+    background:
+      linear-gradient(180deg, rgba(0,0,0,.1), transparent 28%, transparent 74%, rgba(0,0,0,.18)),
+      radial-gradient(circle at 50% 50%, transparent 54%, rgba(0,0,0,.12));
+  }
+  .split-invasion {
+    opacity: 0;
+  }
+  .split-visual-stage[data-active="shijimi"] .split-invasion-shijimi {
+    opacity: .18;
+  }
+  .split-visual-stage[data-active="youkai"] .split-invasion-youkai {
+    opacity: .18;
+  }
+  .split-visual-stage[data-active="shijimi"] .split-visual-image {
+    transform: scale(1.025) translateX(1.2%);
+    filter: saturate(1.03) contrast(1.015) brightness(1.015);
+  }
+  .split-visual-stage[data-active="youkai"] .split-visual-image {
+    transform: scale(1.025) translateX(-1.2%);
+    filter: saturate(1.04) contrast(1.025) brightness(.99);
+  }
+  .boundary-light-svg {
+    z-index: 4;
+    opacity: .68;
+  }
+  .split-side-motion {
+    z-index: 6;
+  }
+  .split-side-hitarea::before {
+    opacity: 0;
+    background: transparent;
+  }
+  .split-side-hitarea:hover::before,
+  .split-side-hitarea:focus-visible::before {
+    opacity: 0;
+  }
+  .split-side-cta {
+    bottom: clamp(2rem, 5vw, 4.5rem);
+    min-height: 2.7rem;
+    padding: .7rem 1rem;
+    font-size: .8rem;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .split-side-shijimi .split-side-cta {
+    left: clamp(1.4rem, 5vw, 5.5rem);
+    background: rgba(255,255,255,.72);
+  }
+  .split-side-youkai .split-side-cta {
+    right: clamp(1.4rem, 5vw, 5.5rem);
+    background: rgba(20,9,5,.68);
+  }
+  .split-concept-card,
+  .split-world-hints,
+  .split-landing-caption,
+  .split-works-link {
+    display: none !important;
+  }
+}
