@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { Button } from "@/components/Button";
 import { ExternalLinks } from "@/components/ExternalLinks";
 import { YoukaiInteractiveHero } from "@/components/YoukaiInteractiveHero";
+import { YoukaiUpdatesCarousel } from "@/components/YoukaiUpdatesCarousel";
 import { links } from "@/data/links";
 
 export const metadata: Metadata = {
@@ -21,14 +22,6 @@ export const metadata: Metadata = {
     images: ["/images/ogp/youkai-steak-ogp.png"],
   },
 };
-
-const updates = [
-  { kind: "NOVEL", title: "月と影の記憶 第8話 更新", date: "06.28", href: links.youkaiSteakNarou },
-  { kind: "PODCAST", title: "声で語る物語 #12 公開", date: "06.24", href: links.youkaiSteakPodcast },
-  { kind: "CINEMA", title: "PERFECT DAYS 考察", date: "06.18", href: "/articles/cinema-into-life-words" },
-  { kind: "YOUTUBE", title: "短編『雨の記憶』公開", date: "06.12", href: links.youkaiSteakYoutube },
-  { kind: "RAKUGO", title: "『芝浜』を観て", date: "06.05", href: "/articles" },
-] as const;
 
 const ongoing = ["連載小説", "Podcast番組", "YouTube朗読シリーズ", "落語研究ノート", "映画レビュー"];
 const themes = ["人間ドラマ", "記憶と喪失", "孤独とつながり", "日常の美しさ", "言葉の力"];
@@ -51,9 +44,7 @@ export default function YoukaiSteakPage() {
     <div className="youkai-page bg-[#080604] text-stone-100">
       <YoukaiInteractiveHero />
 
-      <YoukaiSection eyebrow="Latest Updates" title="最新の更新" alternate>
-        <div className="youkai-update-list">{updates.map((update) => <Link key={update.title} href={update.href} target={update.href.startsWith("http") ? "_blank" : undefined} rel={update.href.startsWith("http") ? "noopener noreferrer" : undefined} className="youkai-update-card"><span>{update.date}</span><small>{update.kind}</small><h3>{update.title}</h3><b aria-hidden="true">→</b></Link>)}</div>
-      </YoukaiSection>
+      <YoukaiUpdatesCarousel />
 
       <YoukaiSection eyebrow="Ongoing Works" title="進行中の創作" description="完成するまでの時間も、物語の一部として記録します。">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">{ongoing.map((work, index) => <article key={work} className="youkai-ongoing-card"><span>0{index + 1}</span><div className="youkai-progress"><i style={{ width: `${42 + index * 9}%` }} /></div><h3>{work}</h3><p>{index % 2 === 0 ? "執筆・構成を進めています。" : "公開と改善を続けています。"}</p></article>)}</div>

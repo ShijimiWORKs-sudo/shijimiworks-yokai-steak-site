@@ -589,6 +589,397 @@ section { scroll-margin-top: 6rem; }
     transform: none;
   }
 }
+
+/* Youkai latest updates carousel */
+.youkai-updates-carousel-section {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(4.5rem, 8vw, 7rem) clamp(1rem, 3vw, 2.5rem);
+  background:
+    radial-gradient(circle at 12% 18%, rgba(127, 29, 29, .18), transparent 24rem),
+    radial-gradient(circle at 88% 22%, rgba(245, 158, 11, .16), transparent 28rem),
+    linear-gradient(180deg, #0b0503 0%, #160905 48%, #090504 100%);
+}
+
+.youkai-updates-carousel-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .22;
+  background-image:
+    linear-gradient(rgba(255, 228, 180, .05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 228, 180, .035) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: linear-gradient(180deg, transparent, #000 22%, #000 76%, transparent);
+}
+
+.youkai-updates-carousel-inner {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 82rem);
+  margin: 0 auto;
+}
+
+.youkai-updates-carousel-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.youkai-updates-carousel-header p {
+  color: #f0b35f;
+  font-size: .65rem;
+  font-weight: 900;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+}
+
+.youkai-updates-carousel-header h2 {
+  margin-top: .55rem;
+  color: #fff3dc;
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  font-size: clamp(2.4rem, 5vw, 4.8rem);
+  line-height: 1.02;
+  text-shadow: 0 14px 42px rgba(0, 0, 0, .5);
+}
+
+.youkai-updates-carousel-header span {
+  display: block;
+  margin-top: .9rem;
+  color: rgba(244, 231, 210, .74);
+  line-height: 1.9;
+}
+
+.youkai-updates-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: .75rem;
+  flex: 0 0 auto;
+  border: 1px solid rgba(245, 158, 11, .18);
+  border-radius: 999px;
+  background: rgba(18, 8, 4, .74);
+  padding: .45rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .28);
+}
+
+.youkai-updates-controls button {
+  display: grid;
+  width: 2.7rem;
+  height: 2.7rem;
+  place-items: center;
+  border: 1px solid rgba(245, 158, 11, .22);
+  border-radius: 999px;
+  background: rgba(245, 158, 11, .08);
+  color: #ffe4b4;
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.youkai-updates-controls button:hover,
+.youkai-updates-controls button:focus-visible {
+  border-color: rgba(245, 158, 11, .58);
+  background: rgba(245, 158, 11, .16);
+  box-shadow: 0 0 22px rgba(245, 158, 11, .18);
+  transform: translateY(-1px);
+}
+
+.youkai-updates-controls svg {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+.youkai-updates-controls small {
+  min-width: 4.4rem;
+  color: rgba(255, 229, 183, .7);
+  font-size: .72rem;
+  font-weight: 900;
+  letter-spacing: .16em;
+  text-align: center;
+}
+
+.youkai-updates-frame {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(245, 158, 11, .13);
+  border-radius: 1.5rem;
+  background:
+    linear-gradient(90deg, rgba(255, 218, 153, .04), transparent 18%, transparent 82%, rgba(255, 218, 153, .04)),
+    rgba(7, 4, 3, .72);
+  box-shadow: inset 0 1px 0 rgba(255, 236, 198, .05), 0 34px 90px rgba(0, 0, 0, .34);
+}
+
+.youkai-updates-frame::before,
+.youkai-updates-frame::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  width: clamp(2rem, 6vw, 5rem);
+  pointer-events: none;
+}
+
+.youkai-updates-frame::before {
+  left: 0;
+  background: linear-gradient(90deg, rgba(8, 4, 3, .94), transparent);
+}
+
+.youkai-updates-frame::after {
+  right: 0;
+  background: linear-gradient(270deg, rgba(8, 4, 3, .94), transparent);
+}
+
+.youkai-updates-track {
+  --youkai-update-gap: 1rem;
+  display: flex;
+  gap: var(--youkai-update-gap);
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding: 1rem;
+}
+
+.youkai-updates-track::-webkit-scrollbar {
+  display: none;
+}
+
+.youkai-update-slide {
+  flex: 0 0 calc((100% - 3rem) / 4);
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+.youkai-update-slide-link {
+  position: relative;
+  display: flex;
+  min-height: 28rem;
+  height: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(245, 158, 11, .18);
+  border-radius: 1.25rem;
+  background:
+    radial-gradient(circle at 70% 8%, rgba(245, 158, 11, .14), transparent 12rem),
+    linear-gradient(180deg, rgba(45, 19, 10, .86), rgba(10, 5, 3, .94));
+  color: #fff3dc;
+  box-shadow: 0 28px 58px rgba(0, 0, 0, .28);
+  transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease;
+}
+
+.youkai-update-slide-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .22;
+  background:
+    linear-gradient(120deg, transparent 0 44%, rgba(255, 230, 180, .12) 50%, transparent 56%),
+    radial-gradient(circle at 30% 100%, rgba(127, 29, 29, .16), transparent 16rem);
+  transition: opacity .28s ease;
+}
+
+.youkai-update-slide-link:hover,
+.youkai-update-slide-link:focus-visible {
+  border-color: rgba(245, 158, 11, .48);
+  box-shadow: 0 32px 78px rgba(0, 0, 0, .42), 0 0 44px rgba(245, 158, 11, .14);
+  transform: translateY(-7px);
+}
+
+.youkai-update-slide-link:hover::after,
+.youkai-update-slide-link:focus-visible::after {
+  opacity: .38;
+}
+
+.youkai-update-slide-image {
+  position: relative;
+  display: block;
+  height: 12.5rem;
+  overflow: hidden;
+  background: #100806;
+}
+
+.youkai-update-slide-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 44%, rgba(9, 4, 3, .86));
+  pointer-events: none;
+}
+
+.youkai-update-slide-image img {
+  object-fit: cover;
+  filter: brightness(.75) saturate(.92);
+  transition: transform .45s ease, filter .45s ease;
+}
+
+.youkai-update-slide-link:hover img,
+.youkai-update-slide-link:focus-visible img {
+  transform: scale(1.06);
+  filter: brightness(1.05) saturate(1.08);
+}
+
+.youkai-update-slide-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  padding: 1.05rem 1.05rem 0;
+}
+
+.youkai-update-slide-meta small {
+  color: rgba(255, 229, 183, .55);
+  font-size: .68rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+
+.youkai-update-slide-meta b {
+  border: 1px solid rgba(245, 158, 11, .25);
+  border-radius: 999px;
+  background: rgba(245, 158, 11, .1);
+  color: #f7c578;
+  padding: .24rem .5rem;
+  font-size: .58rem;
+  letter-spacing: .16em;
+}
+
+.youkai-update-slide-link strong {
+  display: block;
+  padding: .8rem 1.05rem 0;
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  font-size: 1.34rem;
+  line-height: 1.34;
+}
+
+.youkai-update-slide-link em {
+  display: block;
+  flex: 1;
+  padding: .7rem 1.05rem 0;
+  color: rgba(244, 231, 210, .72);
+  font-style: normal;
+  line-height: 1.75;
+}
+
+.youkai-update-slide-action {
+  display: inline-flex;
+  align-items: center;
+  gap: .38rem;
+  margin: 1.15rem 1.05rem 1.05rem;
+  color: #ffd58a;
+  font-size: .82rem;
+  font-weight: 900;
+}
+
+.youkai-update-slide-action svg {
+  width: .9rem;
+  height: .9rem;
+  transition: transform .2s ease;
+}
+
+.youkai-update-slide-link:hover .youkai-update-slide-action svg,
+.youkai-update-slide-link:focus-visible .youkai-update-slide-action svg {
+  transform: translate(2px, -2px);
+}
+
+.youkai-updates-dots {
+  display: flex;
+  justify-content: center;
+  gap: .45rem;
+  margin-top: 1rem;
+}
+
+.youkai-updates-dots button {
+  width: .48rem;
+  height: .48rem;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 229, 183, .28);
+  cursor: pointer;
+  transition: width .2s ease, background .2s ease, box-shadow .2s ease;
+}
+
+.youkai-updates-dots button.is-active {
+  width: 1.5rem;
+  background: #f7c578;
+  box-shadow: 0 0 18px rgba(245, 158, 11, .36);
+}
+
+@media (max-width: 1279px) {
+  .youkai-update-slide {
+    flex-basis: calc((100% - 2rem) / 3);
+  }
+}
+
+@media (max-width: 899px) {
+  .youkai-updates-carousel-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .youkai-update-slide {
+    flex-basis: min(82vw, 24rem);
+  }
+
+  .youkai-updates-controls {
+    align-self: stretch;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 639px) {
+  .youkai-updates-carousel-section {
+    padding: 3.8rem .75rem;
+  }
+
+  .youkai-updates-carousel-header h2 {
+    font-size: clamp(2.2rem, 13vw, 3.4rem);
+  }
+
+  .youkai-updates-frame {
+    border-radius: 1.1rem;
+  }
+
+  .youkai-updates-track {
+    padding: .75rem;
+  }
+
+  .youkai-update-slide {
+    flex-basis: calc(100vw - 2.6rem);
+  }
+
+  .youkai-update-slide-link {
+    min-height: 26rem;
+    border-radius: 1rem;
+  }
+
+  .youkai-update-slide-image {
+    height: 11.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .youkai-updates-track {
+    scroll-behavior: auto;
+  }
+
+  .youkai-updates-controls button,
+  .youkai-update-slide-link,
+  .youkai-update-slide-link::after,
+  .youkai-update-slide-image img,
+  .youkai-update-slide-action svg,
+  .youkai-updates-dots button {
+    transition: none;
+  }
+
+  .youkai-update-slide-link:hover,
+  .youkai-update-slide-link:focus-visible {
+    transform: none;
+  }
+}
 .studio-panel-dark {
   background:
     radial-gradient(circle at 86% 17%, rgba(139,66,32,.34), transparent 31%),
