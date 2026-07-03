@@ -32,6 +32,563 @@ section { scroll-margin-top: 6rem; }
   background:
     linear-gradient(130deg, rgba(255,255,255,.94) 0%, rgba(246,244,236,.95) 52%, rgba(219,231,234,.88) 100%);
 }
+
+/* Youkai Steak interactive story room */
+.youkai-interactive-shell {
+  position: relative;
+  overflow-x: clip;
+  background:
+    radial-gradient(circle at 80% 8%, rgba(180, 83, 9, .16), transparent 28rem),
+    linear-gradient(180deg, #080604 0%, #120805 58%, #070403 100%);
+  color: #fff3dc;
+}
+
+.youkai-local-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: .85rem clamp(1rem, 3vw, 2.5rem);
+  border-bottom: 1px solid rgba(245, 158, 11, .16);
+  background:
+    linear-gradient(90deg, rgba(9, 5, 3, .94), rgba(31, 14, 8, .86)),
+    radial-gradient(circle at 18% 50%, rgba(245, 158, 11, .11), transparent 18rem);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+
+.youkai-local-brand {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: .85rem;
+  color: #fff3dc;
+}
+
+.youkai-local-icon {
+  width: 3rem;
+  height: 3rem;
+  flex: 0 0 auto;
+  border: 1px solid rgba(245, 158, 11, .34);
+  border-radius: 999px;
+  object-fit: cover;
+  box-shadow: 0 0 28px rgba(245, 158, 11, .14);
+}
+
+.youkai-local-brand strong {
+  display: block;
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  font-size: 1.12rem;
+  letter-spacing: .03em;
+}
+
+.youkai-local-brand small {
+  display: block;
+  margin-top: .12rem;
+  color: rgba(255, 232, 190, .62);
+  font-size: .58rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.youkai-local-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: .35rem .78rem;
+  font-size: .68rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.youkai-local-nav a {
+  color: rgba(255, 232, 190, .68);
+  padding: .45rem .05rem;
+  transition: color .2s ease, text-shadow .2s ease, transform .2s ease;
+}
+
+.youkai-local-nav a:hover,
+.youkai-local-nav a:focus-visible {
+  color: #ffd58a;
+  text-shadow: 0 0 16px rgba(245, 158, 11, .42);
+  transform: translateY(-1px);
+}
+
+.youkai-visual-hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  min-height: min(58rem, calc(100svh - 4.7rem));
+  align-items: center;
+  overflow: hidden;
+}
+
+.youkai-visual-hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 2;
+  height: 10rem;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent, #080604 82%);
+}
+
+.youkai-visual-hero-bg {
+  z-index: 0;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(1.03) contrast(1.03) brightness(.82);
+}
+
+.youkai-visual-hero-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 76% 32%, rgba(245, 158, 11, .22), transparent 27rem),
+    radial-gradient(circle at 50% 70%, rgba(255, 214, 148, .08), transparent 20rem),
+    linear-gradient(90deg, rgba(5, 3, 2, .92) 0%, rgba(12, 7, 5, .7) 44%, rgba(12, 7, 5, .2) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, .08), rgba(0, 0, 0, .7));
+}
+
+.youkai-visual-hero-content {
+  position: relative;
+  z-index: 3;
+  width: min(100%, 80rem);
+  margin: 0 auto;
+  padding: clamp(4.2rem, 8vw, 7rem) clamp(1.25rem, 4vw, 3rem);
+}
+
+.youkai-visual-copy {
+  max-width: 43rem;
+}
+
+.youkai-visual-copy p {
+  display: inline-flex;
+  border: 1px solid rgba(245, 158, 11, .28);
+  border-radius: 999px;
+  background: rgba(40, 20, 12, .52);
+  color: #e9b66b;
+  padding: .45rem .78rem;
+  font-size: .58rem;
+  font-weight: 900;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  box-shadow: 0 0 26px rgba(245, 158, 11, .08);
+}
+
+.youkai-visual-copy h1 {
+  margin-top: 1.5rem;
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  font-size: clamp(3.1rem, 7vw, 6.8rem);
+  line-height: 1.04;
+  letter-spacing: -.045em;
+  color: #fff3dc;
+  text-shadow: 0 10px 46px rgba(0, 0, 0, .76), 0 0 34px rgba(245, 158, 11, .12);
+}
+
+.youkai-visual-copy span {
+  display: block;
+  max-width: 43rem;
+  margin-top: 1.45rem;
+  color: rgba(244, 231, 210, .83);
+  font-size: clamp(.95rem, 1.35vw, 1.18rem);
+  line-height: 2;
+}
+
+.youkai-story-gate {
+  position: relative;
+  z-index: 5;
+  margin-top: -5rem;
+  padding: 0 clamp(1rem, 3vw, 2.5rem) 5.5rem;
+}
+
+.youkai-story-grid-wrap,
+.youkai-story-panel {
+  width: min(100%, 82rem);
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid rgba(245, 158, 11, .16);
+  border-radius: 1.65rem;
+  background:
+    radial-gradient(circle at 82% 0%, rgba(245, 158, 11, .12), transparent 22rem),
+    linear-gradient(145deg, rgba(28, 13, 8, .92), rgba(7, 4, 3, .88));
+  box-shadow: 0 38px 110px rgba(0, 0, 0, .42);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+.youkai-story-gate-header {
+  padding: 1.4rem 1.45rem .7rem;
+}
+
+.youkai-story-gate-header p {
+  color: #d89c52;
+  font-size: .62rem;
+  font-weight: 900;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+.youkai-story-gate-header h2 {
+  margin-top: .45rem;
+  color: #fff3dc;
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  line-height: 1.05;
+}
+
+.youkai-story-gate-header span {
+  display: block;
+  margin-top: .55rem;
+  color: rgba(231, 213, 190, .7);
+}
+
+.youkai-story-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1px;
+  background: rgba(245, 158, 11, .12);
+}
+
+.youkai-story-card {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  min-height: 18rem;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  border: 0;
+  background: #130b07;
+  color: #fff3dc;
+  padding: 1rem;
+  text-align: left;
+  cursor: pointer;
+  transition: opacity .3s ease, transform .32s ease, box-shadow .32s ease;
+}
+
+.youkai-story-card img {
+  z-index: -1;
+  object-fit: cover;
+  filter: brightness(.68) saturate(.92);
+  transition: transform .5s ease, filter .5s ease, opacity .5s ease;
+}
+
+.youkai-story-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(245, 158, 11, .16), transparent 36%),
+    linear-gradient(180deg, rgba(0, 0, 0, .04), rgba(0, 0, 0, .82));
+  opacity: .72;
+  transition: opacity .35s ease;
+}
+
+.youkai-story-card span,
+.youkai-story-card strong {
+  position: relative;
+  z-index: 1;
+  transition: transform .28s ease, color .28s ease, text-shadow .28s ease;
+}
+
+.youkai-story-card span {
+  color: #dca75f;
+  font-size: .62rem;
+  font-weight: 900;
+  letter-spacing: .18em;
+}
+
+.youkai-story-card strong {
+  margin-top: .45rem;
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  font-size: 1.18rem;
+  line-height: 1.25;
+}
+
+.youkai-story-grid:has(.youkai-story-card:hover) .youkai-story-card:not(:hover) {
+  opacity: .42;
+}
+
+.youkai-story-card:hover,
+.youkai-story-card:focus-visible {
+  z-index: 2;
+  transform: translateY(-6px);
+  box-shadow: 0 24px 54px rgba(0, 0, 0, .45), 0 0 34px rgba(245, 158, 11, .18);
+}
+
+.youkai-story-card:hover img,
+.youkai-story-card:focus-visible img {
+  transform: scale(1.07);
+  filter: brightness(1.08) saturate(1.08);
+}
+
+.youkai-story-card:hover::after,
+.youkai-story-card:focus-visible::after {
+  opacity: .5;
+}
+
+.youkai-story-card:hover span,
+.youkai-story-card:focus-visible span {
+  color: #ffd28a;
+  text-shadow: 0 0 18px rgba(245, 158, 11, .55);
+  transform: translateY(-.45rem);
+}
+
+.youkai-story-card:hover strong,
+.youkai-story-card:focus-visible strong {
+  transform: translateY(-.2rem);
+}
+
+.youkai-story-card:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: -6px;
+}
+
+.youkai-story-panel {
+  display: grid;
+  grid-template-columns: minmax(0, .96fr) minmax(0, 1.04fr);
+  min-height: 34rem;
+}
+
+.youkai-story-panel-image {
+  position: relative;
+  min-height: 34rem;
+  background: #100806;
+}
+
+.youkai-story-panel-image img {
+  object-fit: cover;
+}
+
+.youkai-story-panel-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(1.4rem, 3vw, 2.6rem);
+}
+
+.youkai-story-back {
+  align-self: flex-start;
+  border: 1px solid rgba(245, 158, 11, .25);
+  border-radius: 999px;
+  background: rgba(245, 158, 11, .07);
+  color: #ffe3b0;
+  padding: .55rem .9rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform .2s ease, border-color .2s ease, background .2s ease;
+}
+
+.youkai-story-back:hover,
+.youkai-story-back:focus-visible {
+  border-color: rgba(245, 158, 11, .55);
+  background: rgba(245, 158, 11, .14);
+  transform: translateX(-2px);
+}
+
+.youkai-story-panel-body p {
+  margin-top: 2rem;
+  color: #d89c52;
+  font-size: .66rem;
+  font-weight: 900;
+  letter-spacing: .2em;
+}
+
+.youkai-story-panel-body h2 {
+  margin-top: .6rem;
+  color: #fff3dc;
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1.08;
+}
+
+.youkai-story-panel-body > span {
+  margin-top: 1.2rem;
+  color: rgba(244, 231, 210, .78);
+  line-height: 2;
+}
+
+.youkai-story-panel-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem;
+  margin-top: 1.5rem;
+}
+
+.youkai-story-panel-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: .42rem;
+  border: 1px solid rgba(245, 158, 11, .28);
+  border-radius: 999px;
+  background: rgba(245, 158, 11, .08);
+  color: #ffe5b7;
+  padding: .72rem .95rem;
+  font-size: .82rem;
+  font-weight: 900;
+  transition: transform .2s ease, border-color .2s ease, background .2s ease;
+}
+
+.youkai-story-panel-links a:hover,
+.youkai-story-panel-links a:focus-visible {
+  border-color: rgba(245, 158, 11, .55);
+  background: rgba(245, 158, 11, .16);
+  transform: translateY(-2px);
+}
+
+.youkai-story-panel-links svg {
+  width: .9rem;
+  height: .9rem;
+}
+
+@media (max-width: 1023px) {
+  .youkai-local-header {
+    position: relative;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .youkai-local-nav {
+    width: 100%;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: .2rem;
+    scrollbar-width: thin;
+  }
+
+  .youkai-local-nav a {
+    flex: 0 0 auto;
+  }
+
+  .youkai-visual-hero {
+    min-height: auto;
+  }
+
+  .youkai-visual-hero-content {
+    padding-bottom: 6rem;
+  }
+
+  .youkai-story-gate {
+    margin-top: -2.25rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .youkai-story-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .youkai-story-card {
+    min-height: 15rem;
+  }
+
+  .youkai-story-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .youkai-story-panel-image {
+    min-height: 18rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .youkai-local-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .youkai-local-brand strong {
+    font-size: 1rem;
+  }
+
+  .youkai-local-brand small {
+    max-width: 72vw;
+    overflow: hidden;
+    font-size: .48rem;
+    letter-spacing: .12em;
+    text-overflow: ellipsis;
+  }
+
+  .youkai-visual-hero-content {
+    padding: 3.2rem 1rem 5rem;
+  }
+
+  .youkai-visual-copy p {
+    font-size: .5rem;
+    letter-spacing: .12em;
+  }
+
+  .youkai-visual-copy h1 {
+    font-size: clamp(2.7rem, 16vw, 4.2rem);
+  }
+
+  .youkai-visual-copy span {
+    font-size: .92rem;
+    line-height: 1.9;
+  }
+
+  .youkai-story-gate {
+    padding-inline: .75rem;
+  }
+
+  .youkai-story-grid-wrap,
+  .youkai-story-panel {
+    border-radius: 1.1rem;
+  }
+
+  .youkai-story-gate-header {
+    padding: 1.1rem 1rem .6rem;
+  }
+
+  .youkai-story-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .youkai-story-card {
+    min-height: 13.5rem;
+  }
+
+  .youkai-story-panel-body {
+    padding: 1.15rem;
+  }
+
+  .youkai-story-panel-image {
+    min-height: 15rem;
+  }
+
+  .youkai-story-panel-links a {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .youkai-local-nav a,
+  .youkai-story-card,
+  .youkai-story-card img,
+  .youkai-story-card span,
+  .youkai-story-card strong,
+  .youkai-story-back,
+  .youkai-story-panel-links a {
+    transition: none;
+  }
+
+  .youkai-story-card:hover,
+  .youkai-story-card:focus-visible {
+    transform: none;
+  }
+}
 .studio-panel-dark {
   background:
     radial-gradient(circle at 86% 17%, rgba(139,66,32,.34), transparent 31%),
