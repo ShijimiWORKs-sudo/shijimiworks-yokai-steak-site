@@ -5,6 +5,7 @@ import { Button } from "@/components/Button";
 import { ExternalLinks } from "@/components/ExternalLinks";
 import { YoukaiInteractiveHero } from "@/components/YoukaiInteractiveHero";
 import { YoukaiOngoingWorks } from "@/components/YoukaiOngoingWorks";
+import { YoukaiThemes } from "@/components/YoukaiThemes";
 import { YoukaiUpdatesCarousel } from "@/components/YoukaiUpdatesCarousel";
 import { links } from "@/data/links";
 
@@ -24,7 +25,6 @@ export const metadata: Metadata = {
   },
 };
 
-const themes = ["人間ドラマ", "記憶と喪失", "孤独とつながり", "日常の美しさ", "言葉の力"];
 const youkaiLinks = [
   { label: "noteを見る", href: links.youkaiSteakNote },
   { label: "Substackを見る", href: links.youkaiSteakSubstack },
@@ -48,9 +48,7 @@ export default function YoukaiSteakPage() {
 
       <YoukaiOngoingWorks />
 
-      <YoukaiSection eyebrow="Themes" title="物語の中心にあるもの" alternate>
-        <div className="youkai-theme-grid">{themes.map((theme, index) => <article key={theme}><span aria-hidden="true">{["人", "憶", "結", "日", "言"][index]}</span><h3>{theme}</h3></article>)}</div>
-      </YoukaiSection>
+      <YoukaiThemes />
 
       <YoukaiSection id="youkai-about" eyebrow="About" title="About 妖怪ステーキ">
         <div className="grid gap-10 lg:grid-cols-[.78fr_1.22fr] lg:items-start"><div className="youkai-about-quote"><span>STORY / VOICE / CINEMA</span><p>物語を読み、観て、聴き、そこから生まれた言葉を届ける。</p></div><div className="space-y-5 text-base leading-8 text-stone-300"><p>妖怪ステーキは、小説・映画感想・Podcast・動画・落語など、物語をさまざまな形で届ける創作名義です。</p><p>ジャンルや形式にとらわれず、心に残る物語を読み、観て、聴き、そこから生まれた言葉を世界に届けることを目指しています。</p><p>その活動の裏側では、ShijimiWORKsとしてAI活用、コンテンツ管理、自動化、投稿導線の設計も行っています。</p><Link href="/shijimiworks" className="inline-flex text-sm font-bold text-amber-300 hover:text-amber-200">制作の裏側、ShijimiWORKsへ →</Link></div></div>

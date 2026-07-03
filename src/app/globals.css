@@ -1249,6 +1249,347 @@ section { scroll-margin-top: 6rem; }
     transform: none;
   }
 }
+
+/* Youkai themes scroll scenes */
+.youkai-themes-section {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(4.5rem, 8vw, 7.5rem) clamp(1rem, 3vw, 2.5rem);
+  background:
+    radial-gradient(circle at 18% 8%, rgba(245, 158, 11, .12), transparent 26rem),
+    radial-gradient(circle at 78% 18%, rgba(127, 29, 29, .16), transparent 28rem),
+    linear-gradient(180deg, #080403 0%, #130905 42%, #070403 100%);
+}
+
+.youkai-themes-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .28;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 224, 170, .09), transparent 32rem),
+    linear-gradient(90deg, transparent, rgba(255, 220, 170, .055), transparent);
+  mask-image: linear-gradient(180deg, transparent, #000 16%, #000 84%, transparent);
+}
+
+.youkai-themes-inner {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 82rem);
+  margin: 0 auto;
+}
+
+.youkai-themes-header {
+  max-width: 56rem;
+  margin-bottom: clamp(2.5rem, 6vw, 4.8rem);
+}
+
+.youkai-themes-header p {
+  color: #f0b35f;
+  font-size: .65rem;
+  font-weight: 900;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+}
+
+.youkai-themes-header h2 {
+  margin-top: .55rem;
+  color: #fff3dc;
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  font-size: clamp(2.5rem, 5.4vw, 5.2rem);
+  line-height: 1.02;
+  text-shadow: 0 14px 42px rgba(0, 0, 0, .5);
+}
+
+.youkai-themes-header span {
+  display: block;
+  max-width: 48rem;
+  margin-top: .95rem;
+  color: rgba(244, 231, 210, .74);
+  line-height: 1.9;
+}
+
+.youkai-themes-list {
+  display: grid;
+  gap: clamp(1.6rem, 5vw, 4rem);
+}
+
+.youkai-theme-scene {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  min-height: clamp(22rem, 56vh, 34rem);
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+  gap: clamp(1rem, 4vw, 4rem);
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(245, 158, 11, .14);
+  border-radius: clamp(1.3rem, 3vw, 2.2rem);
+  background:
+    radial-gradient(circle at 22% 28%, rgba(245, 158, 11, .17), transparent 16rem),
+    radial-gradient(circle at 82% 66%, rgba(127, 29, 29, .14), transparent 17rem),
+    linear-gradient(135deg, rgba(35, 15, 8, .88), rgba(8, 4, 3, .94));
+  padding: clamp(1.1rem, 4vw, 3rem);
+  box-shadow: 0 34px 100px rgba(0, 0, 0, .36);
+}
+
+.youkai-theme-scene::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  z-index: -1;
+  opacity: .5;
+  background:
+    radial-gradient(circle at 28% 42%, rgba(255, 219, 154, .18), transparent 16rem),
+    linear-gradient(120deg, transparent 34%, rgba(255, 230, 186, .08) 50%, transparent 66%);
+  transform: translate3d(-4%, -2%, 0);
+  animation: youkaiThemeLight 8s ease-in-out infinite alternate;
+}
+
+.youkai-theme-scene::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, .04), rgba(0, 0, 0, .5)),
+    radial-gradient(circle at 50% 50%, transparent 34%, rgba(0, 0, 0, .28));
+}
+
+.youkai-theme-scene.is-reverse {
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+}
+
+.youkai-theme-scene.is-reverse .youkai-theme-title-block {
+  grid-column: 2;
+  text-align: right;
+}
+
+.youkai-theme-scene.is-reverse .youkai-theme-description-block {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.youkai-theme-title-block {
+  position: relative;
+}
+
+.youkai-theme-title-block span {
+  display: block;
+  color: rgba(255, 229, 183, .14);
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  font-size: clamp(7rem, 18vw, 16rem);
+  line-height: .8;
+  text-shadow: 0 0 42px rgba(245, 158, 11, .08);
+}
+
+.youkai-theme-title-block h3 {
+  position: relative;
+  margin-top: clamp(-3.4rem, -4vw, -1.6rem);
+  color: #fff3dc;
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  font-size: clamp(2.5rem, 6vw, 5.6rem);
+  line-height: 1.02;
+  letter-spacing: -.04em;
+  text-shadow: 0 14px 42px rgba(0, 0, 0, .6), 0 0 26px rgba(245, 158, 11, .12);
+}
+
+.youkai-theme-description-block {
+  justify-self: stretch;
+  border: 1px solid rgba(245, 158, 11, .18);
+  border-radius: 1.25rem;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(245, 158, 11, .13), transparent 12rem),
+    linear-gradient(180deg, rgba(248, 226, 190, .08), rgba(10, 5, 3, .38));
+  padding: clamp(1.2rem, 3vw, 2.2rem);
+  box-shadow: inset 0 1px 0 rgba(255, 241, 216, .07), 0 22px 70px rgba(0, 0, 0, .24);
+}
+
+.youkai-theme-description-block p {
+  color: rgba(244, 231, 210, .82);
+  font-size: clamp(1rem, 1.45vw, 1.25rem);
+  line-height: 2;
+}
+
+@keyframes youkaiThemeLight {
+  0% {
+    transform: translate3d(-4%, -2%, 0);
+    opacity: .42;
+  }
+  100% {
+    transform: translate3d(4%, 2%, 0);
+    opacity: .62;
+  }
+}
+
+@media (max-width: 767px) {
+  .youkai-themes-section {
+    padding: 3.8rem .75rem;
+  }
+
+  .youkai-themes-header h2 {
+    font-size: clamp(2.2rem, 13vw, 3.4rem);
+  }
+
+  .youkai-theme-scene,
+  .youkai-theme-scene.is-reverse {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.1rem;
+    border-radius: 1.1rem;
+  }
+
+  .youkai-theme-scene.is-reverse .youkai-theme-title-block,
+  .youkai-theme-scene.is-reverse .youkai-theme-description-block {
+    grid-column: auto;
+    grid-row: auto;
+    text-align: left;
+  }
+
+  .youkai-theme-title-block span {
+    font-size: clamp(5rem, 30vw, 8rem);
+  }
+
+  .youkai-theme-title-block h3 {
+    margin-top: -1.8rem;
+    font-size: clamp(2.1rem, 12vw, 3.2rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .youkai-theme-scene::before {
+    animation: none;
+  }
+}
+
+/* Youkai themes with generated visuals */
+.youkai-theme-scene {
+  grid-template-columns: minmax(0, .92fr) minmax(0, 1.35fr);
+  grid-template-rows: auto auto;
+  min-height: clamp(28rem, 68vh, 42rem);
+  padding: clamp(1rem, 2.6vw, 2rem);
+}
+
+.youkai-theme-image-block {
+  position: relative;
+  z-index: 0;
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  min-height: clamp(22rem, 54vh, 36rem);
+  overflow: hidden;
+  border: 1px solid rgba(245, 158, 11, .18);
+  border-radius: clamp(1rem, 2vw, 1.55rem);
+  background: #0f0704;
+  box-shadow: 0 28px 86px rgba(0, 0, 0, .36), 0 0 46px rgba(245, 158, 11, .08);
+}
+
+.youkai-theme-image-block::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(6, 3, 2, .46), transparent 34%, transparent 74%, rgba(6, 3, 2, .24)),
+    radial-gradient(circle at 38% 18%, rgba(255, 225, 174, .12), transparent 17rem),
+    linear-gradient(180deg, transparent 54%, rgba(8, 4, 3, .52));
+}
+
+.youkai-theme-image {
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(.78) saturate(.96) contrast(1.04);
+  transform: scale(1.015);
+  transition: transform .7s ease, filter .7s ease;
+}
+
+.youkai-theme-scene:hover .youkai-theme-image {
+  filter: brightness(.9) saturate(1.05) contrast(1.05);
+  transform: scale(1.045);
+}
+
+.youkai-theme-title-block,
+.youkai-theme-description-block {
+  position: relative;
+  z-index: 3;
+  grid-column: 1;
+}
+
+.youkai-theme-title-block {
+  align-self: end;
+  padding-inline: clamp(.5rem, 1.4vw, 1.25rem);
+}
+
+.youkai-theme-description-block {
+  align-self: start;
+  margin-top: 1rem;
+}
+
+.youkai-theme-description-block p span {
+  display: block;
+}
+
+.youkai-theme-scene.is-reverse {
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, .92fr);
+}
+
+.youkai-theme-scene.is-reverse .youkai-theme-image-block {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+.youkai-theme-scene.is-reverse .youkai-theme-title-block,
+.youkai-theme-scene.is-reverse .youkai-theme-description-block {
+  grid-column: 2;
+  grid-row: auto;
+  text-align: right;
+}
+
+.youkai-theme-scene.is-reverse .youkai-theme-title-block {
+  grid-row: 1;
+}
+
+.youkai-theme-scene.is-reverse .youkai-theme-description-block {
+  grid-row: 2;
+}
+
+@media (max-width: 767px) {
+  .youkai-theme-scene,
+  .youkai-theme-scene.is-reverse {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    min-height: auto;
+  }
+
+  .youkai-theme-image-block,
+  .youkai-theme-scene.is-reverse .youkai-theme-image-block {
+    grid-column: 1;
+    grid-row: 1;
+    min-height: 15.5rem;
+  }
+
+  .youkai-theme-title-block,
+  .youkai-theme-description-block,
+  .youkai-theme-scene.is-reverse .youkai-theme-title-block,
+  .youkai-theme-scene.is-reverse .youkai-theme-description-block {
+    grid-column: 1;
+    text-align: left;
+  }
+
+  .youkai-theme-title-block,
+  .youkai-theme-scene.is-reverse .youkai-theme-title-block {
+    grid-row: 2;
+    padding-inline: .2rem;
+  }
+
+  .youkai-theme-description-block,
+  .youkai-theme-scene.is-reverse .youkai-theme-description-block {
+    grid-row: 3;
+  }
+}
 .studio-panel-dark {
   background:
     radial-gradient(circle at 86% 17%, rgba(139,66,32,.34), transparent 31%),
