@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { Button } from "@/components/Button";
 import { ExternalLinks } from "@/components/ExternalLinks";
 import { YoukaiInteractiveHero } from "@/components/YoukaiInteractiveHero";
+import { YoukaiOngoingWorks } from "@/components/YoukaiOngoingWorks";
 import { YoukaiUpdatesCarousel } from "@/components/YoukaiUpdatesCarousel";
 import { links } from "@/data/links";
 
@@ -23,7 +24,6 @@ export const metadata: Metadata = {
   },
 };
 
-const ongoing = ["連載小説", "Podcast番組", "YouTube朗読シリーズ", "落語研究ノート", "映画レビュー"];
 const themes = ["人間ドラマ", "記憶と喪失", "孤独とつながり", "日常の美しさ", "言葉の力"];
 const youkaiLinks = [
   { label: "noteを見る", href: links.youkaiSteakNote },
@@ -46,9 +46,7 @@ export default function YoukaiSteakPage() {
 
       <YoukaiUpdatesCarousel />
 
-      <YoukaiSection eyebrow="Ongoing Works" title="進行中の創作" description="完成するまでの時間も、物語の一部として記録します。">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">{ongoing.map((work, index) => <article key={work} className="youkai-ongoing-card"><span>0{index + 1}</span><div className="youkai-progress"><i style={{ width: `${42 + index * 9}%` }} /></div><h3>{work}</h3><p>{index % 2 === 0 ? "執筆・構成を進めています。" : "公開と改善を続けています。"}</p></article>)}</div>
-      </YoukaiSection>
+      <YoukaiOngoingWorks />
 
       <YoukaiSection eyebrow="Themes" title="物語の中心にあるもの" alternate>
         <div className="youkai-theme-grid">{themes.map((theme, index) => <article key={theme}><span aria-hidden="true">{["人", "憶", "結", "日", "言"][index]}</span><h3>{theme}</h3></article>)}</div>
