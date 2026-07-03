@@ -18,7 +18,11 @@ export function SplitHero() {
 
   return (
     <section className="picture-gateway" aria-label="ShijimiWORKs と 妖怪ステーキの入口">
-      <div className="picture-gateway-frame" data-active={activeSide ?? "neutral"}>
+      <div
+        className="picture-gateway-frame"
+        data-active={activeSide ?? "neutral"}
+        onPointerLeave={() => setActiveSide(null)}
+      >
         <motion.div
           className="picture-gateway-base"
           animate={{
@@ -39,23 +43,27 @@ export function SplitHero() {
 
         <AnimatePresence mode="wait">
           {activeImage && (
-            <motion.div
+            <div
               key={activeSide}
-              className={`picture-featured-ogp picture-featured-ogp-${activeSide}`}
-              initial={{ opacity: 0, scale: 0.92, x: activeImage.direction }}
-              animate={{ opacity: 1, scale: 1, x: 0 }}
-              exit={{ opacity: 0, scale: 0.94, x: activeImage.direction * 0.45 }}
-              transition={{ duration: 0.58, ease: "easeInOut" }}
+              className={`picture-featured-ogp-shell picture-featured-ogp-shell-${activeSide}`}
               aria-hidden="true"
             >
-              <Image
-                src={activeImage.src}
-                alt={activeImage.alt}
-                fill
-                sizes="(min-width: 768px) 84vw, 100vw"
-                className="picture-featured-ogp-image"
-              />
-            </motion.div>
+              <motion.div
+                className={`picture-featured-ogp picture-featured-ogp-${activeSide}`}
+                initial={{ opacity: 0, scale: 0.92, x: activeImage.direction }}
+                animate={{ opacity: 1, scale: 1, x: 0 }}
+                exit={{ opacity: 0, scale: 0.94, x: activeImage.direction * 0.45 }}
+                transition={{ duration: 0.58, ease: "easeInOut" }}
+              >
+                <Image
+                  src={activeImage.src}
+                  alt={activeImage.alt}
+                  fill
+                  sizes="(min-width: 768px) 84vw, 100vw"
+                  className="picture-featured-ogp-image"
+                />
+              </motion.div>
+            </div>
           )}
         </AnimatePresence>
 
@@ -63,8 +71,7 @@ export function SplitHero() {
           href="/shijimiworks"
           className="picture-gateway-hit picture-gateway-hit-left"
           aria-label="ShijimiWORKsへ入る"
-          onMouseEnter={() => setActiveSide("shijimi")}
-          onMouseLeave={() => setActiveSide(null)}
+          onPointerEnter={() => setActiveSide("shijimi")}
           onFocus={() => setActiveSide("shijimi")}
           onBlur={() => setActiveSide(null)}
         >
@@ -75,8 +82,7 @@ export function SplitHero() {
           href="/youkai-steak"
           className="picture-gateway-hit picture-gateway-hit-right"
           aria-label="妖怪ステーキへ入る"
-          onMouseEnter={() => setActiveSide("youkai")}
-          onMouseLeave={() => setActiveSide(null)}
+          onPointerEnter={() => setActiveSide("youkai")}
           onFocus={() => setActiveSide("youkai")}
           onBlur={() => setActiveSide(null)}
         >

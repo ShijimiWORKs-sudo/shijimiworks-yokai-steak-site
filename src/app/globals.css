@@ -718,20 +718,25 @@ footer a { text-underline-offset: .25em; }
   inset: 0;
 }
 .picture-gateway-image { object-fit: contain; object-position: center; background: #050302; }
-.picture-featured-ogp {
+.picture-featured-ogp-shell {
   position: absolute;
   z-index: 3;
   top: 50%;
   left: 50%;
   width: min(84vw, calc((100svh - 8rem) * 1.7778), 88rem);
   aspect-ratio: 16 / 9;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.picture-featured-ogp {
+  position: relative;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,.18);
   border-radius: clamp(.9rem, 1.5vw, 1.45rem);
   background: #050302;
   box-shadow: 0 34px 120px rgba(0,0,0,.58);
-  transform: translate(-50%, -50%);
-  pointer-events: none;
 }
 .picture-featured-ogp-image {
   object-fit: contain;
