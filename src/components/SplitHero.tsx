@@ -6,6 +6,16 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 
 type ActiveSide = "shijimi" | "youkai" | null;
+const NEUTRAL_START = 0.38;
+const NEUTRAL_END = 0.62;
+
+function getSideFromPointer(clientX: number, rect: DOMRect): ActiveSide {
+  const ratio = (clientX - rect.left) / rect.width;
+
+  if (ratio < NEUTRAL_START) return "shijimi";
+  if (ratio > NEUTRAL_END) return "youkai";
+  return null;
+}
 
 export function SplitHero() {
   const [activeSide, setActiveSide] = useState<ActiveSide>(null);
@@ -21,6 +31,9 @@ export function SplitHero() {
       <div
         className="picture-gateway-frame"
         data-active={activeSide ?? "neutral"}
+        onPointerMove={(event) => {
+          setActiveSide(getSideFromPointer(event.clientX, event.currentTarget.getBoundingClientRect()));
+        }}
         onPointerLeave={() => setActiveSide(null)}
       >
         <motion.div
@@ -71,7 +84,6 @@ export function SplitHero() {
           href="/shijimiworks"
           className="picture-gateway-hit picture-gateway-hit-left"
           aria-label="ShijimiWORKsへ入る"
-          onPointerEnter={() => setActiveSide("shijimi")}
           onFocus={() => setActiveSide("shijimi")}
           onBlur={() => setActiveSide(null)}
         >
@@ -82,12 +94,18 @@ export function SplitHero() {
           href="/youkai-steak"
           className="picture-gateway-hit picture-gateway-hit-right"
           aria-label="妖怪ステーキへ入る"
-          onPointerEnter={() => setActiveSide("youkai")}
           onFocus={() => setActiveSide("youkai")}
           onBlur={() => setActiveSide(null)}
         >
           <span>妖怪ステーキへ入る</span>
         </Link>
+
+        <button
+          type="button"
+          className="picture-gateway-neutral"
+          aria-label="共通トップの中央表示"
+          onFocus={() => setActiveSide(null)}
+        />
       </div>
 
       <div className="picture-gateway-mobile-cards" aria-label="スマートフォン用入口">
