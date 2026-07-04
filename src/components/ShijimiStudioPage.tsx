@@ -21,6 +21,7 @@ import {
   Workflow,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { articles } from "@/data/articles";
 import { links } from "@/data/links";
 import { works } from "@/data/works";
 
@@ -33,6 +34,45 @@ const whatIDo = [
   { label: "CONSULTING", title: "制作相談・お仕事依頼", text: "まだ曖昧な相談も、目的・優先順位・最初の一歩から一緒に整理します。", icon: MessageCircle },
 ] as const;
 
+
+const guideThemes = [
+  {
+    number: "01",
+    title: "AIを使って発信を続けたい",
+    text: "note、Substack、X、記事構成、投稿導線をAIで整理したい人へ。",
+    links: ["AI文書・マガジン制作", "note / Substack運用設計", "Articles"],
+  },
+  {
+    number: "02",
+    title: "ホームページやポートフォリオを作りたい",
+    text: "個人名義、創作名義、サービス紹介用のWebサイトを整えたい人へ。",
+    links: ["Web制作", "Works", "Contact"],
+  },
+  {
+    number: "03",
+    title: "小さなアプリやMVPを形にしたい",
+    text: "アイデアはあるが、要件定義や画面設計に落とせていない人へ。",
+    links: ["アプリ開発・MVP設計", "Works", "Contact"],
+  },
+  {
+    number: "04",
+    title: "投稿や業務を自動化したい",
+    text: "SNS投稿、Buffer、Notion、記事生成、管理フローを仕組みにしたい人へ。",
+    links: ["自動化・運用設計", "Buffer投稿管理", "Contact"],
+  },
+  {
+    number: "05",
+    title: "AIを業務や創作の相棒にしたい",
+    text: "ChatGPT、Claude、Grokなどを、相談・制作・整理に使いたい人へ。",
+    links: ["AI活用相談", "プロンプト設計", "Articles"],
+  },
+  {
+    number: "06",
+    title: "何から相談すればいいか分からない",
+    text: "内容が固まっていない段階から、課題整理と方向づけを行います。",
+    links: ["まずは相談する", "Contact"],
+  },
+] as const;
 const processItems = [
   { title: "ネタ造AI", label: "APP / AI", text: "SNS・note・YouTubeへ展開できる企画支援アプリ。入力項目、出力形式、保存導線を検証中です。", side: "left" },
   { title: "ShijimiWORKs / 妖怪ステーキ 共通ホーム", label: "WEB / PORTFOLIO", text: "仕事と創作の二面性を、ひとつの入口として見せる共通ホームを改善しています。", side: "right" },
@@ -41,12 +81,12 @@ const processItems = [
 ] as const;
 
 const services = [
-  { title: "AI活用相談", forWhom: "AIを使いたいが、何から始めるか整理したい人へ。" },
-  { title: "ホームページ制作相談", forWhom: "個人活動やサービスを、信頼できる画面にしたい人へ。" },
-  { title: "note / Substack運用設計", forWhom: "書くことを続け、読者へ届ける導線を作りたい人へ。" },
-  { title: "自動化フロー設計", forWhom: "投稿、記録、確認の手作業を減らしたい人へ。" },
-  { title: "AI文章制作・プロンプト設計", forWhom: "記事、資料、企画をAIと一緒に整えたい人へ。" },
-  { title: "小さなアプリ/MVP相談", forWhom: "アイデアを試せる最小構成に落とし込みたい人へ。" },
+  { category: "AI CONSULTING", title: "AI活用・プロンプト設計", text: "ChatGPT、Claude、Grokなどを、企画、文章、調査、整理、改善に使うための型を設計します。", scope: "相談できること: 用途整理 / プロンプト設計 / 出力確認 / 運用ルール", links: ["Articles", "Contact"] },
+  { category: "WEB PRODUCTION", title: "Web制作", text: "個人サイト、ポートフォリオ、サービス紹介、LPを、文章と導線から設計して実装します。", scope: "相談できること: 情報設計 / UI設計 / Next.js実装 / 公開前整理", links: ["Works", "Contact"] },
+  { category: "APP / MVP", title: "アプリ開発・MVP設計", text: "小さなアプリ案を、要件、画面、機能、検証順序に分け、作れる単位へ落とし込みます。", scope: "相談できること: MVP整理 / 画面設計 / 機能分解 / 試作", links: ["Works", "Contact"] },
+  { category: "AUTOMATION", title: "自動化・運用設計", text: "SNS投稿、Buffer、Notion、記事生成、管理フローを、続けやすい仕組みとして整理します。", scope: "相談できること: 投稿導線 / 管理設計 / チェック手順 / 自動化案", links: ["Buffer投稿管理", "Contact"] },
+  { category: "WRITING / MEDIA", title: "AI文書・マガジン制作", text: "note、Substack、有料マガジン、プロンプト集、事例レポートを読める形へ編集します。", scope: "相談できること: 記事構成 / 連載設計 / 文書化 / 販売導線", links: ["note", "Substack"] },
+  { category: "DIRECTION", title: "制作相談・お仕事依頼", text: "依頼内容が固まっていない段階から、目的、優先順位、最初の一歩を一緒に整理します。", scope: "相談できること: 課題整理 / 進め方相談 / 見積もり前相談", links: ["まずは相談する", "Contact"] },
 ] as const;
 
 const documents = [
@@ -94,13 +134,83 @@ function VisualPlaceholder({ label }: { label: string }) {
   );
 }
 
+
+function ShijimiBusinessHeader() {
+  const nav = [
+    { label: "Home", href: links.home },
+    { label: "Guide", href: "#shijimi-guide" },
+    { label: "Services", href: "#shijimi-services" },
+    { label: "Works", href: "#shijimi-works" },
+    { label: "Documents", href: "#shijimi-documents" },
+    { label: "About", href: "#shijimi-about" },
+    { label: "Contact", href: "#shijimi-contact" },
+    { label: "note", href: links.shijimiworksNote },
+    { label: "Substack", href: links.shijimiworksSubstack },
+    { label: "X", href: links.shijimiworksX },
+  ];
+
+  return (
+    <header className="shijimi-business-header">
+      <Link href={links.shijimiworks} className="shijimi-business-brand" aria-label="ShijimiWORKs トップ">
+        <strong>ShijimiWORKs</strong>
+        <span>AI / Web / App / Automation / Writing</span>
+      </Link>
+      <nav className="shijimi-business-nav" aria-label="ShijimiWORKs navigation">
+        {nav.map((item) => (
+          <Link key={`${item.label}-${item.href}`} href={item.href} target={isExternal(item.href) ? "_blank" : undefined} rel={isExternal(item.href) ? "noopener noreferrer" : undefined}>
+            {item.label}
+          </Link>
+        ))}
+      </nav>
+    </header>
+  );
+}
+
+function ShijimiGuide() {
+  return (
+    <section id="shijimi-guide" className="shijimi-studio-section shijimi-guide-section">
+      <SectionHeading label="GUIDE" title="相談テーマから探す" description="まだ依頼内容が決まっていなくても大丈夫です。今の悩みから、必要な制作や仕組みを一緒に整理します。" />
+      <div className="shijimi-guide-grid">
+        {guideThemes.map((item) => (
+          <article key={item.title} className="shijimi-guide-card">
+            <span>{item.number}</span>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+            <div>{item.links.map((link) => <small key={link}>{link}</small>)}</div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function ShijimiInsights() {
+  const insightArticles = articles.filter((article) => article.brand === "shijimiworks" || article.brand === "both").slice(0, 4);
+
+  return (
+    <section className="shijimi-studio-section shijimi-insights-section">
+      <SectionHeading label="INSIGHTS" title="Insights / 発信・考察" description="AIを便利ツールで終わらせず、働き方・創作・発信の設計として考えます。" />
+      <div className="shijimi-insights-grid">
+        {insightArticles.map((article) => (
+          <article key={article.slug} className="shijimi-insight-card">
+            <small>{article.category} / {article.date}</small>
+            <h3>{article.title}</h3>
+            <p>{article.excerpt}</p>
+            <div>{article.tags.slice(0, 3).map((tag) => <span key={tag}>{tag}</span>)}</div>
+            <Link href={`/articles/${article.slug}`}>読む <ArrowUpRight aria-hidden="true" /></Link>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
 function ShijimiHeroStudio() {
   return (
     <section className="shijimi-studio-hero">
       <div className="shijimi-studio-hero-grid">
         <motion.div className="shijimi-studio-hero-copy" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .65, ease: "easeOut" }}>
           <p className="shijimi-kicker">AI ASSISTED / HUMAN DIRECTED / BUILT TO IMPROVE</p>
-          <h1>AIを使って、<br />作る・届ける・<br />仕組みにする。</h1>
+          <h1>AIで作り、<br />届け、<br />仕組みにする。</h1>
           <span>
             生成AIを活用したWeb制作、記事制作、アプリ開発、自動化、メディア運用を横断する制作ポートフォリオです。
             小さなアイデアを、記事・サイト・アプリ・運用導線まで形にします。
@@ -128,20 +238,21 @@ function ShijimiHeroStudio() {
 
 function ShijimiWhatIDo() {
   return (
-    <section className="shijimi-studio-section shijimi-what-section">
-      <SectionHeading label="WHAT I DO" title="できること" description="AI、Web、文章、アプリ、運用。点ではなく、届け続ける流れとして設計します。" />
+    <section id="shijimi-services" className="shijimi-studio-section shijimi-what-section">
+      <SectionHeading label="SERVICES" title="Services / できること" description="AIを活用して、制作と運用をつなぎます。" />
       <div className="shijimi-what-grid">
-        {whatIDo.map((item) => {
-          const Icon = item.icon;
-          return (
-            <article key={item.title} className="shijimi-what-card">
-              <VisualPlaceholder label={item.label} />
-              <div><Icon aria-hidden="true" /><small>{item.label}</small></div>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-            </article>
-          );
-        })}
+        {services.map((item) => (
+          <article key={item.title} className="shijimi-what-card shijimi-service-detail-card">
+            <VisualPlaceholder label={item.category} />
+            <div><Sparkles aria-hidden="true" /><small>{item.category}</small></div>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+            <b>{item.scope}</b>
+            <nav aria-label={`${item.title} の関連リンク`}>
+              {item.links.map((link) => <span key={link}>{link}</span>)}
+            </nav>
+          </article>
+        ))}
       </div>
     </section>
   );
@@ -168,9 +279,9 @@ function ShijimiWorksCarousel() {
   }, [activeIndex, paused, studioWorks.length]);
 
   return (
-    <section className="shijimi-studio-section shijimi-works-section">
+    <section id="shijimi-works" className="shijimi-studio-section shijimi-works-section">
       <div className="shijimi-section-row">
-        <SectionHeading label="PORTFOLIO" title="Works / Portfolio" description="制作したもの、設計したもの、運用しているもの。制作中のものも、改善の履歴として見せます。" />
+        <SectionHeading label="PORTFOLIO" title="Works / 制作実績" description="完成したものだけでなく、設計したもの、運用しているものも記録しています。" />
         <div className="shijimi-carousel-controls">
           <button type="button" onClick={() => moveTo(activeIndex - 1)} aria-label="前の制作実績"><ArrowLeft aria-hidden="true" /></button>
           <small>{String(activeIndex + 1).padStart(2, "0")} / {String(studioWorks.length).padStart(2, "0")}</small>
@@ -200,7 +311,7 @@ function ShijimiWorksCarousel() {
 function ShijimiProjectLog() {
   return (
     <section className="shijimi-studio-section shijimi-process-section">
-      <SectionHeading label="PROCESS" title="Project Log" description="完成品だけではなく、要件定義・設計・試作・運用改善の途中経過も見せます。" />
+      <SectionHeading label="PROCESS" title="Process / 制作プロセス" description="完成品だけではなく、要件定義、設計、試作、改善の過程も記録しています。" />
       <div className="shijimi-process-list">
         {processItems.map((item, index) => (
           <motion.article key={item.title} className={`shijimi-process-item ${item.side === "right" ? "is-reverse" : ""}`} initial={{ opacity: .2, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: .45 }} transition={{ duration: .62, ease: "easeOut" }}>
@@ -219,7 +330,7 @@ function ShijimiServices() {
       <SectionHeading label="SERVICES" title="相談できること" description="AIを使った制作や発信を、単発の作業ではなく「続けられる仕組み」として設計します。" />
       <p className="shijimi-services-lead">Webサイト、記事、アプリ案、自動化、SNS運用、note/Substackの導線など、まだ形になっていないアイデアを、相談しながら整理していきます。</p>
       <div className="shijimi-services-grid">
-        {services.map((service, index) => <article key={service.title}><span>0{index + 1}</span><h3>{service.title}</h3><p>{service.forWhom}</p></article>)}
+        {services.map((service, index) => <article key={service.title}><span>0{index + 1}</span><h3>{service.title}</h3><p>{service.scope}</p></article>)}
       </div>
       <div className="shijimi-section-actions"><Link href={links.contact}>まずは相談する <ArrowUpRight aria-hidden="true" /></Link><Link href="/works">制作実績を見る</Link></div>
     </section>
@@ -228,8 +339,8 @@ function ShijimiServices() {
 
 function ShijimiDocuments() {
   return (
-    <section className="shijimi-studio-section shijimi-docs-section">
-      <SectionHeading label="DOCUMENTS" title="Magazine / Documents" description="AI活用を、読める形にする。あとから記事やマガジンを増やしやすい文書棚です。" />
+    <section id="shijimi-documents" className="shijimi-studio-section shijimi-docs-section">
+      <SectionHeading label="DOCUMENTS" title="Documents / 記事・資料・マガジン" description="AI活用を、読める形・使える形に整理しています。" />
       <div className="shijimi-docs-grid">
         {documents.map((document, index) => {
           const Icon = document.icon;
@@ -242,7 +353,7 @@ function ShijimiDocuments() {
 
 function ShijimiAbout() {
   return (
-    <section className="shijimi-studio-section shijimi-about-section-v2">
+    <section id="shijimi-about" className="shijimi-studio-section shijimi-about-section-v2">
       <div className="shijimi-about-v2-grid">
         <div className="shijimi-about-v2-statement"><p>ABOUT</p><h2>About ShijimiWORKs</h2><strong>AIと制作のあいだに立つ、<br />小さな制作室。</strong><span>AI assisted.<br />Human directed.<br />Continuously improved.</span></div>
         <div className="shijimi-about-v2-text">
@@ -258,7 +369,7 @@ function ShijimiAbout() {
 
 function ShijimiContactLinks() {
   return (
-    <section className="shijimi-contact-v2">
+    <section id="shijimi-contact" className="shijimi-contact-v2">
       <div className="shijimi-contact-v2-copy"><p>CONTACT</p><h2>制作や相談の入口</h2><span>AI活用、Web制作、記事制作、発信設計、自動化、ポートフォリオ制作などの相談を受け付けています。</span></div>
       <div className="shijimi-contact-v2-grid">
         {contactLinks.map((item) => <Link key={item.label} href={item.href} target={isExternal(item.href) ? "_blank" : undefined} rel={isExternal(item.href) ? "noopener noreferrer" : undefined}><span><strong>{item.label}</strong><small>{item.note}</small></span><ArrowUpRight aria-hidden="true" /></Link>)}
@@ -271,7 +382,15 @@ function ShijimiFooter() {
   return (
     <footer className="shijimi-footer-v2">
       <div><strong>ShijimiWORKs</strong><span>AI / Web / App / Automation / Writing</span></div>
-      <nav aria-label="ShijimiWORKs footer navigation"><Link href="/">Home</Link><Link href="/works">Works</Link><Link href="/articles">Articles</Link><Link href={links.contact}>Contact</Link></nav>
+      <nav aria-label="ShijimiWORKs footer navigation">
+        <Link href="/">Home</Link>
+        <Link href="#shijimi-guide">Guide</Link>
+        <Link href="#shijimi-services">Services</Link>
+        <Link href="#shijimi-works">Works</Link>
+        <Link href="#shijimi-documents">Documents</Link>
+        <Link href="#shijimi-about">About</Link>
+        <Link href={links.contact}>Contact</Link>
+      </nav>
       <nav aria-label="ShijimiWORKs media links"><Link href={links.shijimiworksNote} target="_blank" rel="noopener noreferrer">note</Link><Link href={links.shijimiworksSubstack} target="_blank" rel="noopener noreferrer">Substack</Link><Link href={links.shijimiworksX} target="_blank" rel="noopener noreferrer">X</Link></nav>
       <p>© 2026 ShijimiWORKs</p>
     </footer>
@@ -281,16 +400,26 @@ function ShijimiFooter() {
 export function ShijimiStudioPage() {
   return (
     <div className="shijimi-studio-page">
+      <ShijimiBusinessHeader />
       <ShijimiHeroStudio />
+      <ShijimiGuide />
       <ShijimiWhatIDo />
       <ShijimiWorksCarousel />
       <ShijimiProjectLog />
-      <ShijimiServices />
       <ShijimiDocuments />
+      <ShijimiInsights />
       <ShijimiAbout />
       <ShijimiContactLinks />
       <ShijimiFooter />
     </div>
   );
 }
+
+
+
+
+
+
+
+
 
