@@ -4234,3 +4234,941 @@ footer a { text-underline-offset: .25em; }
     transition: none;
   }
 }
+
+/* ShijimiWORKs business-site structure update */
+.shijimi-business-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(15, 23, 42, .08);
+  background: rgba(248, 251, 255, .86);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  padding: .85rem clamp(1rem, 4vw, 3rem);
+}
+
+.shijimi-business-brand {
+  display: grid;
+  gap: .14rem;
+  color: #0f172a;
+  min-width: max-content;
+}
+
+.shijimi-business-brand strong {
+  font-size: 1.16rem;
+  font-weight: 950;
+  letter-spacing: -.03em;
+}
+
+.shijimi-business-brand span {
+  color: #64748b;
+  font-size: .58rem;
+  font-weight: 900;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.shijimi-business-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: .35rem .8rem;
+  font-size: .68rem;
+  font-weight: 950;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.shijimi-business-nav a {
+  color: #475569;
+  padding: .35rem 0;
+  transition: color .2s ease, transform .2s ease;
+}
+
+.shijimi-business-nav a:hover,
+.shijimi-business-nav a:focus-visible {
+  color: #0369a1;
+  transform: translateY(-1px);
+}
+
+.shijimi-guide-section {
+  background: linear-gradient(180deg, #ffffff 0%, #eef8ff 100%);
+}
+
+.shijimi-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.shijimi-guide-card {
+  border: 1px solid rgba(15, 23, 42, .08);
+  border-radius: 1.35rem;
+  background:
+    radial-gradient(circle at 86% 10%, rgba(56, 189, 248, .16), transparent 11rem),
+    rgba(255, 255, 255, .78);
+  box-shadow: 0 22px 58px rgba(15, 23, 42, .08);
+  padding: 1.25rem;
+  transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease;
+}
+
+.shijimi-guide-card:hover,
+.shijimi-guide-card:focus-within {
+  border-color: rgba(14, 116, 144, .28);
+  box-shadow: 0 28px 70px rgba(14, 116, 144, .14);
+  transform: translateY(-6px);
+}
+
+.shijimi-guide-card > span {
+  display: inline-grid;
+  width: 2.35rem;
+  height: 2.35rem;
+  place-items: center;
+  border-radius: 999px;
+  background: #07111f;
+  color: #fff;
+  font-size: .75rem;
+  font-weight: 950;
+}
+
+.shijimi-guide-card h3 {
+  margin-top: 1rem;
+  color: #0f172a;
+  font-size: 1.22rem;
+  font-weight: 950;
+  line-height: 1.35;
+}
+
+.shijimi-guide-card p {
+  margin-top: .65rem;
+  color: #64748b;
+  line-height: 1.75;
+}
+
+.shijimi-guide-card div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .42rem;
+  margin-top: 1rem;
+}
+
+.shijimi-guide-card small,
+.shijimi-service-detail-card nav span {
+  border-radius: 999px;
+  background: #e0f2fe;
+  color: #075985;
+  padding: .34rem .58rem;
+  font-size: .68rem;
+  font-weight: 900;
+}
+
+.shijimi-service-detail-card b {
+  display: block;
+  margin-top: .8rem;
+  color: #334155;
+  font-size: .82rem;
+  line-height: 1.7;
+}
+
+.shijimi-service-detail-card nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin-top: 1rem;
+}
+
+.shijimi-insights-section {
+  background:
+    radial-gradient(circle at 82% 10%, rgba(56, 189, 248, .16), transparent 26rem),
+    linear-gradient(180deg, #f8fbff 0%, #eef7fb 100%);
+}
+
+.shijimi-insights-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.shijimi-insight-card {
+  display: flex;
+  min-height: 23rem;
+  flex-direction: column;
+  border: 1px solid rgba(15, 23, 42, .08);
+  border-radius: 1.35rem;
+  background: rgba(255, 255, 255, .76);
+  box-shadow: 0 22px 58px rgba(15, 23, 42, .08);
+  padding: 1.2rem;
+  transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease;
+}
+
+.shijimi-insight-card:hover {
+  border-color: rgba(14, 116, 144, .28);
+  box-shadow: 0 28px 70px rgba(14, 116, 144, .14);
+  transform: translateY(-6px);
+}
+
+.shijimi-insight-card small {
+  color: #0284c7;
+  font-size: .66rem;
+  font-weight: 950;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.shijimi-insight-card h3 {
+  margin-top: .85rem;
+  color: #0f172a;
+  font-size: 1.22rem;
+  font-weight: 950;
+  line-height: 1.36;
+}
+
+.shijimi-insight-card p {
+  margin-top: .65rem;
+  color: #64748b;
+  line-height: 1.75;
+}
+
+.shijimi-insight-card div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.shijimi-insight-card div span {
+  border-radius: 999px;
+  background: #f1f5f9;
+  color: #475569;
+  padding: .28rem .52rem;
+  font-size: .68rem;
+  font-weight: 800;
+}
+
+.shijimi-insight-card a {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  margin-top: 1rem;
+  color: #0369a1;
+  font-size: .86rem;
+  font-weight: 950;
+}
+
+.shijimi-insight-card svg {
+  width: .9rem;
+  height: .9rem;
+}
+
+@media (max-width: 1100px) {
+  .shijimi-guide-grid,
+  .shijimi-insights-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .shijimi-business-header {
+    position: relative;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .shijimi-business-brand {
+    min-width: 0;
+  }
+
+  .shijimi-business-brand span {
+    line-height: 1.5;
+  }
+
+  .shijimi-business-nav {
+    justify-content: flex-start;
+    gap: .28rem .62rem;
+    font-size: .62rem;
+  }
+
+  .shijimi-guide-grid,
+  .shijimi-insights-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ShijimiWORKs corporate redesign inspired by large-brand corporate IA */
+.shijimi-corp-page {
+  min-height: 100vh;
+  overflow-x: clip;
+  background:
+    radial-gradient(circle at 72% 6%, rgba(125, 211, 252, .32), transparent 34rem),
+    radial-gradient(circle at 8% 18%, rgba(186, 230, 253, .46), transparent 30rem),
+    linear-gradient(180deg, #fbfdff 0%, #eff8ff 42%, #f8fbff 100%);
+  color: #0f172a;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+.shijimi-corp-header {
+  position: sticky;
+  top: 0;
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.4rem;
+  padding: 1rem clamp(1rem, 3vw, 3rem);
+  border-bottom: 1px solid rgba(15, 23, 42, .08);
+  background: rgba(248, 252, 255, .82);
+  backdrop-filter: blur(18px);
+}
+
+.shijimi-corp-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: .9rem;
+  color: #0f172a;
+  text-decoration: none;
+  min-width: max-content;
+}
+
+.shijimi-corp-brand img,
+.shijimi-corp-footer-brand img {
+  border-radius: 999px;
+  box-shadow: 0 16px 42px rgba(15, 23, 42, .12);
+}
+
+.shijimi-corp-brand span {
+  display: grid;
+  gap: .12rem;
+}
+
+.shijimi-corp-brand strong {
+  font-size: 1.02rem;
+  font-weight: 950;
+  letter-spacing: -.03em;
+}
+
+.shijimi-corp-brand small {
+  color: #64748b;
+  font-size: .66rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.shijimi-corp-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: .3rem .72rem;
+}
+
+.shijimi-corp-nav a {
+  border-radius: 999px;
+  color: #334155;
+  font-size: .78rem;
+  font-weight: 850;
+  letter-spacing: .04em;
+  padding: .48rem .68rem;
+  text-decoration: none;
+  transition: background .25s ease, color .25s ease, transform .25s ease;
+}
+
+.shijimi-corp-nav a:hover,
+.shijimi-corp-nav a:focus-visible {
+  background: rgba(14, 165, 233, .1);
+  color: #0369a1;
+  transform: translateY(-1px);
+}
+
+.shijimi-corp-top {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: clamp(34rem, 82vh, 54rem);
+  padding: clamp(5rem, 10vw, 9rem) clamp(1rem, 4vw, 4rem) clamp(4rem, 8vw, 7rem);
+  text-align: center;
+  isolation: isolate;
+}
+
+.shijimi-corp-top::before {
+  content: "";
+  position: absolute;
+  inset: 10% 7% 14%;
+  border-radius: 3rem;
+  background:
+    linear-gradient(90deg, rgba(14, 165, 233, .08) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(14, 165, 233, .07) 1px, transparent 1px);
+  background-size: 4.2rem 4.2rem;
+  mask-image: radial-gradient(circle at center, #000 0%, transparent 66%);
+  z-index: -2;
+}
+
+.shijimi-corp-top::after {
+  content: "";
+  position: absolute;
+  width: min(42rem, 74vw);
+  aspect-ratio: 1;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(224, 242, 254, .92), rgba(125, 211, 252, .28) 42%, transparent 70%);
+  filter: blur(2px);
+  z-index: -1;
+}
+
+.shijimi-corp-icon-orbit {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: clamp(11rem, 22vw, 18rem);
+  aspect-ratio: 1;
+  border: 1px solid rgba(14, 165, 233, .2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .62);
+  box-shadow: 0 34px 90px rgba(14, 116, 144, .18);
+}
+
+.shijimi-corp-icon-orbit::before,
+.shijimi-corp-icon-orbit::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(14, 165, 233, .18);
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.shijimi-corp-icon-orbit::before { inset: -1.4rem; }
+.shijimi-corp-icon-orbit::after { inset: -3.1rem; border-style: dashed; }
+
+.shijimi-corp-icon-orbit img {
+  width: 72%;
+  height: 72%;
+  object-fit: contain;
+  border-radius: 999px;
+}
+
+.shijimi-corp-top-copy {
+  max-width: 52rem;
+  margin-top: clamp(2.6rem, 5vw, 4.2rem);
+}
+
+.shijimi-corp-top-copy p,
+.shijimi-corp-label {
+  margin: 0;
+  color: #0284c7;
+  font-size: .76rem;
+  font-weight: 950;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+.shijimi-corp-top-copy h1 {
+  margin: .7rem 0 1rem;
+  color: #0f172a;
+  font-size: clamp(3.4rem, 10vw, 9rem);
+  font-weight: 1000;
+  letter-spacing: -.095em;
+  line-height: .88;
+}
+
+.shijimi-corp-top-copy span {
+  display: block;
+  margin: 0 auto;
+  max-width: 42rem;
+  color: #475569;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-weight: 650;
+  line-height: 2;
+}
+
+.shijimi-corp-value,
+.shijimi-corp-mission,
+.shijimi-corp-products,
+.shijimi-corp-services,
+.shijimi-corp-contact {
+  width: min(1180px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.shijimi-corp-value {
+  padding: clamp(4.4rem, 9vw, 8rem) 0;
+  border-top: 1px solid rgba(15, 23, 42, .08);
+  border-bottom: 1px solid rgba(15, 23, 42, .08);
+}
+
+.shijimi-corp-value-lines {
+  display: grid;
+  gap: .55rem;
+  margin-top: 1.6rem;
+}
+
+.shijimi-corp-value-lines span {
+  display: block;
+  color: #0f172a;
+  font-size: clamp(2rem, 5vw, 5.2rem);
+  font-weight: 950;
+  letter-spacing: -.06em;
+  line-height: 1.08;
+}
+
+.shijimi-corp-mission {
+  display: grid;
+  grid-template-columns: minmax(0, .95fr) minmax(18rem, .72fr);
+  gap: clamp(2rem, 8vw, 8rem);
+  align-items: center;
+  min-height: clamp(34rem, 78vh, 48rem);
+  padding: clamp(5rem, 10vw, 10rem) 0;
+}
+
+.shijimi-corp-mission h2,
+.shijimi-corp-section-head h2,
+.shijimi-corp-contact h2 {
+  margin: .8rem 0 0;
+  color: #0f172a;
+  font-size: clamp(2.4rem, 6vw, 6.8rem);
+  font-weight: 950;
+  letter-spacing: -.075em;
+  line-height: .98;
+}
+
+.shijimi-corp-mission-text {
+  display: grid;
+  gap: 1.3rem;
+  border-left: 1px solid rgba(14, 165, 233, .26);
+  padding-left: clamp(1.2rem, 3vw, 2.4rem);
+}
+
+.shijimi-corp-mission-text p,
+.shijimi-corp-contact-copy > p {
+  margin: 0;
+  color: #475569;
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 2;
+}
+
+.shijimi-corp-products {
+  position: relative;
+  padding: clamp(5rem, 10vw, 9rem) 0;
+}
+
+.shijimi-corp-section-head {
+  max-width: 46rem;
+  margin-bottom: clamp(2rem, 5vw, 4rem);
+}
+
+.shijimi-corp-section-head.is-centered {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.shijimi-corp-section-head h2 {
+  font-size: clamp(2.1rem, 4.6vw, 4.8rem);
+}
+
+.shijimi-corp-products-stage {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, .08);
+  border-radius: 2.2rem;
+  background:
+    radial-gradient(circle at 80% 26%, rgba(14, 165, 233, .16), transparent 32rem),
+    rgba(255, 255, 255, .64);
+  box-shadow: 0 30px 100px rgba(15, 23, 42, .08);
+  padding: clamp(1rem, 2vw, 1.4rem);
+  isolation: isolate;
+}
+
+.shijimi-corp-product-backdrop {
+  position: absolute;
+  top: 6%;
+  right: -8%;
+  width: min(52rem, 62vw);
+  opacity: .22;
+  filter: blur(10px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.shijimi-corp-product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .9rem;
+}
+
+.shijimi-corp-product-card,
+.shijimi-corp-service-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, .08);
+  border-radius: 1.45rem;
+  background: rgba(255, 255, 255, .82);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, .055);
+  transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease, opacity .35s ease;
+}
+
+.shijimi-corp-product-card {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  min-height: 28rem;
+  padding: 1.1rem;
+}
+
+.shijimi-corp-product-card:hover,
+.shijimi-corp-product-card:focus-visible,
+.shijimi-corp-product-card.is-active,
+.shijimi-corp-service-card:hover {
+  border-color: rgba(14, 165, 233, .34);
+  box-shadow: 0 28px 80px rgba(14, 116, 144, .14);
+  transform: translateY(-7px);
+}
+
+.shijimi-corp-product-number {
+  color: #94a3b8;
+  font-size: .72rem;
+  font-weight: 950;
+  letter-spacing: .12em;
+}
+
+.shijimi-corp-product-copy small {
+  display: block;
+  margin-top: 1rem;
+  color: #0284c7;
+  font-size: .72rem;
+  font-weight: 950;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.shijimi-corp-product-copy h3,
+.shijimi-corp-service-card h3 {
+  margin: .5rem 0 .75rem;
+  color: #0f172a;
+  font-size: 1.28rem;
+  font-weight: 950;
+  letter-spacing: -.035em;
+  line-height: 1.35;
+}
+
+.shijimi-corp-product-detail {
+  max-height: 5rem;
+  opacity: .72;
+  transition: max-height .35s ease, opacity .35s ease;
+}
+
+.shijimi-corp-product-card.is-active .shijimi-corp-product-detail,
+.shijimi-corp-product-card:hover .shijimi-corp-product-detail,
+.shijimi-corp-product-card:focus-visible .shijimi-corp-product-detail {
+  max-height: 14rem;
+  opacity: 1;
+}
+
+.shijimi-corp-product-detail p,
+.shijimi-corp-service-card p {
+  margin: 0;
+  color: #475569;
+  font-size: .94rem;
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+.shijimi-corp-product-detail div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin-top: .85rem;
+}
+
+.shijimi-corp-product-detail span {
+  border-radius: 999px;
+  background: #e0f2fe;
+  color: #075985;
+  padding: .28rem .52rem;
+  font-size: .68rem;
+  font-weight: 850;
+}
+
+.shijimi-corp-product-detail a,
+.shijimi-corp-service-card a,
+.shijimi-corp-product-cta a,
+.shijimi-corp-contact-copy a {
+  display: inline-flex;
+  align-items: center;
+  gap: .38rem;
+  color: #0369a1;
+  font-size: .86rem;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.shijimi-corp-product-detail a { margin-top: .9rem; }
+
+.shijimi-corp-product-detail svg,
+.shijimi-corp-service-card svg,
+.shijimi-corp-product-cta svg,
+.shijimi-corp-contact-copy svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.shijimi-corp-visual-mock {
+  position: relative;
+  height: 10rem;
+  border-radius: 1.2rem;
+  background:
+    radial-gradient(circle at 80% 22%, rgba(56, 189, 248, .24), transparent 7rem),
+    linear-gradient(135deg, #f8fafc, #e0f2fe);
+  overflow: hidden;
+}
+
+.shijimi-corp-visual-mock.is-large { height: 24rem; }
+
+.shijimi-corp-visual-mock span {
+  position: absolute;
+  display: block;
+  border-radius: .6rem;
+  background: rgba(15, 23, 42, .84);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, .14);
+}
+
+.is-mobile .phone-speaker { top: 14%; left: 44%; width: 12%; height: .25rem; }
+.is-mobile .phone-card { left: 31%; top: 18%; width: 38%; height: 72%; border-radius: 1.2rem; background: linear-gradient(180deg, #0f172a, #1e293b); }
+.is-mobile .phone-dot.one { left: 40%; top: 38%; width: .8rem; height: .8rem; background: #7dd3fc; }
+.is-mobile .phone-dot.two { left: 53%; top: 52%; width: .65rem; height: .65rem; background: #38bdf8; }
+.is-mobile .phone-bar { left: 39%; bottom: 24%; width: 22%; height: .42rem; background: #e0f2fe; }
+
+.is-desktop .desktop-top { left: 14%; top: 18%; width: 72%; height: 8%; background: #0f172a; }
+.is-desktop .desktop-panel.main { left: 14%; top: 28%; width: 44%; height: 46%; background: #bae6fd; }
+.is-desktop .desktop-panel.side { right: 14%; top: 28%; width: 24%; height: 46%; background: #075985; }
+.is-desktop .desktop-line.a { left: 22%; bottom: 18%; width: 36%; height: .35rem; background: #0ea5e9; }
+.is-desktop .desktop-line.b { left: 22%; bottom: 12%; width: 52%; height: .35rem; background: #94a3b8; }
+
+.is-book .book-cover { left: 18%; top: 26%; width: 30%; height: 50%; transform: rotate(-8deg); background: #1e293b; }
+.is-book .book-page { right: 22%; top: 22%; width: 32%; height: 54%; transform: rotate(7deg); background: #f8fafc; }
+.is-book .book-mic { left: 50%; top: 34%; width: 10%; height: 40%; border-radius: 999px; background: #0f172a; }
+.is-book .book-wave { right: 12%; top: 50%; width: 24%; height: .45rem; background: #38bdf8; }
+
+.is-system .node { width: .85rem; height: .85rem; border-radius: 999px; background: #0284c7; }
+.is-system .n1 { left: 20%; top: 28%; } .is-system .n2 { left: 48%; top: 18%; } .is-system .n3 { right: 24%; top: 42%; } .is-system .n4 { left: 38%; bottom: 22%; }
+.is-system .rail { left: 16%; right: 16%; bottom: 24%; height: .18rem; background: #0f172a; }
+.is-system .train { left: 38%; bottom: 20%; width: 18%; height: .7rem; background: #38bdf8; }
+
+.is-document .doc { width: 30%; height: 56%; background: #fff; border: 1px solid rgba(15, 23, 42, .12); }
+.is-document .d1 { left: 18%; top: 22%; transform: rotate(-7deg); } .is-document .d2 { left: 36%; top: 18%; } .is-document .d3 { right: 18%; top: 26%; transform: rotate(7deg); }
+.is-document .doc-line { left: 26%; height: .32rem; background: #0284c7; } .is-document .l1 { top: 45%; width: 40%; } .is-document .l2 { top: 56%; width: 28%; }
+
+.is-dashboard .dash-window { left: 12%; top: 18%; width: 76%; height: 64%; background: #0f172a; }
+.is-dashboard .dash-widget { background: #e0f2fe; } .is-dashboard .w1 { left: 20%; top: 30%; width: 18%; height: 18%; } .is-dashboard .w2 { left: 42%; top: 30%; width: 18%; height: 18%; } .is-dashboard .w3 { right: 20%; top: 30%; width: 18%; height: 18%; }
+.is-dashboard .dash-graph { left: 20%; bottom: 22%; width: 60%; height: .55rem; background: #38bdf8; }
+
+.shijimi-corp-product-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.shijimi-corp-product-cta a,
+.shijimi-corp-contact-copy a:first-child {
+  border-radius: 999px;
+  background: #0f172a;
+  color: #fff;
+  padding: .9rem 1.2rem;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, .16);
+}
+
+.shijimi-corp-services {
+  padding: clamp(5rem, 10vw, 9rem) 0;
+}
+
+.shijimi-corp-service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.shijimi-corp-service-card {
+  min-height: 24rem;
+  padding: 1.5rem;
+}
+
+.shijimi-corp-service-card > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #0284c7;
+  font-weight: 950;
+}
+
+.shijimi-corp-service-card > div svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.shijimi-corp-service-card small {
+  display: block;
+  margin: 1rem 0;
+  color: #0f172a;
+  font-size: .8rem;
+  font-weight: 800;
+  line-height: 1.65;
+}
+
+.shijimi-corp-contact {
+  display: grid;
+  grid-template-columns: minmax(0, .92fr) minmax(20rem, .72fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  margin-bottom: clamp(5rem, 10vw, 9rem);
+  border-radius: 2.2rem;
+  background:
+    radial-gradient(circle at 78% 20%, rgba(125, 211, 252, .24), transparent 22rem),
+    linear-gradient(135deg, #0f172a, #0f2741 62%, #075985);
+  color: #fff;
+  padding: clamp(2rem, 5vw, 4.5rem);
+  box-shadow: 0 30px 90px rgba(15, 23, 42, .22);
+}
+
+.shijimi-corp-contact .shijimi-corp-label { color: #7dd3fc; }
+.shijimi-corp-contact h2 { color: #fff; font-size: clamp(2rem, 4vw, 4.3rem); }
+.shijimi-corp-contact-copy > p { color: rgba(226, 232, 240, .82); margin-top: 1.2rem; }
+
+.shijimi-corp-contact-copy > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem;
+  margin-top: 2rem;
+}
+
+.shijimi-corp-contact-copy a:last-child {
+  border: 1px solid rgba(255, 255, 255, .24);
+  border-radius: 999px;
+  color: #fff;
+  padding: .9rem 1.2rem;
+}
+
+.shijimi-corp-contact-visual {
+  position: relative;
+  min-height: 22rem;
+}
+
+.contact-card {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: 1.4rem;
+  background: rgba(255, 255, 255, .12);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .22);
+  color: #fff;
+  padding: 1.2rem;
+}
+
+.contact-card.main { left: 8%; top: 14%; width: 72%; min-height: 10rem; }
+.contact-card.sub { right: 2%; bottom: 12%; width: 42%; min-height: 6rem; }
+.contact-card svg { width: 1.8rem; height: 1.8rem; color: #7dd3fc; }
+.contact-card span { display: block; margin-top: 1rem; color: #bae6fd; font-size: .78rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+.contact-card strong { display: block; margin-top: .35rem; font-size: 1.3rem; }
+.contact-flow { position: absolute; left: 18%; right: 18%; bottom: 30%; height: 1px; background: rgba(125, 211, 252, .46); }
+.contact-flow span { position: absolute; top: -.25rem; width: .55rem; height: .55rem; border-radius: 999px; background: #7dd3fc; }
+.contact-flow span:nth-child(1) { left: 0; } .contact-flow span:nth-child(2) { left: 48%; } .contact-flow span:nth-child(3) { right: 0; }
+
+.shijimi-corp-footer {
+  border-top: 1px solid rgba(15, 23, 42, .08);
+  background: #f8fbff;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 4vw, 4rem) 1.4rem;
+}
+
+.shijimi-corp-footer-brand {
+  display: grid;
+  gap: .4rem;
+  margin-bottom: 2rem;
+}
+
+.shijimi-corp-footer-brand strong { font-size: 1.35rem; font-weight: 950; }
+.shijimi-corp-footer-brand span { color: #64748b; font-size: .82rem; font-weight: 800; }
+
+.shijimi-corp-footer-groups {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.shijimi-corp-footer nav {
+  display: grid;
+  align-content: start;
+  gap: .55rem;
+}
+
+.shijimi-corp-footer h3 {
+  margin: 0 0 .5rem;
+  color: #0f172a;
+  font-size: .88rem;
+  font-weight: 950;
+}
+
+.shijimi-corp-footer a,
+.shijimi-corp-footer .is-disabled {
+  color: #64748b;
+  font-size: .82rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.shijimi-corp-footer a:hover { color: #0284c7; }
+.shijimi-corp-footer .is-disabled { opacity: .55; }
+.shijimi-corp-copyright { margin: 2.6rem 0 0; color: #94a3b8; font-size: .78rem; }
+
+@media (max-width: 1020px) {
+  .shijimi-corp-header { align-items: flex-start; flex-direction: column; position: relative; }
+  .shijimi-corp-nav { justify-content: flex-start; }
+  .shijimi-corp-mission,
+  .shijimi-corp-contact { grid-template-columns: 1fr; }
+  .shijimi-corp-product-grid,
+  .shijimi-corp-service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .shijimi-corp-product-backdrop { width: 76vw; opacity: .13; }
+  .shijimi-corp-footer-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .shijimi-corp-page { overflow-x: hidden; }
+  .shijimi-corp-header { padding: .9rem; }
+  .shijimi-corp-brand { align-items: flex-start; min-width: 0; }
+  .shijimi-corp-brand img { width: 42px; height: 42px; }
+  .shijimi-corp-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; gap: .35rem; }
+  .shijimi-corp-nav a { background: rgba(255, 255, 255, .7); text-align: center; padding: .58rem .4rem; }
+  .shijimi-corp-top { min-height: auto; padding: 4rem .9rem 3rem; }
+  .shijimi-corp-icon-orbit { width: 10.5rem; }
+  .shijimi-corp-top-copy h1 { font-size: clamp(3rem, 18vw, 4.6rem); }
+  .shijimi-corp-value,
+  .shijimi-corp-mission,
+  .shijimi-corp-products,
+  .shijimi-corp-services,
+  .shijimi-corp-contact { width: min(100% - 1rem, 1180px); }
+  .shijimi-corp-value { padding: 3.5rem 0; }
+  .shijimi-corp-value-lines span { font-size: clamp(1.85rem, 11vw, 3rem); }
+  .shijimi-corp-mission { min-height: auto; padding: 4rem 0; gap: 1.8rem; }
+  .shijimi-corp-mission-text { border-left: 0; border-top: 1px solid rgba(14, 165, 233, .22); padding: 1.3rem 0 0; }
+  .shijimi-corp-products { padding: 4rem 0; }
+  .shijimi-corp-products-stage { border-radius: 1.3rem; padding: .7rem; }
+  .shijimi-corp-product-grid,
+  .shijimi-corp-service-grid,
+  .shijimi-corp-footer-groups { grid-template-columns: 1fr; }
+  .shijimi-corp-product-card { min-height: 25rem; }
+  .shijimi-corp-product-detail { max-height: 16rem; opacity: 1; }
+  .shijimi-corp-product-backdrop { display: none; }
+  .shijimi-corp-contact { border-radius: 1.3rem; padding: 1.4rem; }
+  .shijimi-corp-contact-visual { min-height: 17rem; }
+  .contact-card.main { left: 0; width: 82%; }
+  .contact-card.sub { right: 0; width: 54%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shijimi-corp-page *,
+  .shijimi-corp-page *::before,
+  .shijimi-corp-page *::after {
+    animation: none !important;
+    transition-duration: .01ms !important;
+  }
+}
