@@ -5253,3 +5253,131 @@ footer a { text-underline-offset: .25em; }
     transform: translateX(0) !important;
   }
 }
+
+/* ShijimiWORKs SERVICES color palette and typography tuning */
+.shijimi-corp-page {
+  font-family:
+    "A-OTF Gothic MB101 Pro",
+    "A-OTF ゴシックMB101 Pro",
+    "A-OTF ゴシックMB101",
+    "Hiragino Kaku Gothic Pro",
+    "Hiragino Kaku Gothic ProN",
+    "Yu Gothic",
+    "YuGothic",
+    "Meiryo",
+    system-ui,
+    sans-serif;
+}
+
+.shijimi-corp-service-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 24rem;
+  border-color: rgba(255, 255, 255, .22);
+  color: #ffffff;
+  letter-spacing: .01em;
+}
+
+.shijimi-corp-service-card:nth-child(1) { background: rgb(8, 47, 80); }
+.shijimi-corp-service-card:nth-child(2) { background: rgb(20, 78, 148); }
+.shijimi-corp-service-card:nth-child(3) { background: rgb(41, 153, 196); }
+.shijimi-corp-service-card:nth-child(4) { background: rgb(165, 197, 214); color: #082f50; }
+.shijimi-corp-service-card:nth-child(5) { background: rgb(102, 102, 102); }
+.shijimi-corp-service-card:nth-child(6) { background: rgb(204, 204, 204); color: #0f172a; }
+
+.shijimi-corp-service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 82% 16%, rgba(255, 255, 255, .22), transparent 9rem),
+    linear-gradient(135deg, rgba(255, 255, 255, .13), transparent 42%);
+  opacity: .82;
+}
+
+.shijimi-corp-service-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.shijimi-corp-service-card > div {
+  color: rgba(255, 255, 255, .74);
+}
+
+.shijimi-corp-service-card h3 {
+  color: #ffffff;
+  font-family:
+    "A-OTF Gothic MB101 Pro",
+    "A-OTF ゴシックMB101 Pro",
+    "A-OTF ゴシックMB101",
+    "Hiragino Kaku Gothic Pro",
+    "Hiragino Kaku Gothic ProN",
+    "Yu Gothic",
+    "YuGothic",
+    "Meiryo",
+    system-ui,
+    sans-serif;
+  font-weight: 900;
+  letter-spacing: -.02em;
+}
+
+.shijimi-corp-service-card p {
+  color: rgba(255, 255, 255, .86);
+  font-weight: 650;
+}
+
+.shijimi-corp-service-card small {
+  color: rgba(255, 255, 255, .72);
+  font-weight: 800;
+}
+
+.shijimi-corp-service-card a {
+  margin-top: auto;
+  color: #ffffff;
+  text-underline-offset: .24em;
+}
+
+.shijimi-corp-service-card:nth-child(4) > div,
+.shijimi-corp-service-card:nth-child(6) > div {
+  color: rgba(8, 47, 80, .66);
+}
+
+.shijimi-corp-service-card:nth-child(4) h3,
+.shijimi-corp-service-card:nth-child(6) h3 {
+  color: #082f50;
+}
+
+.shijimi-corp-service-card:nth-child(4) p,
+.shijimi-corp-service-card:nth-child(6) p {
+  color: rgba(8, 47, 80, .82);
+}
+
+.shijimi-corp-service-card:nth-child(4) small,
+.shijimi-corp-service-card:nth-child(6) small {
+  color: rgba(8, 47, 80, .65);
+}
+
+.shijimi-corp-service-card:nth-child(4) a,
+.shijimi-corp-service-card:nth-child(6) a {
+  color: #082f50;
+}
+
+.shijimi-corp-service-card:hover {
+  border-color: rgba(255, 255, 255, .48);
+  box-shadow: 0 30px 90px rgba(8, 47, 80, .2);
+  filter: brightness(1.055) saturate(1.04);
+}
+
+.shijimi-corp-service-card:nth-child(4):hover,
+.shijimi-corp-service-card:nth-child(6):hover {
+  box-shadow: 0 30px 90px rgba(8, 47, 80, .16);
+}
+
+@media (max-width: 640px) {
+  .shijimi-corp-service-card {
+    min-height: 20rem;
+    padding: 1.3rem;
+  }
+}
