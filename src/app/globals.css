@@ -5381,3 +5381,80 @@ footer a { text-underline-offset: .25em; }
     padding: 1.3rem;
   }
 }
+
+/* SERVICES explicit color classes: keep cards from falling back to white */
+.shijimi-corp-page .shijimi-service-card {
+  background-image: none;
+  border-color: rgba(255, 255, 255, .22);
+}
+
+.shijimi-corp-page .shijimi-service-card.service-color-01 {
+  background: rgb(8, 47, 80) !important;
+  background-color: rgb(8, 47, 80) !important;
+}
+
+.shijimi-corp-page .shijimi-service-card.service-color-02 {
+  background: rgb(20, 78, 148) !important;
+  background-color: rgb(20, 78, 148) !important;
+}
+
+.shijimi-corp-page .shijimi-service-card.service-color-03 {
+  background: rgb(41, 153, 196) !important;
+  background-color: rgb(41, 153, 196) !important;
+}
+
+.shijimi-corp-page .shijimi-service-card.service-color-04 {
+  background: rgb(165, 197, 214) !important;
+  background-color: rgb(165, 197, 214) !important;
+}
+
+.shijimi-corp-page .shijimi-service-card.service-color-05 {
+  background: rgb(102, 102, 102) !important;
+  background-color: rgb(102, 102, 102) !important;
+}
+
+.shijimi-corp-page .shijimi-service-card.service-color-06 {
+  background: rgb(204, 204, 204) !important;
+  background-color: rgb(204, 204, 204) !important;
+}
+
+.shijimi-corp-page .shijimi-service-card.is-dark,
+.shijimi-corp-page .shijimi-service-card.is-dark > div,
+.shijimi-corp-page .shijimi-service-card.is-dark svg,
+.shijimi-corp-page .shijimi-service-card.is-dark h3,
+.shijimi-corp-page .shijimi-service-card.is-dark a {
+  color: #ffffff;
+}
+
+.shijimi-corp-page .shijimi-service-card.is-dark p {
+  color: rgba(255, 255, 255, .86);
+}
+
+.shijimi-corp-page .shijimi-service-card.is-dark small,
+.shijimi-corp-page .shijimi-service-card.is-dark > div span {
+  color: rgba(255, 255, 255, .72);
+}
+
+.shijimi-corp-page .shijimi-service-card.is-light,
+.shijimi-corp-page .shijimi-service-card.is-light > div,
+.shijimi-corp-page .shijimi-service-card.is-light svg,
+.shijimi-corp-page .shijimi-service-card.is-light h3,
+.shijimi-corp-page .shijimi-service-card.is-light a {
+  color: #082f50;
+}
+
+.shijimi-corp-page .shijimi-service-card.is-light p {
+  color: rgba(8, 47, 80, .82);
+}
+
+.shijimi-corp-page .shijimi-service-card.is-light small,
+.shijimi-corp-page .shijimi-service-card.is-light > div span {
+  color: rgba(8, 47, 80, .65);
+}
+
+.shijimi-corp-page .shijimi-service-card:hover,
+.shijimi-corp-page .shijimi-service-card:focus-within {
+  transform: translateY(-7px);
+  filter: brightness(1.055) saturate(1.04);
+  box-shadow: 0 30px 90px rgba(8, 47, 80, .22);
+}

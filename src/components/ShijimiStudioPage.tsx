@@ -43,6 +43,8 @@ type Service = {
   scope: string;
   href: string;
   icon: typeof Bot;
+  colorClass: string;
+  tone: "dark" | "light";
 };
 
 const shijimiIcon = "/images/youkai/ShijimiWORKs_icon.png";
@@ -117,6 +119,8 @@ const services: Service[] = [
     scope: "用途整理 / プロンプト設計 / 出力確認 / 運用ルール",
     href: links.contact,
     icon: Bot,
+    colorClass: "service-color-01",
+    tone: "dark",
   },
   {
     title: "Web制作",
@@ -124,6 +128,8 @@ const services: Service[] = [
     scope: "情報設計 / UI設計 / Next.js実装 / 公開前整理",
     href: "/works/one-studio-portfolio",
     icon: Globe2,
+    colorClass: "service-color-02",
+    tone: "dark",
   },
   {
     title: "アプリ開発・MVP設計",
@@ -131,6 +137,8 @@ const services: Service[] = [
     scope: "MVP整理 / 画面設計 / 機能分解 / 試作",
     href: "/works/netazou-ai",
     icon: Smartphone,
+    colorClass: "service-color-03",
+    tone: "dark",
   },
   {
     title: "自動化・運用設計",
@@ -138,6 +146,8 @@ const services: Service[] = [
     scope: "投稿導線 / 管理設計 / チェック手順 / 自動化案",
     href: "/works/buffer-workflow",
     icon: Workflow,
+    colorClass: "service-color-04",
+    tone: "light",
   },
   {
     title: "AI文書・マガジン制作",
@@ -145,6 +155,8 @@ const services: Service[] = [
     scope: "記事構成 / 連載設計 / 文書化 / 販売導線",
     href: "/works/ai-paid-magazine",
     icon: FileText,
+    colorClass: "service-color-05",
+    tone: "dark",
   },
   {
     title: "制作相談・お仕事依頼",
@@ -152,6 +164,8 @@ const services: Service[] = [
     scope: "課題整理 / 進め方相談 / 見積もり前相談",
     href: links.contact,
     icon: MessageCircle,
+    colorClass: "service-color-06",
+    tone: "light",
   },
 ];
 
@@ -338,7 +352,7 @@ function Services() {
         {services.map((service, index) => {
           const Icon = service.icon;
           return (
-            <article key={service.title} className="shijimi-corp-service-card">
+            <article key={service.title} className={`shijimi-corp-service-card shijimi-service-card ${service.colorClass} ${service.tone === "dark" ? "is-dark" : "is-light"}`}>
               <div><span>0{index + 1}</span><Icon aria-hidden="true" /></div>
               <h3>{service.title}</h3>
               <p>{service.description}</p>
@@ -409,6 +423,8 @@ export function ShijimiStudioPage() {
     </div>
   );
 }
+
+
 
 
 
