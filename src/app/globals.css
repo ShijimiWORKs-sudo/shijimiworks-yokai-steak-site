@@ -5172,3 +5172,84 @@ footer a { text-underline-offset: .25em; }
     transition-duration: .01ms !important;
   }
 }
+
+/* ShijimiWORKs PRODUCTS generated image integration */
+.shijimi-corp-product-image {
+  position: relative;
+  overflow: hidden;
+  height: clamp(11rem, 18vw, 15rem);
+  border: 1px solid rgba(14, 165, 233, .14);
+  border-radius: 1.18rem;
+  background: linear-gradient(135deg, #f8fafc, #e0f2fe);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .86), 0 18px 40px rgba(15, 23, 42, .08);
+}
+
+.shijimi-corp-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.01);
+  transition: transform .55s ease, filter .55s ease, opacity .55s ease;
+}
+
+.shijimi-corp-product-card:hover .shijimi-corp-product-image img,
+.shijimi-corp-product-card:focus-visible .shijimi-corp-product-image img,
+.shijimi-corp-product-card.is-active .shijimi-corp-product-image img {
+  filter: saturate(1.08) brightness(1.05);
+  transform: scale(1.075);
+}
+
+.shijimi-corp-product-backdrop {
+  position: absolute;
+  inset: -12% -20%;
+  z-index: -1;
+  overflow: hidden;
+  width: auto;
+  opacity: .23;
+  filter: blur(24px) saturate(1.1);
+  pointer-events: none;
+  transform: scale(1.12);
+}
+
+.shijimi-product-marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  height: 100%;
+  animation: shijimiProductImageDrift 22s linear infinite;
+  will-change: transform;
+}
+
+.shijimi-product-marquee-track img {
+  width: min(72rem, 76vw);
+  height: 100%;
+  min-height: 34rem;
+  flex: 0 0 auto;
+  object-fit: cover;
+  border-radius: 2.4rem;
+  opacity: .9;
+  transform: scale(1.04);
+}
+
+@keyframes shijimiProductImageDrift {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (max-width: 640px) {
+  .shijimi-corp-product-image {
+    height: 13.5rem;
+    border-radius: 1rem;
+  }
+
+  .shijimi-corp-product-backdrop {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shijimi-product-marquee-track {
+    animation: none !important;
+    transform: translateX(0) !important;
+  }
+}

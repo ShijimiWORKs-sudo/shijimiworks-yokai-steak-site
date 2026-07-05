@@ -31,6 +31,7 @@ type Product = {
   title: string;
   type: string;
   description: string;
+  image: string;
   visualType: VisualType;
   href: string;
   tags: string[];
@@ -52,6 +53,7 @@ const products: Product[] = [
     title: "ネタ造AI",
     type: "スマホアプリ / AI企画支援",
     description: "SNS、note、YouTube向けのネタ出しを支援する生成AIアプリ構想。",
+    image: "/images/shijimi/products/01_shijimi-product-mobile-app.png",
     visualType: "mobile",
     href: "/works/netazou-ai",
     tags: ["AI", "MVP", "Idea"],
@@ -61,6 +63,7 @@ const products: Product[] = [
     title: "ShijimiWORKs / 妖怪ステーキ 共通ホーム",
     type: "Web / Portfolio",
     description: "仕事と創作を横断する、二つの名義の共通入口サイト。",
+    image: "/images/shijimi/products/02_shijimi-product-web-portfolio.png",
     visualType: "desktop",
     href: "/works/one-studio-portfolio",
     tags: ["Web", "Portfolio", "Brand"],
@@ -70,6 +73,7 @@ const products: Product[] = [
     title: "妖怪ステーキ",
     type: "Creative / Media",
     description: "小説、映画感想、Podcast、YouTube朗読、落語感想を届ける創作ポートフォリオ。",
+    image: "/images/shijimi/products/03_shijimi-product-creative-media.png",
     visualType: "book",
     href: links.youkaiSteak,
     tags: ["Story", "Media", "Voice"],
@@ -79,6 +83,7 @@ const products: Product[] = [
     title: "Buffer投稿管理",
     type: "Automation / Workflow",
     description: "X投稿、daily_digest、Notion管理をつなぐ自動投稿運用フロー。",
+    image: "/images/shijimi/products/04_shijimi-product-automation-workflow.png",
     visualType: "system",
     href: "/works/buffer-workflow",
     tags: ["Automation", "SNS", "Workflow"],
@@ -88,6 +93,7 @@ const products: Product[] = [
     title: "AI有料マガジン制作",
     type: "Writing / Media",
     description: "AI活用、働き方、発信、収益化導線をまとめる有料記事群。",
+    image: "/images/shijimi/products/05_shijimi-product-writing-media.png",
     visualType: "document",
     href: "/works/ai-paid-magazine",
     tags: ["Writing", "note", "Substack"],
@@ -97,6 +103,7 @@ const products: Product[] = [
     title: "ShijimiWORKsトップページ",
     type: "Corporate / Web",
     description: "AI制作スタジオとしての事業サイト型ホームページ。",
+    image: "/images/shijimi/products/06_shijimi-product-corporate-ai-consulting.png",
     visualType: "dashboard",
     href: "/works/shijimiworks-top",
     tags: ["Corporate", "Next.js", "Design"],
@@ -284,8 +291,11 @@ function ProductShowcase() {
         <h2>作ったもの、設計したもの、運用しているもの。</h2>
       </div>
       <div className="shijimi-corp-products-stage">
-        <motion.div key={activeProduct.id} className={`shijimi-corp-product-backdrop is-${activeProduct.visualType}`} initial={{ opacity: 0, x: 80, scale: 1.06 }} animate={{ opacity: 1, x: -22, scale: 1.12 }} transition={{ duration: 1.1, ease: "easeInOut" }}>
-          <VisualMock type={activeProduct.visualType} large />
+        <motion.div key={activeProduct.id} className="shijimi-corp-product-backdrop" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: .45, ease: "easeOut" }}>
+          <div className="shijimi-product-marquee-track" aria-hidden="true">
+            <Image src={activeProduct.image} alt="" width={1280} height={720} sizes="80vw" />
+            <Image src={activeProduct.image} alt="" width={1280} height={720} sizes="80vw" />
+          </div>
         </motion.div>
         <div className="shijimi-corp-product-grid">
           {products.map((product, index) => {
@@ -293,7 +303,9 @@ function ProductShowcase() {
             return (
               <article key={product.id} className={`shijimi-corp-product-card ${isActive ? "is-active" : ""}`} onMouseEnter={() => setActiveId(product.id)} onFocus={() => setActiveId(product.id)} tabIndex={0}>
                 <div className="shijimi-corp-product-number">0{index + 1}</div>
-                <VisualMock type={product.visualType} />
+                <div className="shijimi-corp-product-image">
+                  <Image src={product.image} alt={`${product.title} のビジュアル`} width={720} height={420} sizes="(max-width: 640px) 100vw, 33vw" />
+                </div>
                 <div className="shijimi-corp-product-copy">
                   <small>{product.type}</small>
                   <h3>{product.title}</h3>
@@ -386,7 +398,6 @@ function Footer() {
 export function ShijimiStudioPage() {
   return (
     <div className="shijimi-corp-page">
-      <Header />
       <main>
         <TopVisual />
         <ValueMission />
@@ -398,3 +409,7 @@ export function ShijimiStudioPage() {
     </div>
   );
 }
+
+
+
+
