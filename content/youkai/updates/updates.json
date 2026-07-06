@@ -1,0 +1,69 @@
+[
+  {
+    "id": "youkai-update-novel-001",
+    "type": "novel",
+    "category": "NOVEL",
+    "title": "月と影の記憶 第8話 更新",
+    "description": "失われた記憶と、夜に残る影を追う物語。",
+    "date": "2026-07-04",
+    "image": "/images/youkai/youkai-novel.png",
+    "href": "/youkai-steak",
+    "source": "manual"
+  },
+  {
+    "id": "youkai-update-podcast-001",
+    "type": "podcast",
+    "category": "PODCAST",
+    "title": "声で語る物語 #12 公開",
+    "description": "映画と日常のあいだに残る、静かな夜のトーク。",
+    "date": "2026-07-03",
+    "image": "/images/youkai/youkai-podcast.png",
+    "href": "https://open.spotify.com/show/0MJ8LBPvXLAHIxRLwWDiIm",
+    "audioPath": "",
+    "source": "manual"
+  },
+  {
+    "id": "youkai-update-movie-001",
+    "type": "movie",
+    "category": "MOVIE",
+    "title": "PERFECT DAYS 考察",
+    "description": "静かな日常の中にある、選択と再生の物語。",
+    "date": "2026-07-02",
+    "image": "/images/youkai/youkai-cinema.png",
+    "href": "https://note.com/youkai_steak",
+    "source": "manual"
+  },
+  {
+    "id": "youkai-update-youtube-001",
+    "type": "youtube",
+    "category": "YOUTUBE",
+    "title": "短編「雨の記憶」公開",
+    "description": "小さな雨音とともに読む、夜の短編朗読。",
+    "date": "2026-07-01",
+    "image": "/images/youkai/youkai-youtube-reading.pn.png",
+    "href": "https://www.youtube.com/channel/UCY96M9pdESQsNqGGcUlK4qA",
+    "source": "manual"
+  },
+  {
+    "id": "youkai-update-rakugo-001",
+    "type": "rakugo",
+    "category": "RAKUGO",
+    "title": "「芝浜」を観て",
+    "description": "人情噺の奥にある、弱さと優しさについて。",
+    "date": "2026-06-30",
+    "image": "/images/youkai/youkai-rakugo.png",
+    "href": "https://note.com/youkai_steak",
+    "source": "manual"
+  },
+  {
+    "id": "youkai-update-note-001",
+    "type": "note",
+    "category": "NOTE",
+    "title": "映画から人生を読み直す",
+    "description": "映画の感想を、自分の生活に持ち帰るための記録。",
+    "date": "2026-06-29",
+    "image": "/images/youkai/youkai-note.png",
+    "href": "https://note.com/youkai_steak",
+    "source": "manual"
+  }
+]

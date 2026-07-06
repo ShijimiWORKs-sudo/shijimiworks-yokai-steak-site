@@ -5,85 +5,36 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { useRef, useState } from "react";
-import { links } from "@/data/links";
-
-type YoukaiUpdate = {
-  category: string;
-  date: string;
-  title: string;
-  description: string;
-  image: string;
-  href: string;
-  action: string;
-};
-
-const updates: YoukaiUpdate[] = [
-  {
-    category: "NOVEL",
-    date: "2026.07.03",
-    title: "月と影の記憶 第8話 更新",
-    description: "失われた記憶と、夜に残る影を追う物語。",
-    image: "/images/youkai/youkai-novel.png",
-    href: links.youkaiSteakNarou,
-    action: "読む",
-  },
-  {
-    category: "PODCAST",
-    date: "2026.06.29",
-    title: "声で語る物語 #12 公開",
-    description: "映画と日常のあいだに残る、静かな夜のトーク。",
-    image: "/images/youkai/youkai-podcast.png",
-    href: links.youkaiSteakPodcast,
-    action: "聴く",
-  },
-  {
-    category: "MOVIE",
-    date: "2026.06.24",
-    title: "PERFECT DAYS 考察",
-    description: "静かな日常の中にある、選択と再生の物語。",
-    image: "/images/youkai/youkai-cinema.png",
-    href: links.youkaiSteakNote,
-    action: "読む",
-  },
-  {
-    category: "YOUTUBE",
-    date: "2026.06.18",
-    title: "短編「雨の記憶」公開",
-    description: "小さな雨音とともに読む、夜の短編朗読。",
-    image: "/images/youkai/youkai-youtube-reading.pn.png",
-    href: links.youkaiSteakYoutube,
-    action: "観る",
-  },
-  {
-    category: "RAKUGO",
-    date: "2026.06.12",
-    title: "「芝浜」を観て",
-    description: "人情噺の奥にある、弱さと優しさについて。",
-    image: "/images/youkai/youkai-rakugo.png",
-    href: links.youkaiSteakNote,
-    action: "読む",
-  },
-  {
-    category: "NOTE",
-    date: "2026.06.08",
-    title: "映画から人生を読み直す",
-    description: "映画の感想を、自分の生活に持ち帰るための記録。",
-    image: "/images/youkai/youkai-note.png",
-    href: links.youkaiSteakNote,
-    action: "読む",
-  },
-];
+import type { YoukaiUpdate } from "@/lib/youkaiUpdates";
 
 function isExternal(href: string) {
   return href.startsWith("http");
 }
 
-export function YoukaiUpdatesCarousel() {
+function getActionLabel(type: string) {
+  switch (type) {
+    case "podcast":
+      return "聴く";
+    case "youtube":
+      return "観る";
+    default:
+      return "読む";
+  }
+}
+
+type YoukaiUpdatesCarouselProps = {
+  updates: YoukaiUpdate[];
+};
+
+export function YoukaiUpdatesCarousel({ updates }: YoukaiUpdatesCarouselProps) {
+  const safeUpdates = updates.length > 0 ? updates : [];
   const [activeIndex, setActiveIndex] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
 
   const moveTo = (nextIndex: number) => {
-    const normalizedIndex = (nextIndex + updates.length) % updates.length;
+    if (safeUpdates.length === 0) return;
+
+    const normalizedIndex = (nextIndex + safeUpdates.length) % safeUpdates.length;
     setActiveIndex(normalizedIndex);
 
     const track = trackRef.current;
@@ -110,13 +61,13 @@ export function YoukaiUpdatesCarousel() {
             </span>
           </div>
           <div className="youkai-updates-controls" aria-label="最新の更新カルーセル操作">
-            <button type="button" onClick={() => moveTo(activeIndex - 1)} aria-label="前の更新を見る">
+            <button type="button" onClick={() => moveTo(activeIndex - 1)} aria-label="前の更新を見る" disabled={safeUpdates.length === 0}>
               <ArrowLeft aria-hidden="true" />
             </button>
             <small aria-live="polite">
-              {String(activeIndex + 1).padStart(2, "0")} / {String(updates.length).padStart(2, "0")}
+              {String(safeUpdates.length === 0 ? 0 : activeIndex + 1).padStart(2, "0")} / {String(safeUpdates.length).padStart(2, "0")}
             </small>
-            <button type="button" onClick={() => moveTo(activeIndex + 1)} aria-label="次の更新を見る">
+            <button type="button" onClick={() => moveTo(activeIndex + 1)} aria-label="次の更新を見る" disabled={safeUpdates.length === 0}>
               <ArrowRight aria-hidden="true" />
             </button>
           </div>
@@ -124,9 +75,9 @@ export function YoukaiUpdatesCarousel() {
 
         <div className="youkai-updates-frame">
           <div ref={trackRef} className="youkai-updates-track" tabIndex={0}>
-            {updates.map((update, index) => (
+            {safeUpdates.map((update, index) => (
               <motion.article
-                key={`${update.category}-${update.title}`}
+                key={update.id}
                 className="youkai-update-slide"
                 initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -149,7 +100,7 @@ export function YoukaiUpdatesCarousel() {
                   <strong>{update.title}</strong>
                   <em>{update.description}</em>
                   <span className="youkai-update-slide-action">
-                    {update.action}
+                    {getActionLabel(update.type)}
                     <ArrowUpRight aria-hidden="true" />
                   </span>
                 </Link>
@@ -159,9 +110,9 @@ export function YoukaiUpdatesCarousel() {
         </div>
 
         <div className="youkai-updates-dots" aria-label="現在位置">
-          {updates.map((update, index) => (
+          {safeUpdates.map((update, index) => (
             <button
-              key={`${update.category}-dot`}
+              key={`${update.id}-dot`}
               type="button"
               className={index === activeIndex ? "is-active" : ""}
               onClick={() => moveTo(index)}

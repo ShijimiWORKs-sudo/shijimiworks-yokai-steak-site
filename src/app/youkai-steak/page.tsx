@@ -6,6 +6,7 @@ import { YoukaiInteractiveHero } from "@/components/YoukaiInteractiveHero";
 import { YoukaiOngoingWorks } from "@/components/YoukaiOngoingWorks";
 import { YoukaiThemes } from "@/components/YoukaiThemes";
 import { YoukaiUpdatesCarousel } from "@/components/YoukaiUpdatesCarousel";
+import { getYoukaiUpdates } from "@/lib/youkaiUpdates";
 
 export const metadata: Metadata = {
   title: "妖怪ステーキ",
@@ -23,11 +24,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function YoukaiSteakPage() {
+export default async function YoukaiSteakPage() {
+  const updates = await getYoukaiUpdates();
   return (
     <div className="youkai-page bg-[#080604] text-stone-100">
       <YoukaiInteractiveHero />
-      <YoukaiUpdatesCarousel />
+      <YoukaiUpdatesCarousel updates={updates} />
       <YoukaiOngoingWorks />
       <YoukaiThemes />
       <YoukaiAbout />
@@ -36,3 +38,4 @@ export default function YoukaiSteakPage() {
     </div>
   );
 }
+

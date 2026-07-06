@@ -101,3 +101,13 @@ git push -u origin main
 - Admin認証、編集、保存機能
 
 旧静的サイトのHTML・画像・`build:legacy`スクリプトは移行参照用として残しています。
+
+## 妖怪ステーキ最新更新の手動更新
+
+妖怪ステーキページ `/youkai-steak` の「最新の更新」は、`content/youkai/updates/updates.json` から読み込まれます。
+
+- 更新を追加する場合は `content/youkai/updates/updates.json` に1件追加します。
+- `date` は `YYYY-MM-DD` 形式で記入します。
+- 新しい日付順にカルーセルへ表示されます。
+- 反映にはビルドおよびVercel再デプロイが必要です。
+- 詳細は `docs/content-update-workflow.md` を参照してください。
