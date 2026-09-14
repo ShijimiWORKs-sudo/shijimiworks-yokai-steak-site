@@ -88,7 +88,7 @@ export function YoukaiOngoingWorks() {
               >
                 <span className="youkai-ongoing-work-number">0{index + 1}</span>
                 <span className="youkai-ongoing-work-image">
-                  <Image src={work.image} alt="" fill sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" />
+                  <Image src={work.image} alt={work.title} fill sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" />
                 </span>
                 <span className="youkai-ongoing-work-content">
                   <span className="youkai-ongoing-work-meta">

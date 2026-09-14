@@ -25,7 +25,7 @@ export default function WebPortfolioPage() {
                 <iframe src={item.demoUrl} title={`${item.siteName} preview`} loading="lazy" className="shijimi-portfolio-iframe" />
               ) : item.thumbnail ? (
                 <>
-                  <Image src={item.thumbnail} alt="" fill sizes="(max-width: 768px) 100vw, 33vw" className="shijimi-portfolio-thumb-img" />
+                  <Image src={item.thumbnail} alt={`${item.siteName}のスクリーンショット`} fill sizes="(max-width: 768px) 100vw, 33vw" className="shijimi-portfolio-thumb-img" />
                   <span className="shijimi-portfolio-thumb-badge">HP{item.number}</span>
                 </>
               ) : (

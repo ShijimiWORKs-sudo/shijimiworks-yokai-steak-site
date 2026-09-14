@@ -124,7 +124,7 @@ export function YoukaiInteractiveHero() {
     <section className="youkai-interactive-shell">
       <header className="youkai-local-header">
         <Link href={links.youkaiSteak} className="youkai-local-brand" aria-label="妖怪ステーキ トップ">
-          <Image src="/images/youkai/icon.jpg" alt="" width={58} height={58} className="youkai-local-icon" />
+          <Image src="/images/youkai/icon.jpg" alt="妖怪ステーキ" width={58} height={58} className="youkai-local-icon" />
           <span>
             <strong>妖怪ステーキ</strong>
             <small>Novel / Cinema / Podcast / YouTube / Rakugo</small>
@@ -183,7 +183,7 @@ export function YoukaiInteractiveHero() {
               transition={{ duration: 0.35, ease: "easeOut" }}
             >
               <div className="youkai-story-panel-image">
-                <Image src={activeCategory.image} alt="" fill sizes="(min-width: 1024px) 46vw, 100vw" />
+                <Image src={activeCategory.image} alt={activeCategory.title} fill sizes="(min-width: 1024px) 46vw, 100vw" />
               </div>
               <div className="youkai-story-panel-body">
                 <button type="button" className="youkai-story-back" onClick={() => setActiveKey(null)}>
@@ -229,7 +229,7 @@ export function YoukaiInteractiveHero() {
                     className="youkai-story-card"
                     onClick={() => setActiveKey(category.key)}
                   >
-                    <Image src={category.image} alt="" fill sizes="(min-width: 1024px) 16vw, 50vw" />
+                    <Image src={category.image} alt={category.title} fill sizes="(min-width: 1024px) 16vw, 50vw" />
                     <span>{category.code}</span>
                     <strong>{category.title}</strong>
                   </button>

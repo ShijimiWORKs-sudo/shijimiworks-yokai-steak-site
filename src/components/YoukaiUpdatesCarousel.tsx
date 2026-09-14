@@ -91,7 +91,7 @@ export function YoukaiUpdatesCarousel({ updates }: YoukaiUpdatesCarouselProps) {
                   className="youkai-update-slide-link"
                 >
                   <span className="youkai-update-slide-image">
-                    <Image src={update.image} alt="" fill sizes="(min-width: 1280px) 25vw, (min-width: 768px) 33vw, 92vw" />
+                    <Image src={update.image} alt={update.title} fill sizes="(min-width: 1280px) 25vw, (min-width: 768px) 33vw, 92vw" />
                   </span>
                   <span className="youkai-update-slide-meta">
                     <small>{update.date}</small>
