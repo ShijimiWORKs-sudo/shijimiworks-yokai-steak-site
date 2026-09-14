@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { links } from "@/data/links";
+import { shijimiProducts } from "@/data/shijimiProducts";
 
 type VisualType = "mobile" | "desktop" | "book" | "system" | "document" | "dashboard";
 
@@ -49,75 +50,14 @@ type Service = {
 
 const shijimiIcon = "/images/youkai/ShijimiWORKs_icon.png";
 
-const products: Product[] = [
-  {
-    id: "netazou-ai",
-    title: "ネタ造AI",
-    type: "スマホアプリ / AI企画支援",
-    description: "SNS、note、YouTube向けのネタ出しを支援する生成AIアプリ構想。",
-    image: "/images/shijimi/products/01_shijimi-product-mobile-app.png",
-    visualType: "mobile",
-    href: "/works/netazou-ai",
-    tags: ["AI", "MVP", "Idea"],
-  },
-  {
-    id: "one-studio-portfolio",
-    title: "ShijimiWORKs / 妖怪ステーキ 共通ホーム",
-    type: "Web / Portfolio",
-    description: "仕事と創作を横断する、二つの名義の共通入口サイト。",
-    image: "/images/shijimi/products/02_shijimi-product-web-portfolio.png",
-    visualType: "desktop",
-    href: "/works/one-studio-portfolio",
-    tags: ["Web", "Portfolio", "Brand"],
-  },
-  {
-    id: "youkai-steak",
-    title: "妖怪ステーキ",
-    type: "Creative / Media",
-    description: "小説、映画感想、Podcast、YouTube朗読、落語感想を届ける創作ポートフォリオ。",
-    image: "/images/shijimi/products/03_shijimi-product-creative-media.png",
-    visualType: "book",
-    href: links.youkaiSteak,
-    tags: ["Story", "Media", "Voice"],
-  },
-  {
-    id: "buffer-workflow",
-    title: "Buffer投稿管理",
-    type: "Automation / Workflow",
-    description: "X投稿、daily_digest、Notion管理をつなぐ自動投稿運用フロー。",
-    image: "/images/shijimi/products/04_shijimi-product-automation-workflow.png",
-    visualType: "system",
-    href: "/works/buffer-workflow",
-    tags: ["Automation", "SNS", "Workflow"],
-  },
-  {
-    id: "ai-paid-magazine",
-    title: "AI有料マガジン制作",
-    type: "Writing / Media",
-    description: "AI活用、働き方、発信、収益化導線をまとめる有料記事群。",
-    image: "/images/shijimi/products/05_shijimi-product-writing-media.png",
-    visualType: "document",
-    href: "/works/ai-paid-magazine",
-    tags: ["Writing", "note", "Substack"],
-  },
-  {
-    id: "shijimiworks-top",
-    title: "ShijimiWORKsトップページ",
-    type: "Corporate / Web",
-    description: "AI制作スタジオとしての事業サイト型ホームページ。",
-    image: "/images/shijimi/products/06_shijimi-product-corporate-ai-consulting.png",
-    visualType: "dashboard",
-    href: "/works/shijimiworks-top",
-    tags: ["Corporate", "Next.js", "Design"],
-  },
-];
+const products = shijimiProducts;
 
 const services: Service[] = [
   {
     title: "AI活用・プロンプト設計",
     description: "ChatGPT、Claude、Grokなどを、企画・調査・制作・改善の相棒として使うための型を設計します。",
     scope: "用途整理 / プロンプト設計 / 出力確認 / 運用ルール",
-    href: links.contact,
+    href: "/products/corporate-ai-consulting",
     icon: Bot,
     colorClass: "service-color-01",
     tone: "dark",
@@ -126,7 +66,7 @@ const services: Service[] = [
     title: "Web制作",
     description: "個人サイト、ポートフォリオ、サービス紹介、LPを、文章と導線から設計して実装します。",
     scope: "情報設計 / UI設計 / Next.js実装 / 公開前整理",
-    href: "/works/one-studio-portfolio",
+    href: "/products/web-portfolio",
     icon: Globe2,
     colorClass: "service-color-02",
     tone: "dark",
@@ -135,7 +75,7 @@ const services: Service[] = [
     title: "アプリ開発・MVP設計",
     description: "小さなアプリ案を、要件、画面、機能、検証順序に分け、作れる単位へ落とし込みます。",
     scope: "MVP整理 / 画面設計 / 機能分解 / 試作",
-    href: "/works/netazou-ai",
+    href: "/products/app-mvp",
     icon: Smartphone,
     colorClass: "service-color-03",
     tone: "dark",
@@ -144,7 +84,7 @@ const services: Service[] = [
     title: "自動化・運用設計",
     description: "SNS投稿、Buffer、Notion、記事生成、管理フローを、続けやすい仕組みとして整理します。",
     scope: "投稿導線 / 管理設計 / チェック手順 / 自動化案",
-    href: "/works/buffer-workflow",
+    href: "/products/automation-workflow",
     icon: Workflow,
     colorClass: "service-color-04",
     tone: "light",
@@ -153,7 +93,7 @@ const services: Service[] = [
     title: "AI文書・マガジン制作",
     description: "note、Substack、有料マガジン、プロンプト集、事例レポートを読める形へ編集します。",
     scope: "記事構成 / 連載設計 / 文書化 / 販売導線",
-    href: "/works/ai-paid-magazine",
+    href: "/products/writing-ai-media",
     icon: FileText,
     colorClass: "service-color-05",
     tone: "dark",
@@ -181,16 +121,16 @@ const footerGroups = [
   {
     title: "プロダクト",
     links: [
-      { label: "ネタ造AI", href: "/works/netazou-ai" },
-      { label: "共通ホーム", href: "/works/one-studio-portfolio" },
+      { label: "NETAKURA", href: "/products/app-mvp#netakura" },
+      { label: "Web / Portfolio", href: "/products/web-portfolio" },
       { label: "妖怪ステーキ", href: links.youkaiSteak },
-      { label: "Buffer投稿管理", href: "/works/buffer-workflow" },
-      { label: "AI有料マガジン", href: "/works/ai-paid-magazine" },
+      { label: "自動投稿運用フロー", href: "/products/automation-workflow" },
+      { label: "AI文書・マガジン", href: "/products/writing-ai-media" },
     ],
   },
   {
     title: "サービス",
-    links: services.slice(0, 5).map((service) => ({ label: service.title, href: "#services" })),
+    links: services.slice(0, 5).map((service) => ({ label: service.title, href: service.href })),
   },
   {
     title: "SNS / Links",
@@ -335,7 +275,7 @@ function ProductShowcase() {
         </div>
       </div>
       <div className="shijimi-corp-product-cta">
-        <SmartLink href={links.works}>プロダクトを見る <ArrowUpRight aria-hidden="true" /></SmartLink>
+        <SmartLink href="/products">プロダクトを見る <ArrowUpRight aria-hidden="true" /></SmartLink>
       </div>
     </section>
   );
@@ -423,6 +363,10 @@ export function ShijimiStudioPage() {
     </div>
   );
 }
+
+
+
+
 
 
 
