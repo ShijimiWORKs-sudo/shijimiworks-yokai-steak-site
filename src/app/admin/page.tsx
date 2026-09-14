@@ -53,7 +53,7 @@ const deploymentNotes = [
   ["Deploy target", "Vercel本番環境"],
   ["Build command", "npm run build"],
   ["Install command", "npm install"],
-  ["Environment variables", "現時点では不要"],
+  ["Environment variables", "RESEND_API_KEY / CONTACT_TO_EMAIL / ADMIN_BASIC_AUTH_USER / ADMIN_BASIC_AUTH_PASSWORD"],
   ["v1.0 confirmed", "実リンク・OGP・Vercel公開・スマホ表示"],
   ["Next milestone", "v1.1デザイン強化と正式ロゴの検討"],
 ] as const;
@@ -63,8 +63,8 @@ const releaseStatuses = [
   ["Build", "Ready", "ready"],
   ["Links", "Configured", "ready"],
   ["OGP Images", "Configured", "ready"],
-  ["Contact Send", "Pending", "pending"],
-  ["Admin Auth", "Pending", "pending"],
+  ["Contact Send", "実装済み（RESEND_API_KEY未設定なら送信不可）", "pending"],
+  ["Admin Auth", "Basic認証実装済み（env未設定なら常時401）", "pending"],
   ["Notion CMS", "Future", "future"],
   ["Automation", "Future", "future"],
 ] as const;
@@ -170,7 +170,7 @@ export default function AdminPage() {
           </section>
 
           <div className="mt-10 rounded-3xl border border-amber-300/40 bg-amber-50 p-6 text-sm leading-7 text-amber-950">
-            <strong>ご注意：</strong> 現在この管理画面は表示確認用です。認証・編集・保存・外部API連携は今後実装予定です。
+            <strong>ご注意：</strong> このページ自体はBasic認証（環境変数 ADMIN_BASIC_AUTH_USER / ADMIN_BASIC_AUTH_PASSWORD）で保護されています。編集・保存・外部API連携は今後実装予定です。
           </div>
         </div>
       </section>

@@ -47,14 +47,11 @@ export default function ContactPage() {
       </section>
       <section className="bg-white px-5 py-16 sm:px-8 lg:px-12">
         <div className="mx-auto max-w-7xl">
-          <div role="note" className="mb-8 rounded-2xl border border-amber-300/60 bg-amber-50 px-5 py-4 text-sm font-semibold leading-7 text-amber-950">
-            現在フォーム送信機能は準備中です。入力内容は送信されません。正式なご連絡には、ページ下部のブランド別公式窓口またはメールをご利用ください。
-          </div>
           <div className="grid gap-10 lg:grid-cols-[.65fr_1fr]">
             <div>
               <p className="text-xs font-bold uppercase tracking-[.2em] text-sky-700">Message</p>
               <h2 className="mt-4 text-3xl font-black text-slate-950">相談内容をお聞かせください。</h2>
-              <p className="mt-5 leading-8 text-slate-600">このフォームは現在UI確認用です。正式なご相談は、下のココナラ・X・メールなど、各ブランドの公式窓口からお送りください。</p>
+              <p className="mt-5 leading-8 text-slate-600">下記フォームから直接ご連絡いただけます。お急ぎの場合や返信が届かない場合は、下のココナラ・X・メールなど、各ブランドの公式窓口もご利用ください。</p>
               <div className="mt-8 rounded-3xl bg-[#eaf1f3] p-6">
                 <p className="font-bold text-slate-900">返信時に分かると助かること</p>
                 <ul className="mt-4 space-y-2 text-sm leading-6 text-slate-600">
