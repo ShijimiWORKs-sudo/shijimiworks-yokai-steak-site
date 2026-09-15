@@ -144,6 +144,24 @@ export const shijimiProducts: ShijimiProduct[] = [
     order: 7,
   },
   {
+    id: "darts-training-support",
+    title: "Darts Training Support",
+    category: "App / Sports Tech / Darts Rating",
+    type: "スポーツテック / レーティング管理",
+    description:
+      "DARTSLIVEでのレーティング向上を目的とした、個人用ダーツ練習管理Webアプリ。ミッション管理、練習メニュー自動生成、10種のゲーム記録、公式値の前回比較、弱点分析までを一元管理します。",
+    status: "公開中 / Streamlit Cloud",
+    image: "/images/shijimi/products/01_shijimi-product-mobile-app.png",
+    href: "/products/app-mvp#darts-training-support",
+    githubUrl: "https://github.com/ShijimiWORKs-sudo/shijimiworks-DartsTrainingSupport",
+    demoUrl: "https://shijimiworks-darts-training-support.streamlit.app/",
+    demoLabel: "デモを試す",
+    ctaLabel: "デモを試す",
+    tags: ["Darts", "Rating", "Streamlit"],
+    featured: true,
+    order: 8,
+  },
+  {
     id: "web-portfolio",
     title: "Web / Portfolio制作",
     category: "Web / Portfolio",
@@ -157,7 +175,7 @@ export const shijimiProducts: ShijimiProduct[] = [
     ctaLabel: "ポートフォリオを見る",
     tags: ["Web", "Portfolio", "Landing Page", "Codex Build"],
     featured: true,
-    order: 8,
+    order: 9,
   },
   {
     id: "automation-workflow",
@@ -172,7 +190,7 @@ export const shijimiProducts: ShijimiProduct[] = [
     ctaLabel: "自動化の仕組みを見る",
     tags: ["Automation", "Workflow", "SNS", "Notion"],
     featured: true,
-    order: 9,
+    order: 10,
   },
   {
     id: "corporate-ai-consulting",
@@ -187,7 +205,7 @@ export const shijimiProducts: ShijimiProduct[] = [
     ctaLabel: "AI導入支援を見る",
     tags: ["Corporate AI", "LLM", "DX", "Consulting"],
     featured: true,
-    order: 10,
+    order: 11,
   },
 ];
 
