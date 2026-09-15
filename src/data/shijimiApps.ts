@@ -203,4 +203,32 @@ export const shijimiApps: ShijimiApp[] = [
     image: "/images/shijimi/products/01_shijimi-product-mobile-app.png",
     tags: ["Data Analytics", "Python", "Streamlit", "AI"],
   },
+  {
+    id: "darts-training-support",
+    title: "Darts Training Support",
+    category: "App / Sports Tech / Darts Rating",
+    status: "Streamlit Cloudで公開中",
+    description:
+      "DARTSLIVEでのレーティング向上を目的とした、個人用ダーツ練習管理Webアプリです。今日の練習ミッションから、練習メニューの自動生成、10種の練習ゲーム・NUMBER PRACTICE・LIVE MATCHの記録、DARTSLIVE公式値の前回比較、履歴・グラフ、弱点分析までを一元管理します。",
+    audience: "DARTSLIVEのRating向上を目指す個人ダーツプレイヤー。",
+    benefits: ["今日の練習ミッションの自動選定", "Flight・疲労度に応じた練習メニューの自動生成", "アプリ独自の弱点分析に基づく次の練習提案"],
+    currentState:
+      "PC Web・iPhone対応の完成版としてStreamlit Community Cloudで公開中です。ダッシュボード、ミッション管理、練習メニュー自動生成、10種の練習ゲーム＋1501 NUMBER PRACTICE＋LIVE MATCHの記録、DARTSLIVE値の前回比較、履歴・グラフ（7/30/90日・全期間）、弱点分析、JSONバックアップまで確認できます。",
+    techStack: ["Vite", "React 19", "TypeScript", "Zustand", "Recharts", "Tailwind CSS", "Vitest", "Streamlit（デプロイ用ラッパー）"],
+    features: [
+      "初期ミッション＋カスタムミッションの選定（ランダム/未達成優先/最近出ていない優先）と達成記録",
+      "30/60/90/120分・体調に応じたFlight別練習メニューの自動生成",
+      "COUNT-UP・CRICKET COUNT-UP・EAGLE'S EYE・SHOOT OUT・HALF-IT・FINISH TRAINER・BIG BULL・01・STANDARD CRICKET・HIDDEN CRICKETの10種記録",
+      "1501 NUMBER PRACTICEと、01=701/STANDARD CRICKET固定ルールのLIVE MATCH記録",
+      "DARTSLIVE公式値の前回比較（↑/↓/→自動計算）と、NUMBER PRACTICE等から抽出する命中率ベースの弱点分析",
+      "全データのJSONエクスポート・インポート（外部API・サーバー不要、localStorage保存）",
+    ],
+    intent:
+      "DARTSLIVE公式のRATING/01/CRICKET/COUNT-UPは常にユーザーがDARTSLIVE本体で確認した値をそのまま入力し、アプリが独自に計算・上書きしないという原則を最優先にしています。アプリが出す「弱点」「おすすめ練習」「傾向」は明確にアプリ独自の分析として扱い、公式のランク判定と混同しないようにUI上でも区別しています。ダーツを投げながら操作する前提で、大型ボタン・+/-ステッパーを多用し入力負荷を最小化しています。",
+    roadmap: ["DARTSLIVEデータ入力の簡略化 / CSV import", "AIによる練習分析・翌日メニュー生成", "投球動画・フォーム分析・ダーツ着地点記録", "月間目標設定・Rating傾向の可視化強化"],
+    githubUrl: "https://github.com/ShijimiWORKs-sudo/shijimiworks-DartsTrainingSupport",
+    demoUrl: "https://shijimiworks-darts-training-support.streamlit.app/",
+    image: "/images/shijimi/products/01_shijimi-product-mobile-app.png",
+    tags: ["Darts", "Rating", "Streamlit"],
+  },
 ];

@@ -6,7 +6,7 @@ import { shijimiApps } from "@/data/shijimiApps";
 
 export const metadata: Metadata = {
   title: "App / MVP | ShijimiWORKs",
-  description: "NETAKURA、DartsSupportApp、DartsApp、AP Trainer、FE Trainer、ProgrammingTrainer、AI Data Analystなど、ShijimiWORKsのアプリ・MVP開発プロダクト。",
+  description: "NETAKURA、DartsSupportApp、DartsApp、AP Trainer、FE Trainer、ProgrammingTrainer、AI Data Analyst、Darts Training Supportなど、ShijimiWORKsのアプリ・MVP開発プロダクト。",
 };
 
 export default function AppMvpPage() {
@@ -15,7 +15,7 @@ export default function AppMvpPage() {
       <section className="shijimi-products-hero">
         <p>APP / MVP</p>
         <h1>小さく作って、使える形へ。</h1>
-        <span>NETAKURA、DartsSupportApp、DartsAppに加え、資格学習支援アプリのAP Trainer・FE Trainer・ProgrammingTrainer、そして汎用データ分析アプリのAI Data Analystまで。アイデアをMVPに分解し、検証しながら育てているアプリ群です。</span>
+        <span>NETAKURA、DartsSupportApp、DartsApp、Darts Training Supportに加え、資格学習支援アプリのAP Trainer・FE Trainer・ProgrammingTrainer、そして汎用データ分析アプリのAI Data Analystまで。アイデアをMVPに分解し、検証しながら育てているアプリ群です。</span>
       </section>
       <section className="shijimi-app-list" aria-label="App MVP products">
         {shijimiApps.map((app) => (
