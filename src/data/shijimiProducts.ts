@@ -126,6 +126,24 @@ export const shijimiProducts: ShijimiProduct[] = [
     order: 6,
   },
   {
+    id: "ai-data-analyst",
+    title: "AI Data Analyst",
+    category: "App / Data Analytics / AI",
+    type: "Webアプリ / データ分析",
+    description:
+      "任意のCSVをアップロードするだけで自動分析するデータ分析Webアプリ。列型推定から相関・トレンド予測・異常値検知まで、ブラウザ上ですぐに試せます。",
+    status: "公開中 / Streamlit Cloud",
+    image: "/images/shijimi/products/01_shijimi-product-mobile-app.png",
+    href: "/products/app-mvp#ai-data-analyst",
+    githubUrl: "https://github.com/ShijimiWORKs-sudo/shijimiworks-DataAnalyticsProgrammig005",
+    demoUrl: "https://shijimiworks-ai-data-analytics.streamlit.app/",
+    demoLabel: "デモを試す",
+    ctaLabel: "デモを試す",
+    tags: ["Data Analytics", "Python", "Streamlit"],
+    featured: true,
+    order: 7,
+  },
+  {
     id: "web-portfolio",
     title: "Web / Portfolio制作",
     category: "Web / Portfolio",
@@ -139,7 +157,7 @@ export const shijimiProducts: ShijimiProduct[] = [
     ctaLabel: "ポートフォリオを見る",
     tags: ["Web", "Portfolio", "Landing Page", "Codex Build"],
     featured: true,
-    order: 7,
+    order: 8,
   },
   {
     id: "automation-workflow",
@@ -154,7 +172,7 @@ export const shijimiProducts: ShijimiProduct[] = [
     ctaLabel: "自動化の仕組みを見る",
     tags: ["Automation", "Workflow", "SNS", "Notion"],
     featured: true,
-    order: 8,
+    order: 9,
   },
   {
     id: "corporate-ai-consulting",
@@ -169,7 +187,7 @@ export const shijimiProducts: ShijimiProduct[] = [
     ctaLabel: "AI導入支援を見る",
     tags: ["Corporate AI", "LLM", "DX", "Consulting"],
     featured: true,
-    order: 9,
+    order: 10,
   },
 ];
 

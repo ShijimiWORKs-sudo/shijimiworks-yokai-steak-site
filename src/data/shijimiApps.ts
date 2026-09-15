@@ -176,4 +176,31 @@ export const shijimiApps: ShijimiApp[] = [
     image: "/images/shijimi/products/01_shijimi-product-mobile-app.png",
     tags: ["EdTech", "Programming", "Monaco Editor", "Pyodide"],
   },
+  {
+    id: "ai-data-analyst",
+    title: "AI Data Analyst",
+    category: "App / Data Analytics / AI",
+    status: "Streamlit Cloudで公開中",
+    description:
+      "任意のCSVをアップロードするだけで列の型を自動推定し、基本統計・欠損状況・相関分析・トレンド予測・異常値検知までを自動で行う、汎用データ分析Webアプリです。",
+    audience: "データ分析力を確認したい採用担当者・企業、自分の手元データをすぐに分析したい個人・チーム。",
+    benefits: ["列の型を自動推定してすぐ分析開始", "相関・トレンド・異常値の自動検出", "Markdownレポートのダウンロード"],
+    currentState:
+      "Streamlit Community Cloudで公開中の完成版です。サンプルデータまたは任意のCSVをアップロードして、データ概要・相関分析・トレンド予測（80%予測区間・R²付き）・自動分析（欠損データ・偏ったカテゴリ・強い相関・複数列異常値の検出）まで、ブラウザ上でそのまま動作を確認できます。",
+    techStack: ["Python", "pandas", "NumPy", "scikit-learn", "Streamlit", "Plotly"],
+    features: [
+      "列型（数値/カテゴリ/日時/ID・テキスト）の自動推定と手動修正",
+      "欠損率・基本統計・カテゴリ構成比のプロファイリング",
+      "数値列同士の相関分析（ヒートマップ・散布図）",
+      "季節性を考慮した線形回帰による翌30日間のトレンド予測",
+      "欠損データ・偏ったカテゴリ・強い相関・異常値の自動検出とMarkdownレポート出力",
+    ],
+    intent:
+      "売上分析・顧客RFM分析・ホテル運営分析・ダーツ統計分析という4本の業種特化アプリで培った「Shijimi AI Data Engine」（統計・機械学習の判断は自作し、LLMは説明文生成のみに使う設計）を、どんな表形式データにも適用できる形に一般化した、5本構成のデータ分析ポートフォリオの集大成アプリです。",
+    roadmap: ["UI改善", "対応ファイル形式の拡張", "より高度な自動分析ロジックの追加"],
+    githubUrl: "https://github.com/ShijimiWORKs-sudo/shijimiworks-DataAnalyticsProgrammig005",
+    demoUrl: "https://shijimiworks-ai-data-analytics.streamlit.app/",
+    image: "/images/shijimi/products/01_shijimi-product-mobile-app.png",
+    tags: ["Data Analytics", "Python", "Streamlit", "AI"],
+  },
 ];
